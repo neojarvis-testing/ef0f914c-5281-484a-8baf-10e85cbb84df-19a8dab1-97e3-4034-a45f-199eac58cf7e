@@ -4,6 +4,8 @@ using dotnetapp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("myconnString")));
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -14,6 +16,7 @@ builder.Services.AddSwaggerGen();
 // adding DbContext 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("myconnString")));
 builder.Services.AddScoped<FeedbackService>();
+builder.Services.AddScoped<InternshipService>();
 
 var app = builder.Build();
 
