@@ -1,3 +1,5 @@
+using System.Reflection;
+using log4net;
 using Microsoft.AspNetCore.Mvc;
 using dotnetapp.Models;
 using dotnetapp.Services;
@@ -13,8 +15,12 @@ namespace dotnetapp.Controllers
     {
         private readonly FeedbackService _feedbackService;
 
+        // Initializing Log4Net logger for logging purposes.
+        // This logger helps record application events such as successful operations, warnings, errors, and debugging information.
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod()?.DeclaringType);
+
         // Constructor: Initializes the controller with an instance of FeedbackService.
-        // This allows the controller to interact with the database and perform CRUD operations on feedback.
+        // Logging is enabled to track controller requests and operations.
         public FeedbackController(FeedbackService feedbackService)
         {
             _feedbackService = feedbackService;
@@ -26,14 +32,21 @@ namespace dotnetapp.Controllers
         [HttpGet("GetAllFeedbacks")]
         public async Task<ActionResult<IEnumerable<Feedback>>> GetAllFeedbacks()
         {
+            // Logging request initiation: Captures the start of fetching feedback data
+            log.Info("Fetching all feedback records.");
+
             try
             {
                 var feedbacks = await _feedbackService.GetAllFeedbacks(); // Fetch all feedback entries
-                return Ok(feedbacks); // Return 200 OK response with feedback list
+                
+                // Logging successful response: Records number of feedbacks retrieved
+                log.Info($"Successfully retrieved {feedbacks.Count()} feedback records.");
+                return Ok(feedbacks);
             }
             catch (Exception ex)
             {
-                // If an error occurs, return 500 with exception message.
+                // Logging error: Captures the error message and stack trace for debugging
+                log.Error($"Error fetching feedback records: {ex.Message}", ex);
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
@@ -44,14 +57,21 @@ namespace dotnetapp.Controllers
         [HttpGet("GetFeedbacksByUserId/{userId}")]
         public async Task<ActionResult<IEnumerable<Feedback>>> GetFeedbacksByUserId(int userId)
         {
+            // Logging request initiation: Captures request with specific User ID
+            log.Info($"Fetching feedback records for User ID: {userId}");
+
             try
             {
                 var feedbacks = await _feedbackService.GetFeedbacksByUserId(userId); // Fetch feedbacks specific to a user
-                return Ok(feedbacks); // Return 200 OK with feedbacks list
+                
+                // Logging successful response: Confirms feedbacks were successfully retrieved
+                log.Info($"Successfully retrieved feedback for User ID: {userId}");
+                return Ok(feedbacks);
             }
             catch (Exception ex)
             {
-                // Return 500 Internal Server Error if an exception occurs
+                // Logging error: Captures failure in fetching user-specific feedback
+                log.Error($"Error fetching feedback for User ID {userId}: {ex.Message}", ex);
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
@@ -63,17 +83,27 @@ namespace dotnetapp.Controllers
         [HttpPost("AddFeedback")]
         public async Task<ActionResult> AddFeedback([FromBody] Feedback feedback)
         {
+            // Logging request initiation: Captures the feedback submission attempt
+            log.Info("Attempting to add new feedback.");
+
             try
             {
                 var success = await _feedbackService.AddFeedback(feedback); // Attempt to add feedback entry
                 if (success)
-                    return Ok("Feedback added successfully"); // Return success response
+                {
+                    // Logging successful response: Confirms feedback addition was successful
+                    log.Info("Feedback added successfully.");
+                    return Ok("Feedback added successfully");
+                }
 
-                return BadRequest("Invalid feedback data provided."); // Return 400 Bad Request for invalid input
+                // Logging warning: Indicates invalid feedback data was provided
+                log.Warn("Invalid feedback data provided.");
+                return BadRequest("Invalid feedback data provided.");
             }
             catch (Exception ex)
             {
-                // Return 500 Internal Server Error if an exception occurs
+                // Logging error: Captures any issues encountered during feedback submission
+                log.Error($" addingError feedback: {ex.Message}", ex);
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
@@ -86,17 +116,27 @@ namespace dotnetapp.Controllers
         [HttpDelete("DeleteFeedback/{feedbackId}")]
         public async Task<ActionResult> DeleteFeedback(int feedbackId)
         {
+            // Logging request initiation: Captures deletion request with specific feedback ID
+            log.Info($"Attempting to delete feedback ID: {feedbackId}");
+
             try
             {
                 var success = await _feedbackService.DeleteFeedback(feedbackId); // Attempt to delete feedback entry
                 if (success)
-                    return Ok("Feedback deleted successfully"); // Return success response
+                {
+                    // Logging successful response: Confirms feedback deletion
+                    log.Info($"Feedback ID {feedbackId} deleted successfully.");
+                    return Ok("Feedback deleted successfully");
+                }
 
-                return NotFound("Cannot find any feedback."); // Return 404 if feedback entry is not found
+                // Logging warning: Indicates feedback not found in the database
+                log.Warn($"Feedback ID {feedbackId} not found.");
+                return NotFound("Cannot find any feedback.");
             }
             catch (Exception ex)
             {
-                // Return 500 Internal Server Error if an exception occurs
+                // Logging error: Captures issues encountered during deletion
+                log.Error($"Error deleting feedback ID {feedbackId}: {ex.Message}", ex);
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
