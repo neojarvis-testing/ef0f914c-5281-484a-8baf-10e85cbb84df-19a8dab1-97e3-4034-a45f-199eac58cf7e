@@ -1,3 +1,5 @@
+using System.Reflection;
+using log4net;
 using Microsoft.AspNetCore.Mvc;
 using dotnetapp.Models;
 using dotnetapp.Services;
@@ -13,117 +15,130 @@ namespace dotnetapp.Controllers
     {
         private readonly InternshipService _internshipService;
 
+        // Initializing Log4Net logger for logging purposes.
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod()?.DeclaringType);
+
         // Constructor: Initializes the controller with an instance of InternshipService.
-        // This allows the controller to interact with the database and perform CRUD operations on internships.
         public InternshipController(InternshipService internshipService)
         {
             _internshipService = internshipService;
         }
 
         // Retrieves all internship records from the database.
-        // This endpoint allows users or admins to view all internship entries.
-        // If an error occurs during retrieval, it returns a 500 Internal Server Error.
         [HttpGet("GetAllInternships")]
         public async Task<ActionResult<IEnumerable<Internship>>> GetAllInternships()
         {
+            log.Info("Fetching all internship records.");
+
             try
             {
-                var internships = await _internshipService.GetAllInternships(); // Fetch all internship entries
-                return Ok(internships); // Return 200 OK response with internship list
+                var internships = await _internshipService.GetAllInternships();
+                log.Info($"Successfully retrieved {internships.Count()} internship records.");
+                return Ok(internships);
             }
             catch (InternshipException ex)
             {
-                // If an error occurs, return 500 with exception message.
+                log.Error($"Error fetching all internship records: {ex.Message}", ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
         // Retrieves an internship entry by its unique ID.
-        // This endpoint allows users or admins to view details of a specific internship.
-        // If the internship is not found, it returns a 404 Not Found response.
-        // If an error occurs during retrieval, it returns a 500 Internal Server Error.
         [HttpGet("GetInternshipById/{internshipId}")]
         public async Task<ActionResult<Internship>> GetInternshipById(int internshipId)
         {
+            log.Info($"Fetching internship record for ID: {internshipId}");
+
             try
             {
-                var internship = await _internshipService.GetInternshipById(internshipId); // Fetch internship by ID
+                var internship = await _internshipService.GetInternshipById(internshipId);
                 if (internship == null)
-                    return NotFound("Cannot find any internship"); // Return 404 if internship is not found
+                {
+                    log.Warn($"No internship found with ID: {internshipId}");
+                    return NotFound("Cannot find any internship");
+                }
 
-                return Ok(internship); // Return 200 OK response with internship data
+                log.Info($"Successfully retrieved internship record for ID: {internshipId}");
+                return Ok(internship);
             }
             catch (InternshipException ex)
             {
-                // Return 500 Internal Server Error if an exception occurs
+                log.Error($"Error fetching internship record for ID {internshipId}: {ex.Message}", ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
         // Allows a user to add a new internship entry to the database.
-        // Receives internship data from the request body and validates it before adding to the database.
-        // If successful, returns 200 OK with a success message.
-        // If an error occurs during submission, it returns a 500 Internal Server Error.
         [HttpPost("AddInternship")]
         public async Task<ActionResult> AddInternship([FromBody] Internship internship)
         {
+            log.Info("Attempting to add a new internship record.");
+
             try
             {
-                var success = await _internshipService.AddInternship(internship); // Attempt to add internship entry
+                var success = await _internshipService.AddInternship(internship);
                 if (success)
-                    return Ok("Internship added successfully"); // Return success response
+                {
+                    log.Info("Internship added successfully.");
+                    return Ok("Internship added successfully");
+                }
 
-                return BadRequest("Company with the same name already exists."); // Return 400 for duplicate entries
+                log.Warn("Attempt to add a duplicate internship record.");
+                return BadRequest("Company with the same name already exists.");
             }
             catch (InternshipException ex)
             {
-                // Return 500 Internal Server Error if an exception occurs
+                log.Error($"Error adding internship: {ex.Message}", ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
         // Updates an existing internship entry by its unique ID.
-        // Receives the internship ID and updated internship data in the request body.
-        // If the internship is not found, it returns a 404 Not Found response.
-        // If successful, returns 200 OK with a success message.
-        // If an error occurs during update, it returns a 500 Internal Server Error.
         [HttpPut("UpdateInternship/{internshipId}")]
         public async Task<ActionResult> UpdateInternship(int internshipId, [FromBody] Internship internship)
         {
+            log.Info($"Attempting to update internship record with ID: {internshipId}");
+
             try
             {
-                var success = await _internshipService.UpdateInternship(internshipId, internship); // Attempt to update internship
+                var success = await _internshipService.UpdateInternship(internshipId, internship);
                 if (success)
-                    return Ok("Internship updated successfully"); // Return success response
+                {
+                    log.Info($"Internship record with ID {internshipId} updated successfully.");
+                    return Ok("Internship updated successfully");
+                }
 
-                return NotFound("Cannot find any internship"); // Return 404 if internship is not found
+                log.Warn($"No internship found with ID: {internshipId}");
+                return NotFound("Cannot find any internship");
             }
             catch (InternshipException ex)
             {
-                // Return 500 Internal Server Error if an exception occurs
+                log.Error($"Error updating internship with ID {internshipId}: {ex.Message}", ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
         // Deletes an internship entry by its unique ID.
-        // This endpoint allows users or admins to remove outdated or inappropriate internships.
-        // If the internship exists, it is deleted, and a 200 OK response is returned.
-        // If the internship is not found, it returns a 404 Not Found.
-        // If an error occurs, it returns a 500 Internal Server Error.
         [HttpDelete("DeleteInternship/{internshipId}")]
         public async Task<ActionResult> DeleteInternship(int internshipId)
         {
+            log.Info($"Attempting to delete internship record with ID: {internshipId}");
+
             try
             {
-                var success = await _internshipService.DeleteInternship(internshipId); // Attempt to delete internship
+                var success = await _internshipService.DeleteInternship(internshipId);
                 if (success)
-                    return Ok("Internship deleted successfully"); // Return success response
+                {
+                    log.Info($"Internship record with ID {internshipId} deleted successfully.");
+                    return Ok("Internship deleted successfully");
+                }
 
-                return NotFound("Cannot find any internship"); // Return 404 if internship is not found
+                log.Warn($"No internship found with ID: {internshipId}");
+                return NotFound("Cannot find any internship");
             }
             catch (InternshipException ex)
             {
-                // Return 500 Internal Server Error if an exception occurs
+                log.Error($"Error deleting internship with ID {internshipId}: {ex.Message}", ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
