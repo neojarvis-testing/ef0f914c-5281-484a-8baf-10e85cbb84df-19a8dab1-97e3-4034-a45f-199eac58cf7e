@@ -1,6 +1,7 @@
 using dotnetapp.Data;
 using Microsoft.EntityFrameworkCore;
 using dotnetapp.Services;
+using Microsoft.Extensions.Logging.Log4Net.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 // adding DbContext 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("myconnString")));
 builder.Services.AddScoped<FeedbackService>();
+builder.Logging.AddLog4Net();
 
 var app = builder.Build();
 
