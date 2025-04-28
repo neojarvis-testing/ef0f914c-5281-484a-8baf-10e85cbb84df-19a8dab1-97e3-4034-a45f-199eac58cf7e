@@ -1,6 +1,9 @@
 using dotnetapp.Data;
 using Microsoft.EntityFrameworkCore;
 using dotnetapp.Services;
+using dotnetapp.Models;
+using Microsoft.AspNetCore.Identity;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +15,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // adding DbContext 
+// builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("myconnString")));
 builder.Services.AddScoped<FeedbackService>();
+
 
 var app = builder.Build();
 

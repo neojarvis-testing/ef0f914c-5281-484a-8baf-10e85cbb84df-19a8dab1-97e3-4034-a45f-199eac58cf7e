@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using dotnetapp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace dotnetapp.Data
 {
@@ -27,6 +29,8 @@ namespace dotnetapp.Data
         // Feedbacks table to store feedback provided by users regarding internships or services.
         public DbSet<Feedback> Feedbacks { get; set; }
 
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
         // // Override OnModelCreating to configure database schemas, relationships, and indexes.
         // protected override void OnModelCreating(ModelBuilder modelBuilder)
         // {
@@ -47,6 +51,12 @@ namespace dotnetapp.Data
         //     modelBuilder.Entity<InternshipApplication>()
         //         .HasIndex(i => i.DegreeProgram)
         //         .HasDatabaseName("Idx_InternshipApplication_DegreeProgram"); // Optional: Assign a custom index name
+        // }
+
+        // protected override void OnModelCreating(ModelBuilder modelBuilder) {
+        //     modelBuilder.Entity<ApplicationUser>().ToTable(null);
+        //     // modelBuilder.Entity<ApplicationUser>().Ignore();
+        //     //modelBuilder.Ignore<ApplicationUser>();
         // }
     }
 }
