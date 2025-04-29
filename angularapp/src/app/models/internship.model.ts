@@ -9,4 +9,4 @@ export interface Internship {
     SkillsRequired: string;
     ApplicationDeadline: string;
    }
-   
+ 
