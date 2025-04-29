@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { UsernavComponent } from './usernav.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('UsernavComponent', () => {
   let component: UsernavComponent;
@@ -10,7 +8,6 @@ describe('UsernavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule, FormsModule],
       declarations: [ UsernavComponent ]
     })
     .compileComponents();
@@ -22,8 +19,7 @@ describe('UsernavComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('Frontend_should_create_usernav_component', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UseraddfeedbackComponent } from './useraddfeedback.component';
+import { NavbarComponent } from './navbar.component';
 
-describe('UseraddfeedbackComponent', () => {
-  let component: UseraddfeedbackComponent;
-  let fixture: ComponentFixture<UseraddfeedbackComponent>;
+describe('NavbarComponent', () => {
+  let component: NavbarComponent;
+  let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UseraddfeedbackComponent ]
+      declarations: [ NavbarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UseraddfeedbackComponent);
+    fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

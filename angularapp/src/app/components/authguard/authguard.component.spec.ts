@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UseraddfeedbackComponent } from './useraddfeedback.component';
+import { AuthguardComponent } from './authguard.component';
 
-describe('UseraddfeedbackComponent', () => {
-  let component: UseraddfeedbackComponent;
-  let fixture: ComponentFixture<UseraddfeedbackComponent>;
+describe('AuthguardComponent', () => {
+  let component: AuthguardComponent;
+  let fixture: ComponentFixture<AuthguardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UseraddfeedbackComponent ]
+      declarations: [ AuthguardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UseraddfeedbackComponent);
+    fixture = TestBed.createComponent(AuthguardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

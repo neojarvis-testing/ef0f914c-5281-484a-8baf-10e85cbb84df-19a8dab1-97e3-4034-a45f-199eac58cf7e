@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UseraddfeedbackComponent } from './useraddfeedback.component';
+import { AdminviewfeedbackComponent } from './adminviewfeedback.component';
 
-describe('UseraddfeedbackComponent', () => {
-  let component: UseraddfeedbackComponent;
-  let fixture: ComponentFixture<UseraddfeedbackComponent>;
+describe('AdminviewfeedbackComponent', () => {
+  let component: AdminviewfeedbackComponent;
+  let fixture: ComponentFixture<AdminviewfeedbackComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UseraddfeedbackComponent ]
+      declarations: [ AdminviewfeedbackComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UseraddfeedbackComponent);
+    fixture = TestBed.createComponent(AdminviewfeedbackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

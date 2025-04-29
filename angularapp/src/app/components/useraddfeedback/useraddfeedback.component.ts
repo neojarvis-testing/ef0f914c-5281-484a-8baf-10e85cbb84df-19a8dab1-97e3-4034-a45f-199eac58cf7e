@@ -6,14 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./useraddfeedback.component.css']
 })
 export class UseraddfeedbackComponent implements OnInit {
- 
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
 }
-
-
-
