@@ -9,7 +9,7 @@ namespace dotnetapp.Models
 
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Invalid email address format")]
-        [StringLength(32, ErrorMessage = "Email Address can not exceed 32 characters.")]
+        //[StringLength(32, ErrorMessage = "Email Address can not exceed 32 characters.")]
         public string Email { get; set; }
 
         // Password must include at least 8 characters with one uppercase letter, 
