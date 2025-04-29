@@ -19,7 +19,13 @@ describe('ErrorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('Frontend_should_create_error_component', () => {
     expect(component).toBeTruthy();
   });
+
+  fit('Frontend_should_contain_wrong_message_in_the_error_component', () => {
+    const componentHTML = fixture.debugElement.nativeElement.outerHTML;
+    expect(componentHTML).toContain('Something Went Wrong');
+  });
+
 });

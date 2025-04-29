@@ -19,7 +19,12 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+fit('Frontend_should_create_home_component', () => {
+  expect(component).toBeTruthy();
+});
+
+fit('Frontend_should_contain_internship_application_system_heading_in_the_home_component', () => {
+  const componentHTML = fixture.debugElement.nativeElement.outerHTML;
+  expect(componentHTML).toContain('Internship Application System');
+});
 });
