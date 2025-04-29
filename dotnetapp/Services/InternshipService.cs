@@ -3,6 +3,7 @@ using dotnetapp.Data; // Namespace for database context
 using dotnetapp.Models; // Namespace for data models
 using Microsoft.EntityFrameworkCore; // Entity Framework namespace for database operations
 using System.Collections.Generic; // Namespace for collections
+using dotnetapp.Exceptions;
 
 namespace dotnetapp.Services // Defining the namespace for services
 {
@@ -34,19 +35,17 @@ namespace dotnetapp.Services // Defining the namespace for services
 
         // Method to add a new internship to the database
         // Accepts a new Internship object and returns a boolean indicating success
-        public async Task<bool> AddInternship(Internship internship) 
+        public async Task<bool> AddInternship(Internship internship)
         {
-            if (internship == null)
+            var matching = await _context.Internships.FirstOrDefaultAsync(i => i.CompanyName == internship.CompanyName);
+            if (matching != null)
             {
-                return false; // Return false for null input
+                throw new InternshipException("Company with the same name already exists");
             }
 
-            // Add the new internship record asynchronously
             await _context.Internships.AddAsync(internship);
-            // Save changes to the database
             await _context.SaveChangesAsync();
-
-            return true; // Return true indicating successful addition
+            return true; // Successfully added
         }
 
         // Method to update an existing internship in the database
