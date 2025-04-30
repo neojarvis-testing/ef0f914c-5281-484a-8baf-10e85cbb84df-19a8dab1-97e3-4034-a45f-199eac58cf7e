@@ -1,0 +1,67 @@
+.form-container {
+    border: 2px solid #007bff; /* Blue border */
+    padding: 20px; /* Spacing inside the border */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 600px; /* Limit the width */
+    margin: 20px auto; /* Center the form horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    background-color: #f9f9f9; /* Light background color */
+    position: relative; /* Position container for absolute elements */
+  }
+  
+  h1 {
+    text-align: center; /* Center the heading */
+    color: #343a40; /* Dark heading color */
+  }
+  
+  label {
+    font-weight: bold; /* Make labels bold */
+    display: block; /* Display labels as block elements */
+    margin-bottom: 5px; /* Add spacing below labels */
+  }
+  
+  input {
+    width: 100%; /* Full width input fields */
+    padding: 10px; /* Add padding inside input */
+    margin-bottom: 10px; /* Add spacing below input */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for input */
+  }
+  
+  .btn-primary {
+    display: block;
+    width: 100%; /* Full width for the submit button */
+    padding: 10px;
+    color: white;
+    background-color: #007bff; /* Blue button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size for the button */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Top-right Back Button */
+  .top-right {
+    position: absolute; /* Position the element absolutely */
+    top: 10px;
+    right: 10px;
+  }
+  
+  .btn-blue {
+    background-color: #007bff; /* Blue button */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+  }
+  
+  .btn-blue:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  
