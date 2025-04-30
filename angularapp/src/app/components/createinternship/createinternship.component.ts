@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { InternshipService } from 'src/app/services/internship.service';
 
 @Component({
   selector: 'app-createinternship',
@@ -10,6 +12,13 @@ import { NgForm } from '@angular/forms';
 export class CreateinternshipComponent {
   showSuccess = false;
   formError = '';
+
+  constructor(private internshipService: InternshipService, private router: Router) { }
+
+  ngOnInit() : void {
+    
+  }
+
   onSubmit(form: NgForm) {
     if (form.valid) {
       const formData = form.value;
@@ -23,12 +32,17 @@ export class CreateinternshipComponent {
 
       this.formError = '';
       console.log('Form submitted successfully:', formData);
+
+      // adding internships to internships list
+      this.internshipService.addInternship(formData).subscribe(()=> {
+        this.router.navigate(['/viewInternships']);
+      });
       this.showSuccess = true;
 
       // Optional: Reset form
       form.reset();
     } else {
-      this.formError = '*All fields are required.';
+      this.formError = '*All fields are required';
     }
   }
 
