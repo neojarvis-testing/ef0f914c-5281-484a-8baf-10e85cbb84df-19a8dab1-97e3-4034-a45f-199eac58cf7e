@@ -70,5 +70,4 @@ export class AdmineditinternshipComponent implements OnInit {
     this.router.navigate(['/viewInternships']);
   }
 
-
 }
