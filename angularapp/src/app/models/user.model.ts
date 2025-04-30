@@ -6,5 +6,5 @@ export interface User
     Username: string; 
     MobileNumber: string; 
     UserRole: string; 
-    SecretKey?: string ;
+    SecretKey?: string;
 }
