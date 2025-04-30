@@ -1,20 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { InternshipService } from 'src/app/services/internship.service';
+import { Internship } from 'src/app/models/internship.model';
 
 @Component({
   selector: 'app-createinternship',
   templateUrl: './createinternship.component.html',
   styleUrls: ['./createinternship.component.css']
 })
-
-export class CreateinternshipComponent {
+export class CreateinternshipComponent implements OnInit {
   showSuccess = false;
   formError = '';
-  onSubmit(form: NgForm) {
+  existingCompanies: string[] = []; // Array to store fetched company names
+
+  constructor(private internshipService: InternshipService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.internshipService.getAllInternships().subscribe(
+      internships => {
+        this.existingCompanies = internships
+          .filter(internship => internship.CompanyName) // Ensure companyName exists
+          .map(internship => internship.CompanyName.trim().toLowerCase()); // Handle data cleanly
+      },
+      error => {
+        console.error('Error fetching internships:', error);
+        this.formError = '*Failed to load existing internships';
+      }
+    );
+  }
+
+  onSubmit(form: NgForm): void {
     if (form.valid) {
       const formData = form.value;
 
-      // Optional: Check for duplicate company name
+      // Check for duplicate company name using fetched data
       const isDuplicate = this.checkDuplicateCompany(formData.companyName);
       if (isDuplicate) {
         this.formError = '*Company with the same name already exists';
@@ -23,21 +43,26 @@ export class CreateinternshipComponent {
 
       this.formError = '';
       console.log('Form submitted successfully:', formData);
+
+      // Add internships to the internships list
+      this.internshipService.addInternship(formData).subscribe(() => {
+        this.router.navigate(['/viewInternships']);
+      });
       this.showSuccess = true;
 
-      // Optional: Reset form
+      // Reset form
       form.reset();
     } else {
-      this.formError = '*All fields are required.';
+      this.formError = '*All fields are required';
     }
   }
 
-  closeSuccessPopup() {
+  closeSuccessPopup(): void {
     this.showSuccess = false;
   }
 
   checkDuplicateCompany(companyName: string): boolean {
-    const existingCompanies = ['Google', 'Microsoft', 'Apple']; // Replace with real data or API check
-    return existingCompanies.includes(companyName.trim());
+    // Check if the company name exists in the fetched list
+    return this.existingCompanies.includes(companyName.trim().toLowerCase());
   }
 }
