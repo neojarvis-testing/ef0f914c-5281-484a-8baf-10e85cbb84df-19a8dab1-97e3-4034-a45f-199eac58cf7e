@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { User } from 'src/app/models/user.model';
+
 /**
  * RegistrationComponent
  * Handles user registration functionality, ensuring password validation and account creation.
@@ -12,6 +12,11 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
+  /**
+   * Hardcoded secret key required for admin registration.
+   */
+  private readonly adminSecretKey = "HardcodedSecret123"; // Modify this as per requirement
+
   /**
    * User object containing necessary registration details.
    */
@@ -45,12 +50,18 @@ export class RegistrationComponent {
   /**
    * register method
    * Validates password confirmation and submits registration data to the AuthService.
-   * Redirects to login page upon successful registration.
+   * Ensures Admin users provide the correct secret key before proceeding.
    */
   register(): void {
     // Ensure password and confirmation match
     if (this.user.Password !== this.confirmPassword) {
       this.errorMessage = 'Passwords do not match';
+      return;
+    }
+
+    // If user selects Admin role, validate secret key
+    if (this.user.UserRole === 'Admin' && this.user.SecretKey !== this.adminSecretKey) {
+      this.errorMessage = 'Invalid Secret Key for Admin Registration';
       return;
     }
 
