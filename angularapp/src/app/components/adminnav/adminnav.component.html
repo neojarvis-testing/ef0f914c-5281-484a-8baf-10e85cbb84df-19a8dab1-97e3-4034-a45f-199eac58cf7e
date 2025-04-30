@@ -1,1 +1,25 @@
-<p>adminnav works!</p>
+<nav>
+    <h1>Admin Dashboard</h1>
+  
+    <!-- Navigation links -->
+    <a routerLink="/admin/home">Home</a> |
+  
+    <!-- Dropdown for mentorship-related pages -->
+    <div style="display: inline-block;">
+      <span>Mentorship Program</span>
+      <ul>
+        <li><a routerLink="/admin/add-mentorship">Add Mentorship Program</a></li>
+        <li><a routerLink="/admin/view-mentorships">View Mentorship Programs</a></li>
+      </ul>
+    </div> |
+  
+    <!-- Additional links for applications and feedback -->
+    <a routerLink="/admin/requested-applications">Mentorship Applications</a> |
+    <a routerLink="/admin/feedbacks">Feedbacks</a> |
+  
+    <!-- Logout functionality -->
+    <a (click)="logout()" style="cursor:pointer;">Logout</a>
+  </nav>
+  
+  <hr />
+  

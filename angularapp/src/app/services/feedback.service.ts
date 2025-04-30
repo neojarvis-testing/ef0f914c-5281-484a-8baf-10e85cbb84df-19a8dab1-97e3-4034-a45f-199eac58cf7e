@@ -13,7 +13,7 @@ export class FeedbackService {
 
   // https://ide-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/proxy/8080/
 
-  private apiUrl = 'https://8080-cfccafadfdfddaeecadabeafeaccfe.premiumproject.examly.io/Feedback';
+  private apiUrl = 'https://8080-cfccafadfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
 
 
 
