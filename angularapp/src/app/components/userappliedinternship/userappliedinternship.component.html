@@ -1,1 +1,98 @@
-<p>userappliedinternship works!</p>
+<div class="internship-container">
+
+    <h1>Applied Internships</h1>
+
+    <!-- Search Bar -->
+
+    <input type="text" class="search-input" [(ngModel)]="searchQuery" (input)="filterInternships()"
+        placeholder="Search by Company Name" />
+
+    <!-- Table -->
+
+    <table *ngIf="filteredAppliedInternships">
+
+        <thead>
+
+            <tr>
+
+                <th>Sl. No.</th>
+
+                <th>Company Name</th>
+
+                <th>Resume</th>
+
+                <th>Application Date</th>
+
+                <th>Application Status</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let internship of filteredAppliedInternships; index as i">
+
+                <td>{{ i + 1 }}</td>
+
+                <td>{{ internship.companyName }}</td>
+
+                <td>
+
+                    <button (click)="viewResume(internship.resumeUrl)">View Resume</button>
+
+                </td>
+
+                <td>{{ internship.applicationDate | date: 'yyyy-MM-dd' }}</td>
+
+                <td>{{ internship.applicationStatus }}</td>
+
+                <td>
+
+                    <button (click)="confirmDelete(internship.id)">Delete</button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <!-- No Records Message -->
+
+    <p *ngIf="filteredAppliedInternships.length === 0">Oops! No records found.</p>
+
+    <!-- Resume PDF Viewer Popup -->
+
+    <div *ngIf="showResumePopup" class="popup-container">
+
+        <div class="popup">
+
+            <span class="close-btn" (click)="closeResumePopup()">X</span>
+
+            <iframe [src]="sanitizedResumeUrl" width="100%" height="500px"></iframe>
+
+        </div>
+
+    </div>
+
+    <!-- Delete Confirmation Popup -->
+
+    <div *ngIf="showDeletePopup" class="popup-container">
+
+        <div class="popup">
+
+            <p>Are you sure you want to delete this internship?</p>
+
+            <button (click)="deleteInternship()">Yes, Delete</button>
+
+            <button (click)="closeDeletePopup()">Cancel</button>
+
+        </div>
+
+    </div>
+
+</div>
