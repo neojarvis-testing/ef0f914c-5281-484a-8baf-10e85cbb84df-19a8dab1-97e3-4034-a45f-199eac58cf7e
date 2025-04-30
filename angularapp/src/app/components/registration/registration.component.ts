@@ -15,7 +15,7 @@ export class RegistrationComponent {
   /**
    * Hardcoded secret key required for admin registration.
    */
-  private readonly adminSecretKey = "HardcodedSecret123"; // Modify this as per requirement
+  private readonly adminSecretKey = "Secret!@#$"; // Modify this as per requirement
 
   /**
    * User object containing necessary registration details.

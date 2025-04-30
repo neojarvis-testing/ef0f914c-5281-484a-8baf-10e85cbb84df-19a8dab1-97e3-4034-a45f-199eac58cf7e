@@ -46,22 +46,32 @@ input, select {
     border: 2px solid #ff6b6b; /* Red border for emphasis */
 }
 
-/* Button styling */
+/* Default button styling (Grey when disabled) */
 button {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
     font-size: 16px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    border: none;
 }
 
-button:hover {
-    background-color: #0056b3;
+/* Button color when form is invalid (grey) */
+button:disabled {
+    background-color: #b0b0b0; /* Grey */
+    cursor: not-allowed;
+}
+
+/* Button color when form is valid (green) */
+button:enabled {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+button:enabled:hover {
+    background-color: #218838;
 }
 
 /* Error message styling */
