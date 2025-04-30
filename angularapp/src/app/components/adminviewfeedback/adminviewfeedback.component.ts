@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+ 
 @Component({
   selector: 'app-adminviewfeedback',
   templateUrl: './adminviewfeedback.component.html',
@@ -27,12 +27,12 @@ export class AdminviewfeedbackComponent implements OnInit {
   ]; // Example data
 
   selectedUser: any = null;
-
+ 
   constructor() { }
-
+ 
   ngOnInit(): void {
   }
-
+ 
   showProfile(user: any): void {
     this.selectedUser = user;
   }
