@@ -12,4 +12,23 @@ export class UseraddfeedbackComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  feedbackText: string = '';
+  showSuccessPopup = false;
+  validationMessage = '';
+
+  submitFeedback() {
+    if (!this.feedbackText.trim()) {
+      this.validationMessage = 'Feedback is required';
+      return;
+    }
+    this.showSuccessPopup = true;
+    this.validationMessage = ''; // Clear validation message
+  }
+
+  closeSuccessPopup() {
+    this.showSuccessPopup = false;
+    this.feedbackText = ''; // Clear feedback form
+  }
+
+
 }

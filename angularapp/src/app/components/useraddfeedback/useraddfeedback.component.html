@@ -1,1 +1,17 @@
-<p>useraddfeedback works!</p>
+<div class="feedback-container">
+    <h1 class="feedback-title">Add Feedback</h1>
+  
+    <textarea class="feedback-input" [(ngModel)]="feedbackText" placeholder="Write your feedback here..."></textarea>
+  
+    <p class="validation-message" *ngIf="validationMessage">{{ validationMessage }}</p>
+  
+    <button class="submit-btn" (click)="submitFeedback()">Submit</button>
+  
+    <div *ngIf="showSuccessPopup" class="popup-container">
+        <div class="popup">
+          <p class="popup-message">Successfully Added!</p>
+          <button class="popup-btn" (click)="closeSuccessPopup()">OK</button>
+        </div>
+    </div>      
+  </div>
+  

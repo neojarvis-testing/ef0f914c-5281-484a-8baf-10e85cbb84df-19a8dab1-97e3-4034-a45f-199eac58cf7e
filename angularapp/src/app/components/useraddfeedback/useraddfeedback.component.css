@@ -1,0 +1,102 @@
+/* Main container */
+.feedback-container {
+    max-width: 380px;
+    margin: 25px auto;
+    padding: 18px;
+    background: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Title */
+.feedback-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Feedback input */
+.feedback-input {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    resize: none;
+    transition: 0.3s;
+}
+
+.feedback-input:focus {
+    border-color: #007bff;
+}
+
+/* Validation message */
+.validation-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Submit button */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+/* Blur background when popup is visible */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /* Adds a blur effect */
+    background: rgba(0, 0, 0, 0.3); /* Adds slight dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Success Popup */
+.popup {
+    background: #28a745;
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Popup message */
+.popup-message {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* Popup button */
+.popup-btn {
+    padding: 8px 14px;
+    background: #fff;
+    color: #28a745;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.popup-btn:hover {
+    background: #ddd;
+}
