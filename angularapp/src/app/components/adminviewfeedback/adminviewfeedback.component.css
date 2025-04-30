@@ -1,0 +1,64 @@
+/* Styles for the container */
+.container {
+  text-align: center;
+}
+
+/* Full-width table with blue headers */
+.full-width-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.full-width-table th {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.full-width-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px gray;
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0;
+  text-align: center;
+}
+
+.close-btn {
+  margin-top: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: darkred;
+}
