@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/app/models/user.model';
 
 /**
  * LoginComponent
@@ -37,7 +36,7 @@ export class LoginComponent {
   /**
    * login method
    * Authenticates the user by sending login credentials to the AuthService.
-   * Redirects users to appropriate dashboards based on their roles.
+   * Automatically navigates users based on their role.
    * 
    * @param form - NgForm instance containing user input validation.
    */
@@ -47,19 +46,6 @@ export class LoginComponent {
       this.authService.login(this.user).subscribe(
         response => {
           console.log('Login successful', response);
-
-          // Retrieve user role from local storage
-          const userRole = localStorage.getItem('role');
-
-          // Redirect user based on role
-          if (userRole === 'Admin') {
-            this.router.navigate(['/admin']);
-          } else if (userRole === 'User') {
-            this.router.navigate(['/user-dashboard']);
-          } else {
-            console.log("Invalid role, redirecting to default page.");
-            this.router.navigate(['/']);
-          }
         },
         error => {
           console.error('Login failed', error);

@@ -11,7 +11,6 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminnavComponent } from './components/adminnav/adminnav.component';
 import { AdmineditinternshipComponent } from './components/admineditinternship/admineditinternship.component';
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
-// import { AuthguardComponent } from './components/authguard/authguard.component'
 import { CreateinternshipComponent } from './components/createinternship/createinternship.component';
 import { InternshipformComponent } from './components/internshipform/internshipform.component';
 import { InternshippiechartComponent } from './components/internshippiechart/internshippiechart.component';
@@ -33,7 +32,6 @@ import { UserappliedinternshipComponent } from './components/userappliedinternsh
     AdminnavComponent,
     AdmineditinternshipComponent,
     AdminviewfeedbackComponent,
-    // AuthguardComponent,
     CreateinternshipComponent,
     InternshipformComponent,
     InternshippiechartComponent,

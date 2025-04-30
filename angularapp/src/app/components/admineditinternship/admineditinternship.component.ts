@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InternshipService } from 'src/app/services/internship.service';
 
+
 @Component({
   selector: 'app-admineditinternship',
   templateUrl: './admineditinternship.component.html',
