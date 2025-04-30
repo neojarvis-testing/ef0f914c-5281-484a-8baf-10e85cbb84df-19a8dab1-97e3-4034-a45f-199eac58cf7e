@@ -11,6 +11,8 @@ using System.Text;
 using dotnetapp.Services;
 using dotnetapp.Models;
 using dotnetapp.Data;
+using System.Threading.Tasks;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,9 +31,12 @@ builder.Services.AddScoped<InternshipService>();
 builder.Services.AddScoped<InternshipApplicationService>();
 builder.Services.AddScoped<FeedbackService>();
 
-// Configure database connection
+// Configure database connection with transient failure handling
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("myconnString")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("myconnString"),
+        sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()
+    ));
 
 // Configure Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -41,13 +46,17 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 // Ensure roles exist during application startup
 async Task SeedRoles(IServiceProvider serviceProvider)
 {
-    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    string[] roleNames = { "Admin", "User" };
-    foreach (var roleName in roleNames)
+    using (var scope = serviceProvider.CreateScope())
     {
-        if (!await roleManager.RoleExistsAsync(roleName))
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        string[] roleNames = { "Admin", "User" };
+
+        foreach (var roleName in roleNames)
         {
-            await roleManager.CreateAsync(new IdentityRole(roleName));
+            if (!await roleManager.RoleExistsAsync(roleName))
+            {
+                await roleManager.CreateAsync(new IdentityRole(roleName));
+            }
         }
     }
 }
@@ -58,24 +67,26 @@ await SeedRoles(serviceProvider);
 // Configure CORS
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(builder =>
+    options.AddDefaultPolicy(policy =>
     {
-        builder.AllowAnyOrigin()
-               .AllowAnyHeader()
-               .AllowAnyMethod();
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
-// Configure Authentication & JWT
+// Configure Authentication & JWT with stricter validation
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuer = false,
-            ValidateAudience = false,
+            ValidateIssuer = true,  // Enforce issuer validation
+            ValidateAudience = true,  // Enforce audience validation
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"], 
+            ValidAudience = builder.Configuration["Jwt:Audience"],  
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });

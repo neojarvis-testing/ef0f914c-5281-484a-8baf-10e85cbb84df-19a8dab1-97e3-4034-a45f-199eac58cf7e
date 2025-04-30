@@ -17,7 +17,7 @@ namespace dotnetapp.Models
         [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$", ErrorMessage = "Password must include at least 8 characters with one uppercase letter, one lowercase letter, one digit and one special character.")]
-        [StringLength(16, ErrorMessage = "Password can not exceed 16 characters.")]
+        // [StringLength(100, ErrorMessage = "Password can not exceed 50 characters.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "User Name is required.")]

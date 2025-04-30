@@ -1,24 +1,43 @@
-using dotnetapp.Models;
-using dotnetapp.Data;
-using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Configuration;
+using dotnetapp.Models;
+using dotnetapp.Data;
+using BCrypt.Net; // Importing BCrypt for password hashing
 
 namespace dotnetapp.Services
 {
+    /// <summary>
+    /// Service responsible for user authentication and registration.
+    /// </summary>
     public class AuthService : IAuthService
     {
         private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _dbContext;
 
+        /// <summary>
+        /// Initializes the authentication service with database context and configuration settings.
+        /// </summary>
+        /// <param name="configuration">Application configuration settings.</param>
+        /// <param name="dbContext">Database context for user management.</param>
         public AuthService(IConfiguration configuration, ApplicationDbContext dbContext)
         {
             _configuration = configuration;
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        /// Registers a new user in the system with encrypted password storage.
+        /// </summary>
+        /// <param name="model">User registration details.</param>
+        /// <param name="role">Role assigned to the user.</param>
+        /// <returns>A tuple containing a status code and a message.</returns>
         public async Task<(int, string)> Registration(User model, string role)
         {
             // Check if user already exists
@@ -28,34 +47,46 @@ namespace dotnetapp.Services
                 return (0, "User already exists");
             }
 
-            // Save user details directly using DbContext
-            model.UserRole = role; // Assign the role to the user
+            // Encrypt the password before storing it
+            model.Password = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            model.UserRole = role;
             _dbContext.Users.Add(model);
             await _dbContext.SaveChangesAsync();
 
             return (1, "User created successfully!");
         }
 
+        /// <summary>
+        /// Authenticates a user and generates a JWT token.
+        /// </summary>
+        /// <param name="model">User login credentials.</param>
+        /// <returns>A tuple containing a status code and either a token or an error message.</returns>
         public async Task<(int, string)> Login(LoginModel model)
         {
             // Validate user email
             var user = _dbContext.Users.FirstOrDefault(u => u.Email == model.Email);
             if (user == null)
             {
-                return (0, "Invalid email");
+                return (0, "Invalid email or password");
             }
 
-            // Validate password
-            if (user.Password != model.Password)
+            // Validate password using BCrypt hash verification
+            if (!BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
             {
-                return (0, "Invalid password");
+                return (0, "Invalid email or password");
             }
 
-            // Generate token including roles in claims
+            // Generate authentication token
             var token = GenerateToken(user, user.UserRole);
             return (1, token);
         }
 
+        /// <summary>
+        /// Generates a JWT token for the authenticated user.
+        /// </summary>
+        /// <param name="user">User data.</param>
+        /// <param name="role">Role assigned to the user.</param>
+        /// <returns>JWT token string.</returns>
         private string GenerateToken(User user, string role)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
@@ -63,9 +94,9 @@ namespace dotnetapp.Services
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()), // Use UserId here
+                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, role) // Include the user role in claims
+                new Claim(ClaimTypes.Role, role)
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor

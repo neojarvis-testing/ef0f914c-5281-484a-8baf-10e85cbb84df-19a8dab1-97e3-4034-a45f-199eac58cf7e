@@ -30,6 +30,11 @@ namespace dotnetapp.Data
         // Feedbacks table to store feedback provided by users regarding internships or services.
         public DbSet<Feedback> Feedbacks { get; set; }
 
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     base.OnModelCreating(modelBuilder); // Ensures Identity tables are configured correctly
+        // }
+
         // // Override OnModelCreating to configure database schemas, relationships, and indexes.
         // protected override void OnModelCreating(ModelBuilder modelBuilder)
         // {
