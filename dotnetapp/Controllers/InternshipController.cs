@@ -25,7 +25,7 @@ namespace dotnetapp.Controllers
         }
 
         // Retrieves all internship records from the database.
-        [HttpGet("GetAllInternships")]
+        [HttpGet()]
         public async Task<ActionResult<IEnumerable<Internship>>> GetAllInternships()
         {
             log.Info("Fetching all internship records.");
@@ -44,7 +44,7 @@ namespace dotnetapp.Controllers
         }
 
         // Retrieves an internship entry by its unique ID.
-        [HttpGet("GetInternshipById/{internshipId}")]
+        [HttpGet("{internshipId}")]
         public async Task<ActionResult<Internship>> GetInternshipById(int internshipId)
         {
             log.Info($"Fetching internship record for ID: {internshipId}");
@@ -69,7 +69,7 @@ namespace dotnetapp.Controllers
         }
 
         // Allows a user to add a new internship entry to the database.
-       [HttpPost("AddInternship")]
+       [HttpPost()]
 public async Task<ActionResult> AddInternship([FromBody] Internship internship)
 {
     // Logging the start of the AddInternship process
@@ -111,7 +111,7 @@ public async Task<ActionResult> AddInternship([FromBody] Internship internship)
 
 
         // Updates an existing internship entry by its unique ID.
-        [HttpPut("UpdateInternship/{internshipId}")]
+        [HttpPut("{internshipId}")]
         public async Task<ActionResult> UpdateInternship(int internshipId, [FromBody] Internship internship)
         {
             log.Info($"Attempting to update internship record with ID: {internshipId}");
@@ -136,7 +136,7 @@ public async Task<ActionResult> AddInternship([FromBody] Internship internship)
         }
 
         // Deletes an internship entry by its unique ID.
-        [HttpDelete("DeleteInternship/{internshipId}")]
+        [HttpDelete("{internshipId}")]
         public async Task<ActionResult> DeleteInternship(int internshipId)
         {
             log.Info($"Attempting to delete internship record with ID: {internshipId}");

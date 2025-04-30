@@ -13,10 +13,11 @@ namespace dotnetapp.Models
         [Required(ErrorMessage = "User Id is required.")]
         [ForeignKey("User")]
         public int UserId { get; set; }
+        
 
         [Required(ErrorMessage = "Feedback Text is required.")]
         [StringLength(1012, ErrorMessage = "Feedback Text can not exceed 1012 characters.")]
-        public string FeedbackText { get; set; }
+        public string? FeedbackText { get; set; }
 
         [Required(ErrorMessage = "Date is required.")]
         [DataType(DataType.Date, ErrorMessage = "Date format should be dd-MM-yyyy.")]

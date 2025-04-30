@@ -29,7 +29,7 @@ namespace dotnetapp.Controllers
         // Retrieves all feedback records from the database.
         // This endpoint allows users or admins to view all feedback provided by different users.
         // If an error occurs during retrieval, it returns a 500 Internal Server Error.
-        [HttpGet("GetAllFeedbacks")]
+        [HttpGet()]
         public async Task<ActionResult<IEnumerable<Feedback>>> GetAllFeedbacks()
         {
             // Logging request initiation: Captures the start of fetching feedback data
@@ -54,7 +54,7 @@ namespace dotnetapp.Controllers
         // Retrieves feedback entries based on a specific user ID.
         // This endpoint is useful when displaying feedbacks provided by a particular user.
         // If an error occurs during retrieval, it returns a 500 Internal Server Error.
-        [HttpGet("GetFeedbacksByUserId/{userId}")]
+        [HttpGet("{userId}")]
         public async Task<ActionResult<IEnumerable<Feedback>>> GetFeedbacksByUserId(int userId)
         {
             // Logging request initiation: Captures request with specific User ID
@@ -80,7 +80,7 @@ namespace dotnetapp.Controllers
         // Receives feedback data from the request body and validates it before adding it to the database.
         // If successful, returns 200 OK with a success message.
         // If an error occurs during submission, it returns a 500 Internal Server Error.
-        [HttpPost("AddFeedback")]
+        [HttpPost()]
         public async Task<ActionResult> AddFeedback([FromBody] Feedback feedback)
         {
             // Logging request initiation: Captures the feedback submission attempt
@@ -113,7 +113,7 @@ namespace dotnetapp.Controllers
         // If the feedback entry exists, it is deleted, and a 200 OK response is returned.
         // If no matching feedback is found, it returns a 404 Not Found.
         // If an error occurs, it returns a 500 Internal Server Error.
-        [HttpDelete("DeleteFeedback/{feedbackId}")]
+        [HttpDelete("{feedbackId}")]
         public async Task<ActionResult> DeleteFeedback(int feedbackId)
         {
             // Logging request initiation: Captures deletion request with specific feedback ID
