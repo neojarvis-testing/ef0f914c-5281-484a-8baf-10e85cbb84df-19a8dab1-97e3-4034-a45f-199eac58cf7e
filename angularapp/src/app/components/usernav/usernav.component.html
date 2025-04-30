@@ -1,1 +1,34 @@
-<p>usernav works!</p>
+<div class="usernav-container">
+    <h2>User Navigation</h2>
+    <div *ngIf="userRole === 'admin'">
+      <h3>Add Internship</h3>
+      <form (ngSubmit)="addInternship()">
+        <label for="title">Title:</label>
+        <input type="text" id="title" [(ngModel)]="internship.Title" name="title" required>
+  
+        <label for="company">Company Name:</label>
+        <input type="text" id="company" [(ngModel)]="internship.CompanyName" name="company" required>
+  
+        <label for="location">Location:</label>
+        <input type="text" id="location" [(ngModel)]="internship.Location" name="location" required>
+  
+        <label for="duration">Duration (Months):</label>
+        <input type="number" id="duration" [(ngModel)]="internship.DurationInMonths" name="duration" required>
+  
+        <label for="stipend">Stipend:</label>
+        <input type="number" id="stipend" [(ngModel)]="internship.Stipend" name="stipend" required>
+  
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="internship.Description" name="description"></textarea>
+  
+        <label for="skills">Skills Required:</label>
+        <input type="text" id="skills" [(ngModel)]="internship.SkillsRequired" name="skills" required>
+  
+        <label for="deadline">Application Deadline:</label>
+        <input type="date" id="deadline" [(ngModel)]="internship.ApplicationDeadline" name="deadline" required>
+  
+        <button type="submit">Add Internship</button>
+      </form>
+    </div>
+  </div>
+  

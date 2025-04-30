@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Feedback } from 'src/app/models/feedback.model';
+import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
   selector: 'app-useraddfeedback',
@@ -7,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UseraddfeedbackComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private feedbackService: FeedbackService) { }
+  feedbackText: string;
   ngOnInit(): void {
   }
 
-  feedbackText: string = '';
+  feedbackss: Feedback = {
+    FeedbackId: 0,
+    UserId: 0,
+    FeedbackText: "",
+    Date: new Date("2025-04-30")
+  };
   showSuccessPopup = false;
   validationMessage = '';
 
@@ -22,6 +29,7 @@ export class UseraddfeedbackComponent implements OnInit {
       return;
     }
     this.showSuccessPopup = true;
+    this.feedbackService.sendFeedback(this.feedbackss)
     this.validationMessage = ''; // Clear validation message
   }
 
