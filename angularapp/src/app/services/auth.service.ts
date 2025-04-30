@@ -7,6 +7,8 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+  // https://ide-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/proxy/8080/
+  public apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
   public apiUrl = 'https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
   private tokenSubject = new BehaviorSubject<string | null>(null);
   private roleSubject = new BehaviorSubject<string | null>(null);
