@@ -12,29 +12,33 @@ export class FeedbackService {
   constructor(private http: HttpClient) {}
 
   // https://ide-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/proxy/8080/
+
   private apiUrl = 'https://8080-cfccafadfdfddaeecadabeafeaccfe.premiumproject.examly.io/Feedback';
 
-  private getHeaders(): HttpHeaders {
+
+
+  private getHeaders() {
     const token = localStorage.getItem('authToken');
-    return new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    });
+    return {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
   }
 
   sendFeedback(feedback: Feedback): Observable<Feedback> {
-    return this.http.post<Feedback>(this.apiUrl, feedback, { headers: this.getHeaders() });
+    return this.http.post<Feedback>(this.apiUrl, feedback, this.getHeaders());
   }
 
   getAllFeedbacksByUserId(userId: number): Observable<Feedback[]> {
-    return this.http.get<Feedback[]>(`${this.apiUrl}/user/${userId}`, { headers: this.getHeaders() });
+    return this.http.get<Feedback[]>(`${this.apiUrl}/user/${userId}`, this.getHeaders());
   }
 
   deleteFeedback(feedbackId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${feedbackId}`, { headers: this.getHeaders() });
+    return this.http.delete<void>(`${this.apiUrl}/${feedbackId}`, this.getHeaders());
   }
 
   getFeedbacks(): Observable<Feedback[]> {
-    return this.http.get<Feedback[]>(this.apiUrl, { headers: this.getHeaders() });
+    return this.http.get<Feedback[]>(this.apiUrl, this.getHeaders());
   }
 }
