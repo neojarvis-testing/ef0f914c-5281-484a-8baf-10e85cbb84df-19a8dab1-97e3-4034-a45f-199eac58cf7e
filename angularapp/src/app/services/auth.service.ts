@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  // https://ide-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/proxy/8080/
-  public apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
-  private tokenSubject = new BehaviorSubject<string | null>(null);
+  public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
+  private tokenKey = 'authToken'; // Local storage key for JWT token
   private roleSubject = new BehaviorSubject<string | null>(null);
-  private userIdSubject = new BehaviorSubject<number | null>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   /** Register a new user */
   register(user: any): Observable<any> {
@@ -23,22 +22,31 @@ export class AuthService {
   }
 
   /** Log in and store JWT token */
-  login(login: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/api/login`, login).pipe(
+  login(credentials: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/api/login`, credentials).pipe(
       tap(response => {
         if (response && response.token) {
-          localStorage.setItem('token', response.token);
-          this.tokenSubject.next(response.token);
-
-          const decodedToken = this.decodeJwtToken(response.token);
-          if (decodedToken) {
-            this.roleSubject.next(decodedToken.role);
-            this.userIdSubject.next(decodedToken.userId);
-          }
+          this.storeToken(response.token);
+          this.navigateBasedOnRole();
         }
       }),
       catchError(this.handleError<any>('login'))
     );
+  }
+
+  /** Store JWT token */
+  storeToken(token: string): void {
+    localStorage.setItem(this.tokenKey, token);
+    const decodedToken = this.decodeJwtToken(token);
+    if (decodedToken) {
+      const role = decodedToken.role;
+      localStorage.setItem('role', role);
+      this.roleSubject.next(role);
+    }
+  }
+  /** Get JWT token */
+  getToken(): string | null {
+    return localStorage.getItem(this.tokenKey);
   }
 
   /** Decode JWT token */
@@ -53,28 +61,32 @@ export class AuthService {
     }
   }
 
-  /** Get JWT token */
-  getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
   /** Get user role */
-  getUserRole(): Observable<string | null> {
-    return this.roleSubject.asObservable();
+  getUserRole(): string | null {
+    return localStorage.getItem('role');
   }
 
-  /** Get user ID */
-  getUserId(): Observable<number | null> {
-    return this.userIdSubject.asObservable();
+  /** Navigate user based on role */
+  navigateBasedOnRole(): void {
+    const role = this.getUserRole();
+    switch (role) {
+      case 'Admin':
+        this.router.navigate(['/admin']);
+        break;
+      case 'User':
+        this.router.navigate(['/user-dashboard']);
+        break;
+      default:
+        this.router.navigate(['/']);
+    }
   }
 
   /** Logout */
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem(this.tokenKey);
     localStorage.removeItem('role');
-    this.tokenSubject.next(null);
     this.roleSubject.next(null);
-    this.userIdSubject.next(null);
+    this.router.navigate(['/login']);
   }
 
   /** Error Handling */
