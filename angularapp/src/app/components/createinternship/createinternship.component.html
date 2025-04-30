@@ -1,6 +1,6 @@
 <div class="form-container">
     <form #internshipForm="ngForm" (ngSubmit)="onSubmit(internshipForm)">
-      <h2>Create Internship</h2>
+      <h2>Create New Internship</h2>
       <div class="form-field">
         <label for="title">Title<span class="asterisk">*</span></label>
           <input
@@ -49,18 +49,18 @@
       </div>
   
       <div class="form-field">
-        <label for="duration">Duration (Months)<span class="asterisk">*</span></label>
+        <label for="durationInMonths">Duration (Months)<span class="asterisk">*</span></label>
         <input
           type="text"
-          id="duration"
-          name="duration"
+          id="durationInMonths"
+          name="durationInMonths"
           ngModel
           required
-          #duration="ngModel"
+          #durationInMonths="ngModel"
           placeholder="Duration in Months"
         />
   
-        <div class="error" *ngIf="duration.invalid && duration.touched">*Duration is required.</div>
+        <div class="error" *ngIf="durationInMonths.invalid && durationInMonths.touched">*Duration is required.</div>
       </div>
   
       <div class="form-field">
@@ -95,32 +95,32 @@
       </div>
   
       <div class="form-field">
-        <label for="skills">Skills Required<span class="asterisk">*</span></label>
+        <label for="skillsRequired">Skills Required<span class="asterisk">*</span></label>
         <input
           type="text"
-          id="skills"
-          name="skills"
+          id="skillsRequired"
+          name="skillsRequired"
           ngModel
           required
-          #skills="ngModel"
+          #skillsRequired="ngModel"
           placeholder="Required Skills (e.g., C#, .NET, React)"
         />
   
-        <div class="error" *ngIf="skills.invalid && skills.touched">Skills Required is required.</div>
+        <div class="error" *ngIf="skillsRequired.invalid && skillsRequired.touched">Skills Required is required.</div>
       </div>
   
       <div class="form-field">
-        <label for="deadline">Application Deadline<span class="asterisk">*</span></label>
+        <label for="applicationDeadline">Application Deadline<span class="asterisk">*</span></label>
         <input
           type="date"
-          id="deadline"
-          name="deadline"
+          id="applicationDeadline"
+          name="applicationDeadline"
           ngModel
           required
-          #deadline="ngModel"
+          #applicationDeadline="ngModel"
         />
   
-        <div class="error" *ngIf="deadline.invalid && deadline.touched">
+        <div class="error" *ngIf="applicationDeadline.invalid && applicationDeadline.touched">
           *Application Deadline is required.
         </div>
       </div>
