@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #1e3c72, #2a9861);
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .navbar-links a {
+    margin-left: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .navbar-links a:last-child {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+  }
+  
+  .navbar-links a:last-child:hover {
+    background-color: #ffe5e5;
+  }
+  
+  .navbar-links a:hover {
+    text-decoration: underline;
+  }
+  
