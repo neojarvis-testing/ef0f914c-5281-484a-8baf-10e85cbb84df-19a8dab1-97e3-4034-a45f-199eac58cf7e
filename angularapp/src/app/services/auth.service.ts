@@ -8,7 +8,7 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  public apiUrl = 'https://8080-bdbedbadfdcfdfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
+  public apiUrl = 'https://8080-cfccafadfdfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
   private tokenKey = 'authToken'; // Local storage key for JWT token
   private roleSubject = new BehaviorSubject<string | null>(null);
  
@@ -54,6 +54,7 @@ export class AuthService {
   getUserID(): string | null {
     return localStorage.getItem('id');
   }
+
  
   /** Decode JWT token */
   private decodeJwtToken(token: string): any {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminnav',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminnavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  logout(): void {
+    // Clear session storage or local storage
+    sessionStorage.clear();
+    localStorage.clear();
+
+    // Redirect to login page
+    this.router.navigate(['/login']);
+  }
 }

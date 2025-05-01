@@ -19,6 +19,9 @@ const routes: Routes = [
   { path: 'user-dashboard', component: UsernavComponent, canActivate: [AuthGuard] },
   { path: 'post-feedback', component: UseraddfeedbackComponent},
   { path: 'view-feedback', component: UserviewfeedbackComponent}
+
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
+
 ];
  
 @NgModule({
