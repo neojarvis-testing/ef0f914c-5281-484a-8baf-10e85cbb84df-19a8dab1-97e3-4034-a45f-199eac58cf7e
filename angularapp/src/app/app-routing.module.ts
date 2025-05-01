@@ -7,19 +7,25 @@ import { ErrorComponent } from './components/error/error.component';
 import { AdminnavComponent } from './components/adminnav/adminnav.component';
 import { AuthGuard } from './components/authguard/authguard.guard';
 import { UsernavComponent } from './components/usernav/usernav.component';
- 
+import { CreateinternshipComponent } from './components/createinternship/createinternship.component';
+import { RequestedinternshipComponent } from './components/requestedinternship/requestedinternship.component';
+import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
+
 const routes: Routes = [
-  {path: '', component: HomeComponent },
-  {path: 'register', component: RegistrationComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'error', component: ErrorComponent},
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'error', component: ErrorComponent },
   { path: 'admin', component: AdminnavComponent, canActivate: [AuthGuard] },
   { path: 'user-dashboard', component: UsernavComponent, canActivate: [AuthGuard] },
+  { path: 'admin/home', component: HomeComponent },
+  { path: 'admin/internship', component: CreateinternshipComponent, canActivate: [AuthGuard] },
+  { path: 'admin/internshiprequested', component: RequestedinternshipComponent, canActivate: [AuthGuard] },
+  { path: 'admin/feedbacks', component: AdminviewfeedbackComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
- 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { } 
