@@ -8,7 +8,9 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
+
+  //https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/register
+  public apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
   private tokenKey = 'authToken'; // Local storage key for JWT token
   private roleSubject = new BehaviorSubject<string | null>(null);
 
