@@ -1,0 +1,48 @@
+/* Container Styling */
+.container {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Styled Table */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .styled-table th, .styled-table td {
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
+  .styled-table th {
+    background-color: #007BFF; /* Blue headers */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3; /* Alternating row colors */
+  }
+  
+  /* Button Styling */
+  .btn-green {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .btn-green:hover {
+    background-color: darkgreen;
+  }
+  
+  .applied-label {
+    color: gray;
+    font-weight: bold;
+  }
+  
