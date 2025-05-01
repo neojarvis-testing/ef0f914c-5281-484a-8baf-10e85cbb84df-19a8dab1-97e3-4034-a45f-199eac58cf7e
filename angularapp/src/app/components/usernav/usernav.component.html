@@ -1,1 +1,14 @@
-<p>usernav works!</p>
+<nav class="navbar">
+  <h1 class="navbar-title">User Dashboard</h1>
+  <a class="nav-link" routerLink="/user/home">Home</a> |
+  <a class="nav-link" routerLink="/user/view-mentorships">Mentorship Programs</a> |
+  <a class="nav-link" routerLink="/user/applied-mentorships">Applied Programs</a> |
+  <div class="dropdown">
+      <label class="dropdown-title">Feedback</label>
+      <select name="dropdown-name" id="dropdown-name">
+        <option value=""><a class="dropdown-link" routerLink="/user/post-feedback">Post Feedback</a></option>
+        <option value=""><li><a class="dropdown-link" routerLink="/user/view-feedbacks">My Feedbacks</a></li></option>
+      </select>
+  </div> |
+  <button (click)="logout()" class="logout-button">Logout</button>
+</nav>

@@ -40,7 +40,9 @@ export class AuthService {
     const decodedToken = this.decodeJwtToken(token);
     if (decodedToken) {
       const role = decodedToken.role;
+      const userid = decodedToken.nameid;
       localStorage.setItem('role', role);
+      localStorage.setItem('id', userid);
       this.roleSubject.next(role);
     }
   }
@@ -48,6 +50,11 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
+
+  getUserID(): string | null {
+    return localStorage.getItem('id');
+  }
+
  
   /** Decode JWT token */
   private decodeJwtToken(token: string): any {
@@ -95,6 +102,6 @@ export class AuthService {
       console.error(`${operation} failed: ${error.message}`);
       return throwError(() => new Error(`${operation} failed: ${error.message}`));
     };
-  }
+  } 
 }
  
