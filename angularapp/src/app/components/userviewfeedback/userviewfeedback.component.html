@@ -1,8 +1,10 @@
 <div class="feedback-container">
     <h2>My Feedbacks</h2>
     <div *ngFor="let feedback of feedbackList">
-      <p>{{ feedback.text }}</p>
-      <button (click)="confirmDelete(feedback.id)">Delete</button>
+      <p>{{ feedback.userId }}</p>
+      <p>{{ feedback.date }}</p>
+      <p>{{ feedback.feedbackText }}</p>
+      <button (click)="confirmDelete(feedback)">Delete</button>
     </div>
   
     <!-- Delete Confirmation Modal -->

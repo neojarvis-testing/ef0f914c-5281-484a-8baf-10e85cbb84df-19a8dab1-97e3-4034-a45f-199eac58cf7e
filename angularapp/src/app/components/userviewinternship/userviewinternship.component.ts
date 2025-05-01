@@ -11,7 +11,7 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 export class UserviewinternshipComponent implements OnInit {
   feedbackList: Feedback[] = [
     {
-      FeedbackId: 0,
+      feedbackId: 0,
       UserId: 0,
       FeedbackText: '',
       Date: new Date('2024-04-05')
@@ -43,7 +43,7 @@ export class UserviewinternshipComponent implements OnInit {
 
   deleteFeedback(): void {
     this.feedbackService.deleteFeedback(this.FeedbackByUserId).subscribe(() => {
-      this.feedbackList = this.feedbackList.filter(f => f.FeedbackId !== this.FeedbackByUserId);
+      this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.FeedbackByUserId);
       this.showDeleteConfirm = false;
     });
   }

@@ -1,45 +1,31 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
-import { Internship } from 'src/app/models/internship.model';
-import { AuthService } from 'src/app/services/auth.service';
-import { InternshipService } from 'src/app/services/internship.service';
-
-
-
+import { Component } from '@angular/core';
+ 
+import { Router } from '@angular/router';
+ 
+import { AuthService } from '../../services/auth.service';
+ 
 @Component({
+ 
   selector: 'app-usernav',
-  templateUrl: './usernav.component.html',
-  styleUrls: ['./usernav.component.css']
+ 
+  templateUrl: './usernav.component.html'
+ 
 })
-export class UsernavComponent implements OnInit {
-  userRole: string;
-  internship: Internship = {
-    InternshipId: 0,
-    Title: '',
-    CompanyName: '',
-    Location: '',
-    DurationInMonths: 3,
-    Stipend: 10000,
-    Description: '',
-    SkillsRequired: '',
-    ApplicationDeadline: '',
+ 
+export class UsernavComponent {
+ 
+  constructor(private authService: AuthService, private router: Router) {}
+ 
+  logout() {
+ 
+    if (confirm('Are you sure you want to logout?')) {
+ 
+      this.authService.logout();
+ 
+      this.router.navigate(['/login']);
+ 
+    }
+ 
   }
-
-  constructor(private authService: AuthService, private internshipService:InternshipService) { }
-
-  ngOnInit(): void {
-    this.authService.getUserRole().subscribe(data => {
-      this.userRole = data;
-    }); // Assuming AuthService retrieves user role
-
-  }
-
-  addInternship(): void {
-    this.internshipService.addInternship(this.internship).subscribe(() => {
-      alert('Internship added successfully!');
-    });
-  }
-
-
-
+ 
 }

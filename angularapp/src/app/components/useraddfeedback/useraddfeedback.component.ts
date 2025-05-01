@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class UseraddfeedbackComponent implements OnInit {
   feedbackss: Feedback = {
-    FeedbackId: 0,
+    feedbackId: 0,
     UserId: 0, // Will be updated dynamically
     FeedbackText: '',
     Date: new Date()
@@ -24,34 +24,34 @@ export class UseraddfeedbackComponent implements OnInit {
 
   ngOnInit(): void {
     // Ensure User ID is fetched correctly
-    this.authService.getUserId().subscribe({
-      next: (userId) => {
-        console.log("User ID fetched:", userId); // Debugging
-        this.feedbackss.UserId = userId;
-      },
-      error: (err) => {
-        console.error("Error fetching User ID:", err);
-      }
-    });
+    // this.authService.getUserId().subscribe({
+    //   next: (userId) => {
+    //     console.log("User ID fetched:", userId); // Debugging
+    //     this.feedbackss.UserId = userId;
+    //   },
+    //   error: (err) => {
+    //     console.error("Error fetching User ID:", err);
+    //   }
+    // });
   }
 
   submitFeedback(): void {
+    console.log("feedback: ",this.feedbackss);
+    
     if (!this.feedbackss.FeedbackText.trim()) {
       this.validationMessage = 'Feedback is required';
       return;
     }
 
-    if (!this.feedbackss.UserId || this.feedbackss.UserId === 0) {
-      this.validationMessage = 'User ID missing. Please log in again.';
-      console.error("User ID not set correctly:", this.feedbackss.UserId);
-      return;
-    }
+    this.feedbackss.UserId = +this.authService.getUserID();
 
     this.feedbackService.sendFeedback(this.feedbackss).subscribe({
       next: () => {
+        console.log("Secc");
+        
         this.showSuccessPopup = true;
         setTimeout(() => {
-          this.router.navigate(['/viewMyFeedbacks']);
+          this.router.navigate(['/view-feedback']);
         }, 1000);
         this.feedbackss.FeedbackText = '';
       },
