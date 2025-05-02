@@ -17,10 +17,10 @@
     <tbody>
       <tr *ngFor="let item of filteredInternshipApplications; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ item.Internship?.CompanyName }}</td>
-        <td> <button (click)="openResumeDialog(item)">View Resume</button> </td>
-        <td>{{ item.ApplicationDate | date }}</td>
-        <td>{{ item.ApplicationStatus }}</td>
+        <td>{{ item.Internship?.companyName }}</td>
+        <td> <button (click)="openResumeDialog(item.resume)">View Resume</button> </td>
+        <td>{{ item.applicationDate | date }}</td>
+        <td>{{ item.applicationStatus }}</td>
         <td> <button class="redButton" (click)="openDeleteDialog(item)">Delete</button> </td>
       </tr>
     </tbody>
