@@ -1,4 +1,18 @@
-<!-- <app-navbar></app-navbar> -->
-<!-- <app-viewinternship></app-viewinternship> -->
-<app-userviewinternship></app-userviewinternship>
+<ng-container *ngIf="shouldShowNavbar()">
+  <ng-container *ngIf="authService.isAdmin(); else userNav">
+    <!-- ✅ Only show `AdminnavComponent` on the main admin page -->
+    <app-adminnav *ngIf="!router.url.startsWith('/admin/home')"></app-adminnav>
+  </ng-container>
+
+  <ng-template #userNav>
+    <ng-container *ngIf="authService.isUser(); else defaultNav">
+      <app-usernav></app-usernav>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #defaultNav>
+    <app-navbar></app-navbar>
+  </ng-template>
+</ng-container>
+
 <router-outlet></router-outlet>

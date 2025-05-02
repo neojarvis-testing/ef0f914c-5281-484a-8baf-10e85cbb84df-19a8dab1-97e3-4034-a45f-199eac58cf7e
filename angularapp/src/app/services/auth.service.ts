@@ -3,54 +3,94 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
- 
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  public apiUrl = 'https://8080-cfccafadfdfddaeecadabeafeaccfe.premiumproject.examly.io'; // Replace with workspace URL
-  private tokenKey = 'authToken'; // Local storage key for JWT token
-  private roleSubject = new BehaviorSubject<string | null>(null);
- 
+  public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io'; 
+  private tokenKey = 'authToken'; 
+  public roleSubject = new BehaviorSubject<string | null>(null);
+
   constructor(private http: HttpClient, private router: Router) {}
- 
+
   /** Register a new user */
   register(user: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/api/register`, user).pipe(
       catchError(this.handleError<any>('register'))
     );
   }
- 
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('authToken');
+  }
+  
+  isAdmin(): boolean {
+    const role = localStorage.getItem('role');
+    return role === 'admin';
+  }
+  
+  isUser(): boolean {
+    const role = localStorage.getItem('role');
+    return role === 'user';
+  }
+
   /** Log in and store JWT token */
   login(credentials: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/api/login`, credentials).pipe(
       tap(response => {
         if (response && response.token) {
           this.storeToken(response.token);
-          this.navigateBasedOnRole();
+          this.navigateBasedOnRole(); // ✅ Navigates without refreshing
         }
       }),
       catchError(this.handleError<any>('login'))
     );
   }
- 
+
   /** Store JWT token */
   storeToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
     const decodedToken = this.decodeJwtToken(token);
     if (decodedToken) {
-      const role = decodedToken.role;
+      const role = decodedToken.role?.toLowerCase() || '';
+      console.log('Decoded role:', role); // 🔥 Debugging output
       localStorage.setItem('role', role);
       this.roleSubject.next(role);
     }
   }
+
+  /** Navigate user based on role */
+  navigateBasedOnRole(): void {
+    const role = this.getUserRole();
+    if (role === 'admin') {
+      this.router.navigate(['/admin']); // ✅ Navigates immediately without error page
+    } else if (role === 'user') {
+      this.router.navigate(['/user']);
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
+
+  /** Logout */
+  logout(): void {
+    localStorage.clear(); 
+    this.roleSubject.next(null);
+    this.router.navigate(['/login']);
+  }
+
   /** Get JWT token */
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
- 
+
+  /** Get user ID */
+  getUserID(): string | null {
+    return localStorage.getItem('id');
+  }
+
   /** Decode JWT token */
-  private decodeJwtToken(token: string): any {
+  public decodeJwtToken(token: string): any {
     try {
       const base64Url = token.split('.')[1];
       const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -60,35 +100,12 @@ export class AuthService {
       return null;
     }
   }
- 
+
   /** Get user role */
   getUserRole(): string | null {
     return localStorage.getItem('role');
   }
- 
-  /** Navigate user based on role */
-  navigateBasedOnRole(): void {
-    const role = this.getUserRole();
-    switch (role) {
-      case 'Admin':
-        this.router.navigate(['/admin']);
-        break;
-      case 'User':
-        this.router.navigate(['/user-dashboard']);
-        break;
-      default:
-        this.router.navigate(['/']);
-    }
-  }
- 
-  /** Logout */
-  logout(): void {
-    localStorage.removeItem(this.tokenKey);
-    localStorage.removeItem('role');
-    this.roleSubject.next(null);
-    this.router.navigate(['/login']);
-  }
- 
+
   /** Error Handling */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -97,4 +114,6 @@ export class AuthService {
     };
   }
 }
- 
+
+
+
