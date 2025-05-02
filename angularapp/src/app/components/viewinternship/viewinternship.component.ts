@@ -65,13 +65,27 @@ export class ViewinternshipComponent implements OnInit {
   // Search internships based on CompanyName and Location
   
 
- 
+
+  searchInternships(): void {
+
+    this.filteredInternships = this.internships.filter(internship =>
+
+      internship.companyName.toLowerCase().includes(this.companyNameSearch.toLowerCase()) &&
+
+      internship.location.toLowerCase().includes(this.locationSearch.toLowerCase())
+
+    );
+
+  }
+
  
   // Navigate to the edit internship page
 
   editInternship(internshipId: number): void {
 
-    this.router.navigate([`/admin/admineditinternship/${internshipId}`]); // Pass the internship ID as a parameter
+
+    console.log('Editing internship with ID:', internshipId);
+    this.router.navigate([`/admin/admineditinternship/${internshipId}`]);
 
   }
   searchInternships(): void {

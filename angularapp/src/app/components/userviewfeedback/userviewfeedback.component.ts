@@ -21,7 +21,7 @@ export class UserviewfeedbackComponent implements OnInit {
   }
   loadFeedbacks(): void
   {
-  const userid = +this.authService.getUserID();
+  const userid = +this.authService.getUserId();
     this.feedbackService.getAllFeedbacksByUserId(userid).subscribe(data => {
       console.log(data);
       

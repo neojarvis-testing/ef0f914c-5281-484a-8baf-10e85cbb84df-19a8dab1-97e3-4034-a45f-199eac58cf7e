@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InternshipService } from 'src/app/services/internship.service';
 import { InternshipApplication } from 'src/app/models/internshipapplication.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-userappliedinternship',
@@ -16,18 +17,20 @@ export class UserappliedinternshipComponent implements OnInit {
   isDeleteDialogOpen: boolean = false;
   isResumeDialogOpen: boolean = false;
   selectedApplication: InternshipApplication | null = null;
-  userId: number = 1;
+  userId: number;
 
   constructor(
     private route: ActivatedRoute,
     private internshipService: InternshipService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     // const storedUser = localStorage.getItem('role');
     // const user = JSON.parse(storedUser);
     // this.userId = user.userId;
+    this.userId = +this.authService.getUserID();
     this.getInternships();
   }
 
