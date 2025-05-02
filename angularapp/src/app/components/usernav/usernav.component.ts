@@ -8,14 +8,13 @@ import { AuthService } from '../../services/auth.service';
  
   selector: 'app-usernav',
  
-  templateUrl: './usernav.component.html'
-  
- 
+  templateUrl: './usernav.component.html',
+  styleUrls: ['./usernav.component.css']
 })
  
 export class UsernavComponent {
  
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {}
  
   logout() {
  

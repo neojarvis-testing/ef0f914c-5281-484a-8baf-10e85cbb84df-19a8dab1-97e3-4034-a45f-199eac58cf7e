@@ -1,0 +1,23 @@
+.chart-container {
+    width: 50%; /* Reduce container width */
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .chart-wrapper {
+    position: relative;
+    width: 300px; /* Set fixed width */
+    height: 300px; /* Set fixed height */
+    margin: 0 auto; /* Center the chart */
+  }
+  
+  h1 {
+    color: #343a40;
+    margin-bottom: 20px;
+  }
+  
+  canvas {
+    max-width: 100%; /* Ensure the chart scales properly */
+    height: auto; /* Maintain proportions */
+  }
+  

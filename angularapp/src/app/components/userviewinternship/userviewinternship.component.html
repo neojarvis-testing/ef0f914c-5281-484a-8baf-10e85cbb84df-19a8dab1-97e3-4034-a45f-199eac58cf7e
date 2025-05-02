@@ -1,3 +1,4 @@
+
 <div class="feedback-container">
     <h2>My Feedback</h2>
   
@@ -19,3 +20,52 @@
     </div>
   </div>
   
+
+<div class="container">
+  <!-- Heading -->
+  <h1>Available Internship Opportunities</h1>
+
+  <!-- Check if internships exist -->
+  <div *ngIf="internships.length === 0">
+    <p>Oops! No records Found</p>
+  </div>
+
+  <!-- Display internships in a table -->
+  <table *ngIf="internships.length > 0" class="styled-table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Internship Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Duration (Months)</th>
+        <th>Stipend</th>
+        <th>Skills Required</th>
+        <th>Application Deadline</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let internship of internships; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ internship.title }}</td>
+        <td>{{ internship.companyName }}</td>
+        <td>{{ internship.location }}</td>
+        <td>{{ internship.durationInMonths }}</td>
+        <td>{{ internship.stipend | currency }}</td>
+        <td>{{ internship.skillsRequired }}</td>
+        <td>{{ internship.applicationDeadline | date }}</td>
+        <td>
+          <button
+            [disabled]="isApplied(internship.id)"
+            class="btn btn-green"
+            *ngIf="!isApplied(internship.id)"
+            (click)="applyInternship(internship.id)">
+            Apply
+          </button>
+          <span *ngIf="isApplied(internship.id)" class="applied-label">Applied</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

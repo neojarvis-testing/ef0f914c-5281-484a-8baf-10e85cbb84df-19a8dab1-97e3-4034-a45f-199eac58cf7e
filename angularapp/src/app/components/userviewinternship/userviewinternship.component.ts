@@ -1,57 +1,96 @@
 import { Component, OnInit } from '@angular/core';
+
+import { InternshipService } from 'src/app/services/internship.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { Feedback } from 'src/app/models/feedback.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
- 
+import { Internship } from 'src/app/models/internship.model';
+
+
 @Component({
   selector: 'app-userviewinternship',
   templateUrl: './userviewinternship.component.html',
   styleUrls: ['./userviewinternship.component.css']
 })
 export class UserviewinternshipComponent implements OnInit {
-  feedbackList: Feedback[] = [
-    {
-      feedbackId: 0,
-      UserId: 0,
-      FeedbackText: '',
-      Date: new Date('2024-04-05')
-  }
-  ];
+  
+  feedbackList: Feedback[] = [];
   showDeleteConfirm = false;
-  FeedbackByUserId: number;
-  constructor(private feedbackService:FeedbackService, private router: Router,private activatedRoute: ActivatedRoute) { }
- 
+  selectedFeedbackId: number | null = null;
+  internships: Internship[] = [];
+  appliedInternships: number[] = [];
+
+  constructor(
+    private feedbackService: FeedbackService,
+    private internshipService: InternshipService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((feedbackdata)=>{
-      this.FeedbackByUserId = Number(feedbackdata['id']);
-      
+    this.activatedRoute.params.subscribe(params => {
+      const userId = Number(params['id']);
+      if (!isNaN(userId)) {
+        this.loadFeedbacks(userId);
+      }
     });
-    this.loadFeedbacks();
+
+    this.loadInternships();
+    this.loadAppliedInternships();
   }
 
-  loadFeedbacks(): void
-  {
-    this.feedbackService.getAllFeedbacksByUserId(this.FeedbackByUserId).subscribe((data)=>{
-      this.feedbackList=data;
-    });
+  loadFeedbacks(userId: number): void {
+    this.feedbackService.getAllFeedbacksByUserId(userId).subscribe(
+      data => {
+        this.feedbackList = data;
+      },
+      error => {
+        console.error('Error fetching feedback:', error);
+      }
+    );
   }
 
   confirmDelete(feedbackId: number): void {
-    this.FeedbackByUserId = feedbackId;
+    this.selectedFeedbackId = feedbackId;
     this.showDeleteConfirm = true;
   }
 
   deleteFeedback(): void {
-    this.feedbackService.deleteFeedback(this.FeedbackByUserId).subscribe(() => {
-      this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.FeedbackByUserId);
-      this.showDeleteConfirm = false;
-    });
+    if (this.selectedFeedbackId !== null) {
+      this.feedbackService.deleteFeedback(this.selectedFeedbackId).subscribe(() => {
+        this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.selectedFeedbackId);
+        this.showDeleteConfirm = false;
+        this.selectedFeedbackId = null;
+      });
+    }
   }
 
   cancelDelete(): void {
     this.showDeleteConfirm = false;
+    this.selectedFeedbackId = null;
   }
- 
+
+  loadInternships(): void {
+    this.internshipService.getAllInternships().subscribe(
+      data => {
+        this.internships = data;
+      },
+      error => {
+        console.error('Error fetching internships:', error);
+      }
+    );
+  }
+
+  loadAppliedInternships(): void {
+    this.appliedInternships = [1, 3]; // Replace with API call if needed
+  }
+
+  hasApplied(internshipId: number): boolean {
+    return this.appliedInternships.includes(internshipId);
+  }
+
+  applyForInternship(internshipId: number): void {
+    this.router.navigate(['/internshipform', internshipId]);
+  }
 }
- 
- 

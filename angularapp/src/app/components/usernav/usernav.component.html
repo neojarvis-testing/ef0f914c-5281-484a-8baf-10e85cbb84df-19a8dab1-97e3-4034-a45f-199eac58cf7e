@@ -1,14 +1,21 @@
+
 <nav class="navbar">
-  <h1 class="navbar-title">User Dashboard</h1>
-  <a class="nav-link" routerLink="/user/home">Home</a> |
-  <a class="nav-link" routerLink="/user/view-mentorships">Mentorship Programs</a> |
-  <a class="nav-link" routerLink="/user/applied-mentorships">Applied Programs</a> |
-  <div class="dropdown">
-      <label class="dropdown-title">Feedback</label>
-      <select name="dropdown-name" id="dropdown-name">
-        <option value=""><a class="dropdown-link" routerLink="/user/post-feedback">Post Feedback</a></option>
-        <option value=""><li><a class="dropdown-link" routerLink="/user/view-feedbacks">My Feedbacks</a></li></option>
-      </select>
-  </div> |
-  <button (click)="logout()" class="logout-button">Logout</button>
+  <div class="navbar-brand">INTERNSHIP APPLICATION SYSTEM</div>
+  <div class="navbar-links">
+    <a routerLink="/user/home">Home</a>
+    <a routerLink="/user/view-internships">Internships</a>
+    <a routerLink="/user/applied-internships">Applied Internship</a>
+    <div class="dropdown">
+      <span class="dropdown-title">Feedback</span>
+      <div class="dropdown-menu">
+        <a routerLink="/user/post-feedback">Post Feedback</a>
+        <a routerLink="/user/view-feedbacks">My Feedbacks</a>
+      </div>
+    </div>
+    <a (click)="authService.logout()">Logout</a>
+  </div>
 </nav>
+
+<!-- ✅ Ensure `router-outlet` is included -->
+<router-outlet></router-outlet>
+

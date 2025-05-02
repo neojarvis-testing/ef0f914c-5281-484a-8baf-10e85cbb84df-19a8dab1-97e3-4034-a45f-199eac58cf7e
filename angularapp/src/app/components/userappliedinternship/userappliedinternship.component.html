@@ -1,56 +1,53 @@
-<div class="internship-container">
-    <h1>Applied Internships</h1>
-  
-    <!-- Search Bar -->
-    <input type="text" class="search-input" [(ngModel)]="searchQuery" (input)="filteredInternships()" placeholder="Search by Company Name">
-  
-    <!-- Debugging: Show fetched data in UI for verification -->
-    <pre>{{ filteredAppliedInternships | json }}</pre>
-  
-    <!-- Internship Table -->
-    <table *ngIf="filteredAppliedInternships.length > 0">
-      <thead>
-        <tr>
-          <th>Sl. No.</th>  <!-- ✅ Added Serial Number Column -->
-          <th>Company Name</th>
-          <th>Resume</th>
-          <th>Application Date</th>
-          <th>Application Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let internship of filteredAppliedInternships; index as i">
-          <td>{{ i + 1 }}</td> <!-- ✅ Automatically generates row numbers -->
-          <td>{{ internship.companyName }}</td> 
-          <td><a [href]="internship.resumeUrl" target="_blank">View Resume</a></td>
-          <td>{{ internship.applicationDate | date: 'yyyy-MM-dd' }}</td>
-          <td>{{ internship.applicationStatus }}</td>
-          <td>
-            <button class="delete-btn" (click)="confirmDelete(internship.id)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <!-- No Records Found Message -->
-    <p *ngIf="filteredAppliedInternships.length === 0" class="no-records">Oops! No records found.</p>
-  
-    <!-- Resume Popup -->
-    <div *ngIf="showResumePopup && selectedResume" class="popup-container">
-      <div class="popup">
-        <span class="close-btn" (click)="closeResumePopup()">X</span>
-        <img [src]="selectedResume" alt="Resume Image" class="resume-image">
+<div class="internships-container">
+  <h2>Applied Internships</h2>
+  <hr class="line"> <!-- Search Bar -->
+  <div class="search-bar"> <input type="text" id="searchInput" placeholder="Search by Company Name"
+      [(ngModel)]="searchText" (input)="searchInternships()" /> </div> <!-- Internship Table -->
+  <table *ngIf="filteredInternshipApplications.length > 0; else noRecords">
+    <thead>
+      <tr>
+        <th>Sl. No.</th>
+        <th>Company Name</th>
+        <th>Resume</th>
+        <th>Application Date</th>
+        <th>Application Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredInternshipApplications; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.Internship?.CompanyName }}</td>
+        <td> <button (click)="openResumeDialog(item)">View Resume</button> </td>
+        <td>{{ item.ApplicationDate | date }}</td>
+        <td>{{ item.ApplicationStatus }}</td>
+        <td> <button class="redButton" (click)="openDeleteDialog(item)">Delete</button> </td>
+      </tr>
+    </tbody>
+  </table> <!-- No Records Template --> <ng-template #noRecords>
+    <p>Oops! No records found.</p>
+  </ng-template> <!-- Delete Confirmation Modal -->
+  <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isDeleteDialogOpen}" *ngIf="isDeleteDialogOpen">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <p><strong>Are you sure you want to delete this application?</strong></p>
+        </div>
+        <div class="modal-footer"> <button (click)="confirmDelete()">Yes, Delete</button> <button type="button"
+            class="btn btn-danger" (click)="closeDeleteDialog()">Cancel</button> </div>
       </div>
     </div>
-  
-    <!-- Delete Confirmation Popup -->
-    <div *ngIf="showDeletePopup && deleteId !== null" class="popup-container">
-      <div class="popup">
-        <p>Are you sure you want to delete this internship?</p>
-        <button class="confirm-btn" (click)="deleteInternship()">Yes, Delete</button>
-        <button class="cancel-btn" (click)="closeDeletePopup()">Cancel</button>
+  </div> <!-- Resume Preview Modal -->
+  <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isResumeDialogOpen}" *ngIf="isResumeDialogOpen">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <p><strong>Resume Preview</strong></p> <iframe *ngIf="selectedApplication?.Resume"
+            [src]="selectedApplication.Resume" width="100%" height="500px"></iframe>
+        </div>
+        <div class="modal-footer"> <button type="button" class="btn btn-danger"
+            (click)="closeResumeDialog()">Close</button> </div>
       </div>
     </div>
   </div>
-  
+</div>

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminnavComponent } from './components/adminnav/adminnav.component';
@@ -24,6 +24,7 @@ import { ViewinternshipComponent } from './components/viewinternship/viewinterns
 import { UsernavComponent } from './components/usernav/usernav.component';
 import { UseraddfeedbackComponent } from './components/useraddfeedback/useraddfeedback.component';
 import { UserappliedinternshipComponent } from './components/userappliedinternship/userappliedinternship.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,10 @@ import { UserappliedinternshipComponent } from './components/userappliedinternsh
 
     HttpClientModule,
 
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]
