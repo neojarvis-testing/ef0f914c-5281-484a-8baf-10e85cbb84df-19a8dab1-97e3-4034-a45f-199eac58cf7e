@@ -1,1 +1,59 @@
-<p>internshipform works!</p>
+<div class="internship-form-container">
+    <div class="form-wrapper">
+      <div class="form-header">
+        <h2>Internship Application Form</h2>
+        <!-- Back Button -->
+        <a routerLink="/userviewinternship" class="btn btn-back">Back</a>
+      </div>
+      <form [formGroup]="internshipForm" (ngSubmit)="onSubmit()">
+        <!-- University Name -->
+        <div class="form-group">
+          <label for="universityName">
+            University Name: <span class="required">*</span>
+          </label>
+          <input type="text" id="universityName" formControlName="universityName" class="form-control" />
+          <div *ngIf="submitted && f['universityName'].errors" class="validation-error">
+            University Name is required.
+          </div>
+        </div>
+  
+        <!-- Degree Program -->
+        <div class="form-group">
+          <label for="degreeProgram">
+            Degree Program: <span class="required">*</span>
+          </label>
+          <input type="text" id="degreeProgram" formControlName="degreeProgram" class="form-control" />
+          <div *ngIf="submitted && f['degreeProgram'].errors" class="validation-error">
+            Degree Program is required.
+          </div>
+        </div>
+  
+        <!-- LinkedIn Profile -->
+        <div class="form-group">
+          <label for="linkedInProfile">
+            LinkedIn Profile: <span class="optional">(Optional)</span>
+          </label>
+          <input type="url" id="linkedInProfile" formControlName="linkedInProfile" class="form-control" />
+        </div>
+  
+        <!-- Resume Upload -->
+        <div class="form-group">
+          <label for="resumeUpload">
+            Resume Upload: <span class="required">*</span>
+          </label>
+          <input type="file" id="resumeUpload" (change)="onFileChange($event)" class="form-control" />
+          <div *ngIf="submitted && f['resumeUpload'].errors" class="validation-error">
+            Resume upload is required.
+          </div>
+        </div>
+  
+        <!-- Buttons -->
+        <div class="form-group buttons">
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
