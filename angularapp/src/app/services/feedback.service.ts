@@ -11,8 +11,10 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) {}
 
-  // https://ide-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/proxy/8080/
-  public apiUrl = 'https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
+
+  private apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
+
+
 
   private getHeaders() {
     const token = localStorage.getItem('authToken');
@@ -28,7 +30,7 @@ export class FeedbackService {
   }
 
   getAllFeedbacksByUserId(userId: number): Observable<Feedback[]> {
-    return this.http.get<Feedback[]>(`${this.apiUrl}/user/${userId}`, this.getHeaders());
+    return this.http.get<Feedback[]>(`${this.apiUrl}/${userId}`, this.getHeaders());
   }
 
   deleteFeedback(feedbackId: number): Observable<void> {
