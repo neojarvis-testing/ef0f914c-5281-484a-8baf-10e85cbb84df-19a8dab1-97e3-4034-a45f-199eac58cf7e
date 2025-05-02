@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -13,35 +12,28 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  ): boolean | UrlTree {
     const isLoggedIn = !!this.authService.getToken();
-    const userRole = localStorage.getItem('role'); 
+    const userRole = this.authService.getUserRole();
     const currentPath = route.url.length > 0 ? route.url[0].path : '';
-    if (!isLoggedIn) {
-      this.router.navigate(['/login']);
-      return false;
+  
+    if (!isLoggedIn && currentPath !== '') {
+      return this.router.parseUrl('/login'); 
     }
-
-    // Redirect to admin-specific routes and ensure admin navbar only displays
-    if (currentPath.startsWith('admin')) {
-      if (userRole === 'Admin') {
-        return true; // Allow access for admin
-      } else {
-        this.router.navigate(['/error']);
-        return false; // Prevent access for non-admin
-      }
+    
+  
+    if (currentPath.startsWith('admin') && userRole !== 'admin') {
+      return this.router.parseUrl('/error');
     }
-
-    // Redirect to user-specific routes and ensure user navbar only displays
-    if (currentPath.startsWith('user-dashboard')) {
-      if (userRole === 'User') {
-        return true; // Allow access for regular users
-      } else {
-        this.router.navigate(['/error']);
-        return false; // Prevent access for non-user
-      }
+  
+    if (currentPath.startsWith('user') && userRole?.toLowerCase() !== 'user') {
+      return this.router.parseUrl('/error');
     }
-
-    return true; // Default: Allow access for non-role-specific routes
+    
+  
+    return true;
   }
 }
+
+
+
