@@ -18,14 +18,14 @@ export class AdmineditinternshipComponent implements OnInit {
   internship: Internship = 
     { 
       InternshipId : 0, 
-      Title: "",
-      CompanyName: "",
-      Location: "",
-      DurationInMonths: 0,
-      Stipend: 0,
-      Description: "",
-      SkillsRequired: "",
-      ApplicationDeadline: ""
+      title: "",
+      companyName: "",
+      location: "",
+      durationInMonths: 0,
+      stipend: 0,
+      description: "",
+      skillsRequired: "",
+      applicationDeadline: ""
     };
  
   constructor(private internshipService: InternshipService, private router: Router, private route: ActivatedRoute) {}
@@ -62,5 +62,8 @@ export class AdmineditinternshipComponent implements OnInit {
   goBack() {
     this.router.navigate(['/view-internships']);
   }
+
+ 
+  
 
 }

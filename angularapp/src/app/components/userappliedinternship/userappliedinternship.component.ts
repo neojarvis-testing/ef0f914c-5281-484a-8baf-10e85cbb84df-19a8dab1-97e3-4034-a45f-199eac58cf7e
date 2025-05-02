@@ -44,7 +44,7 @@ export class UserappliedinternshipComponent implements OnInit {
     if (this.searchText.trim() === ''){
       this.filteredInternshipApplications = this.internships;
     } else {
-      this.filteredInternshipApplications = this.internships.filter(internship => internship.Intership.CompanyName.toLowerCase().includes(this.searchText.toLowerCase())
+      this.filteredInternshipApplications = this.internships.filter(internship => internship.Intership.companyName.toLowerCase().includes(this.searchText.toLowerCase())
       );
     }
   }

@@ -10,7 +10,7 @@ import { InternshipApplication } from '../models/internshipapplication.model';
 })
 export class InternshipService {
 
-  public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
+  public apiUrl = 'https://8080-cfccafadfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
   public applicationApiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
  
   constructor(private http: HttpClient) {}
@@ -41,7 +41,7 @@ export class InternshipService {
   }
  
   deleteInternship(internshipId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${internshipId}`, this.getHeaders());
+    return this.http.delete<void>(`${this.apiUrl}/${internshipId}`,this.getHeaders());
   }
  
   getAppliedInternships(userId: number): Observable<InternshipApplication[]> {

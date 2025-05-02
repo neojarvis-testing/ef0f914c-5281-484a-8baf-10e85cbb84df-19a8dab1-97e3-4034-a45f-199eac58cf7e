@@ -13,7 +13,7 @@ export class FeedbackService {
 
 
 
-  private apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
+  private apiUrl = 'https://8080-cfccafadfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
 
 
 
