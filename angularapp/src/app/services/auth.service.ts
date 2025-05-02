@@ -8,7 +8,6 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  // https://ide-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/proxy/8080/
   public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io'; 
   private tokenKey = 'authToken'; 
   public roleSubject = new BehaviorSubject<string | null>(null);
@@ -54,9 +53,13 @@ export class AuthService {
     localStorage.setItem(this.tokenKey, token);
     const decodedToken = this.decodeJwtToken(token);
     if (decodedToken) {
+      console.log(decodedToken);
+      
       const role = decodedToken.role?.toLowerCase() || '';
+      const id = decodedToken.nameid;
       console.log('Decoded role:', role); // 🔥 Debugging output
       localStorage.setItem('role', role);
+      localStorage.setItem('userId', id);
       this.roleSubject.next(role);
     }
   }
@@ -99,6 +102,11 @@ export class AuthService {
         }
     }
     return null;
+
+
+  // getUserId(): number {
+  //   const storedUserId = localStorage.getItem('userId');
+  //   return storedUserId ? Number(storedUserId) : -1; // Return -1 if not found
 }
 
 
