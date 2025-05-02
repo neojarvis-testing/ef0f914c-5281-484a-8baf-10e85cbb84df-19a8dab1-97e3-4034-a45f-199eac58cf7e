@@ -65,9 +65,9 @@ export class ViewinternshipComponent implements OnInit {
 
     this.filteredInternships = this.internships.filter(internship =>
 
-      internship.CompanyName.toLowerCase().includes(this.companyNameSearch.toLowerCase()) &&
+      internship.companyName.toLowerCase().includes(this.companyNameSearch.toLowerCase()) &&
 
-      internship.Location.toLowerCase().includes(this.locationSearch.toLowerCase())
+      internship.location.toLowerCase().includes(this.locationSearch.toLowerCase())
 
     );
 
@@ -77,8 +77,8 @@ export class ViewinternshipComponent implements OnInit {
 
   editInternship(internshipId: number): void {
 
-    this.router.navigate(['/admineditinternship', internshipId]); // Pass the internship ID as a parameter
-
+    console.log('Editing internship with ID:', internshipId);
+    this.router.navigate([`/admin/admineditinternship/${internshipId}`]);
   }
  
   // Delete an internship

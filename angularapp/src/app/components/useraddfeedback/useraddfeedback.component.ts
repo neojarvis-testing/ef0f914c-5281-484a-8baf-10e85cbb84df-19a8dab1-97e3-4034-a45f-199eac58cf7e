@@ -3,7 +3,7 @@ import { Feedback } from 'src/app/models/feedback.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-
+ 
 @Component({
   selector: 'app-useraddfeedback',
   templateUrl: './useraddfeedback.component.html',
@@ -15,21 +15,21 @@ export class UseraddfeedbackComponent implements OnInit {
     FeedbackText: '',
     Date: new Date()
   };
-
+ 
   showSuccessPopup = false;
   validationMessage = '';
-
+ 
   constructor(private feedbackService: FeedbackService, private authService: AuthService, private router: Router) { }
-
+ 
   ngOnInit(): void {
   }
-
+ 
   submitFeedback(): void {
-
+ 
     console.log("Feedback object:", this.feedbackss);
     this.feedbackss.UserId = +this.authService.getUserId();
     console.log(this.feedbackss.UserId);
-
+ 
     if (!this.feedbackss.FeedbackText.trim()) {
       this.validationMessage = 'Feedback is required';
       return;
@@ -41,7 +41,7 @@ export class UseraddfeedbackComponent implements OnInit {
     this.feedbackService.sendFeedback(this.feedbackss).subscribe({
       next: () => {
         console.log("Secc");
-
+ 
         this.showSuccessPopup = true;
         setTimeout(() => {
           this.router.navigate(['/user/view-feedbacks']);
@@ -54,8 +54,9 @@ export class UseraddfeedbackComponent implements OnInit {
       }
     });
   }
-
+ 
   closeSuccessPopup(): void {
     this.showSuccessPopup = false;
   }
 }
+ 

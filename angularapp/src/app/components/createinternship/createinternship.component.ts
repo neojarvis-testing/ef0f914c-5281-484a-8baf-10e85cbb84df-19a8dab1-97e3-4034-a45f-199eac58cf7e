@@ -20,8 +20,8 @@ export class CreateinternshipComponent implements OnInit {
     this.internshipService.getAllInternships().subscribe(
       internships => {
         this.existingCompanies = internships
-          .filter(internship => internship.CompanyName) // Ensure CompanyName exists
-          .map(internship => internship.CompanyName.trim().toLowerCase()); // Handle data cleanly
+          .filter(internship => internship.companyName) // Ensure companyName exists
+          .map(internship => internship.companyName.trim().toLowerCase()); // Handle data cleanly
       },
       error => {
         console.error('Error fetching internships:', error);
