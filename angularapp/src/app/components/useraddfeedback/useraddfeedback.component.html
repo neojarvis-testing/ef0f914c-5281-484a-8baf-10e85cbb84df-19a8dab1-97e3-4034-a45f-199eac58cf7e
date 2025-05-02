@@ -1,4 +1,5 @@
 <form (ngSubmit)="submitFeedback()">
+  <h2>Add Feedback</h2>
     <label for="date">Date:</label>
     <input type="date" id="date" [(ngModel)]="feedbackss.Date" name="Date" [value]="feedbackss.Date | date:'yyyy-MM-dd'" required />
   

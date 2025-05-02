@@ -12,8 +12,8 @@ export class FeedbackService {
   constructor(private http: HttpClient) {}
 
 
-
-  private apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
+ // https://8080-bdbedbadfdcfdfddaeecadabeafeaccfe.premiumproject.examly.io/api
+  private apiUrl = 'https://8080-bdbedbadfdcfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/feedback';
 
 
 
