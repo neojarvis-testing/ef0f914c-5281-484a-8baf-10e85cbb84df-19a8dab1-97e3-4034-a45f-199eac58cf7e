@@ -85,7 +85,7 @@ namespace dotnetapp.Controllers
                 {
                     // Log successful addition of internship
                     log.Info("Internship record added successfully.");
-                    return Ok("Internship added successfully");
+                    return Ok();
                 }
                 
                 

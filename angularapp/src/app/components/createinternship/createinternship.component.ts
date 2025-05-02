@@ -20,7 +20,7 @@ export class CreateinternshipComponent implements OnInit {
     this.internshipService.getAllInternships().subscribe(
       internships => {
         this.existingCompanies = internships
-          .filter(internship => internship.CompanyName) // Ensure companyName exists
+          .filter(internship => internship.CompanyName) // Ensure CompanyName exists
           .map(internship => internship.CompanyName.trim().toLowerCase()); // Handle data cleanly
       },
       error => {

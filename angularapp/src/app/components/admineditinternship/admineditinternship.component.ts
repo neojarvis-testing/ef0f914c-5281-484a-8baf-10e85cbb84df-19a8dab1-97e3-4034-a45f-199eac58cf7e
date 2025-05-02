@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Internship } from 'src/app/models/internship.model';
 import { InternshipService } from 'src/app/services/internship.service';
 
 
@@ -10,44 +11,41 @@ import { InternshipService } from 'src/app/services/internship.service';
   styleUrls: ['./admineditinternship.component.css']
 })
 export class AdmineditinternshipComponent implements OnInit {
+  internshipId: number;
   showSuccess = false;
   formError = '';
-  existingCompanies: string[] = []; // Array to store fetched company names
 
-  constructor(private internshipService: InternshipService, private router: Router) {}
+  internship: Internship = 
+    { 
+      InternshipId : 0, 
+      Title: "",
+      CompanyName: "",
+      Location: "",
+      DurationInMonths: 0,
+      Stipend: 0,
+      Description: "",
+      SkillsRequired: "",
+      ApplicationDeadline: ""
+    };
+ 
+  constructor(private internshipService: InternshipService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.internshipService.getAllInternships().subscribe(
-      internships => {
-        this.existingCompanies = internships
-          .filter(internship => internship.CompanyName) // Ensure companyName exists
-          .map(internship => internship.CompanyName.trim().toLowerCase()); // Handle data cleanly
-      },
-      error => {
-        console.error('Error fetching internships:', error);
-        this.formError = '*Failed to load existing internships';
+    this.route.params.subscribe((p)=> {
+      this.internshipId = Number(p['id']);
+      if(this.internshipId){
+        this.internshipService.getInternshipById(this.internshipId).subscribe((data)=>{
+          this.internship = data;
+        });
       }
-    );
+    })
   }
 
   onSubmit(form: NgForm): void {
     if (form.valid) {
-      const formData = form.value;
-
-      // Check for duplicate company name using fetched data
-      const isDuplicate = this.checkDuplicateCompany(formData.companyName);
-      if (isDuplicate) {
-        this.formError = '*Company with the same name already exists';
-        return;
-      }
-
-      this.formError = '';
-      console.log('Form submitted successfully:', formData);
-
-      // Add internships to the internships list
-      this.internshipService.addInternship(formData).subscribe(() => {
+      this.internshipService.updateInternship(this.internshipId, this.internship).subscribe(()=>{
         this.router.navigate(['/viewInternships']);
-      });
+      })
       this.showSuccess = true;
 
       // Reset form
@@ -59,11 +57,6 @@ export class AdmineditinternshipComponent implements OnInit {
 
   closeSuccessPopup(): void {
     this.showSuccess = false;
-  }
-
-  checkDuplicateCompany(companyName: string): boolean {
-    // Check if the company name exists in the fetched list
-    return this.existingCompanies.includes(companyName.trim().toLowerCase());
   }
 
   goBack() {

@@ -99,7 +99,7 @@ namespace dotnetapp.Controllers
                 {
                     // Logging successful addition of the internship application.
                     log.Info("Internship application added successfully.");
-                    return Ok("Internship application added successfully"); // 200 OK response
+                    return Ok(); // 200 OK response
                 }
 
                 // Logging that invalid data was provided.

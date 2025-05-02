@@ -1,119 +1,127 @@
-/* Container Styling */
-.container {
+/* Container styling */
+.internships-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
-  max-width: 600px;
-  margin: auto;
-  font-family: Arial, sans-serif;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Search Bar Styling */
-.search-bar {
+/* Header */
+.internships-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.line {
   width: 100%;
-  padding: 10px;
+  height: 3px;
+  background: #007bff;
+  border: none;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+}
+
+/* Search Bar */
+.search-bar {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   font-size: 16px;
 }
 
-/* Internship Card Styling */
-.internship-card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.internship-card h3 {
-  margin: 0 0 10px;
-  color: #333;
-}
-
-.internship-card p {
-  margin: 5px 0;
-}
-
-.actions {
-  display: flex;
-  gap: 10px;
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
   margin-top: 10px;
 }
 
-.actions button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.actions button:hover {
-  opacity: 0.8;
-}
-
-.delete-btn {
-  background-color: #f44336;
+table thead {
+  background: #007bff;
   color: white;
 }
 
-/* Popup Styling */
-.popup {
+table th, table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background: #f1f1f1;
+}
+
+/* Action Buttons */
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.redButton {
+  background: #dc3545;
+  color: white;
+}
+
+.redButton:hover {
+  background: #c82333;
+}
+
+/* Pagination */
+.pagination-controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* No Records Message */
+#noRecordsFound {
+  font-size: 18px;
+  color: #777;
+  margin-top: 15px;
+}
+
+/* Modal Styling */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
+  justify-content: center;
 }
 
-.popup-content {
+.modal-dialog {
   background: white;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  width: 90%;
-  max-width: 500px;
 }
 
-.popup-content p {
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-.popup-actions {
+.modal-footer {
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  justify-content: space-between;
+  padding-top: 10px;
 }
 
-.popup-actions button {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.confirm-btn {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.confirm-btn:hover {
-  background-color: #45a049;
-}
-
-.popup button:hover {
-  opacity: 0.9;
-}
-
-/* Resume Frame Styling */
-.resume-frame {
-  width: 100%;
-  height: 400px;
-  border: none;
+.modal-footer button {
+  width: 48%;
 }

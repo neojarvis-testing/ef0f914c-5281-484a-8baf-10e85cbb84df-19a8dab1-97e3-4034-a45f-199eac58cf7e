@@ -28,7 +28,7 @@ export class FeedbackService {
   }
 
   getAllFeedbacksByUserId(userId: number): Observable<Feedback[]> {
-    return this.http.get<Feedback[]>(`${this.apiUrl}/user/${userId}`, this.getHeaders());
+    return this.http.get<Feedback[]>(`${this.apiUrl}/${userId}`, this.getHeaders());
   }
 
   deleteFeedback(feedbackId: number): Observable<void> {

@@ -93,7 +93,7 @@ namespace dotnetapp.Controllers
                 {
                     // Logging successful response: Confirms feedback addition was successful
                     log.Info("Feedback added successfully.");
-                    return Ok("Feedback added successfully");
+                    return Ok();
                 }
 
                 // Logging warning: Indicates invalid feedback data was provided
