@@ -27,35 +27,43 @@ export class UserappliedinternshipComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const storedUser = localStorage.getItem('role');
-    const user = JSON.parse(storedUser);
-    this.userId = user.userId;
-    // this.userId = +this.authService.getUserID();
+    // const storedUser = localStorage.getItem('role');
+    // const user = JSON.parse(storedUser);
+    // this.userId = user.userId;
+    this.userId = +this.authService.getUserId();
+    console.log("User ID:", this.userId);
     this.getInternships();
   }
 
   getInternships(): void {
     this.internshipService.getAppliedInternships(this.userId).subscribe((data) => {
-      console.log("API Response:", data); // Debugging Output
+      console.log("API Response:", data); // ✅ Log full data
       this.internships = data;
       this.filteredInternshipApplications = data;
     });
   }
-  
 
   searchInternships(): void {
-    if (this.searchText.trim() === ''){
-      this.filteredInternshipApplications = this.internships;
-    } else {
-      this.filteredInternshipApplications = this.internships.filter(internship => internship.Intership.companyName.toLowerCase().includes(this.searchText.toLowerCase())
+    if (this.searchText.trim()) {
+      this.filteredInternshipApplications = this.internships.filter(appliedInternship =>
+        appliedInternship.internship?.companyName?.toLowerCase().includes(this.searchText.toLowerCase()) // ✅ Ensure `internship` exists before filtering
       );
+    } else {
+      this.filteredInternshipApplications = this.internships; // ✅ Reset list when input is empty
+    }
+    // console.log(this.filteredInternshipApplications);
+  }
+  
+  openDeleteDialog(application: InternshipApplication): void {
+    if (application) {
+      this.selectedApplication = application; // ✅ Ensures correct assignment
+      this.isDeleteDialogOpen = true;
+      console.log("Selected Application for Deletion:", this.selectedApplication); // ✅ Debugging log
+    } else {
+      console.error("Invalid Internship Application received."); // ✅ Error handling
     }
   }
-
-  openDeleteDialog(application: InternshipApplication): void {
-    this.selectedApplication = application;
-    this.isDeleteDialogOpen = true;
-  }
+  
 
   closeDeleteDialog(): void {
     this.isDeleteDialogOpen = false;
@@ -63,22 +71,41 @@ export class UserappliedinternshipComponent implements OnInit {
   }
 
   confirmDelete(): void {
-    if (this.selectedApplication?.InternshipApplicationId) {
-      this.internshipService.deleteInternshipApplication(this.selectedApplication.InternshipApplicationId).subscribe(() => {
-        this.getInternships();
-        this.closeDeleteDialog();
-      });
+    if (!this.selectedApplication || !this.selectedApplication.internshipApplicationId) {
+      console.error("Error: No internship selected for deletion.");
+      return;
     }
-  }
-
+  
+    console.log("Attempting to delete Internship ID:", this.selectedApplication.internshipApplicationId);
+  
+    this.internshipService.deleteInternshipApplication(this.selectedApplication.internshipApplicationId).subscribe(() => {
+      console.log("Internship deleted successfully.");
+  
+      this.filteredInternshipApplications = this.filteredInternshipApplications.filter(
+        (i) => i.internshipApplicationId !== this.selectedApplication.internshipApplicationId
+      );
+      
+      this.internships = this.internships.filter(
+        (i) => i.internshipApplicationId !== this.selectedApplication.internshipApplicationId
+      );
+  
+      this.closeDeleteDialog();
+    }, (error) => {
+      console.error("Error deleting internship:", error);
+    });
+  }  
+  
   openResumeDialog(application: InternshipApplication): void {
-    if (application.Resume) {
+    if (application && application.resume) {
       this.selectedApplication = application;
       this.isResumeDialogOpen = true;
+      console.log("Opening Resume for:", application.resume); // ✅ Debugging log
     } else {
-      alert('Resume not available');
+      alert('Resume not available or missing.');
+      console.warn("Resume is missing for:", application); // ✅ Additional debugging log
     }
   }
+  
 
   closeResumeDialog(): void {
     this.isResumeDialogOpen = false;
