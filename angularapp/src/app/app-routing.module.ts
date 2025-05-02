@@ -35,6 +35,7 @@ const routes: Routes = [
       { path: 'feedbacks', component: AdminviewfeedbackComponent },
       { path: 'createinternship', component: CreateinternshipComponent },
       { path: 'viewinternship', component: ViewinternshipComponent },
+      { path: 'admineditinternship/:internshipId', component: AdmineditinternshipComponent}
     ],
   },
 

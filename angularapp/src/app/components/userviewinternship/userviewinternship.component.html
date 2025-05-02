@@ -1,26 +1,4 @@
 
-<div class="feedback-container">
-    <h2>My Feedback</h2>
-  
-    <div *ngFor="let feedback of feedbackList" class="feedback-card">
-      <div class="feedback-content">
-        <p><strong>Date:</strong> {{ feedback.Date | date:'MMMM d, y' }}</p>
-        <p>{{ feedback.FeedbackText }}</p>
-      </div>
-      <button class="delete-btn" (click)="confirmDelete(feedback.FeedbackId)">Delete</button>
-    </div>
-  
-    <!-- Delete Confirmation Modal -->
-    <div *ngIf="showDeleteConfirm" class="modal">
-      <div class="modal-content">
-        <p>Are you sure you want to delete this feedback?</p>
-        <button class="confirm-delete" (click)="deleteFeedback()">Yes, Delete</button>
-        <button class="cancel-delete" (click)="cancelDelete()">Cancel</button>
-      </div>
-    </div>
-  </div>
-  
-
 <div class="container">
   <!-- Heading -->
   <h1>Available Internship Opportunities</h1>
