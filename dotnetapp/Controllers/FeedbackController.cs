@@ -126,7 +126,7 @@ namespace dotnetapp.Controllers
                 {
                     // Logging successful response: Confirms feedback deletion
                     log.Info($"Feedback ID {feedbackId} deleted successfully.");
-                    return Ok("Feedback deleted successfully");
+                    return Ok();
                 }
 
                 // Logging warning: Indicates feedback not found in the database

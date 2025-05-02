@@ -1,1 +1,12 @@
-<p>useraddfeedback works!</p>
+<form (ngSubmit)="submitFeedback()">
+    <label for="date">Date:</label>
+    <input type="date" id="date" [(ngModel)]="feedbackss.Date" name="Date" [value]="feedbackss.Date | date:'yyyy-MM-dd'" required />
+  
+    <label for="feedbackText">Your Feedback:</label>
+    <textarea class="feedback-input" [(ngModel)]="feedbackss.FeedbackText" name="FeedbackText" placeholder="Write your feedback here..." required></textarea>
+  
+    <p class="validation-message" *ngIf="validationMessage">{{ validationMessage }}</p>
+  
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+  

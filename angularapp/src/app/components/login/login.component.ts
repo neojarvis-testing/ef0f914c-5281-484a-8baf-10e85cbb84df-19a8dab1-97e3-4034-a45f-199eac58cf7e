@@ -41,17 +41,19 @@ export class LoginComponent {
    * @param form - NgForm instance containing user input validation.
    */
   login(form: NgForm): void {
-    // Ensure form is valid before proceeding
     if (form.valid) {
-      this.authService.login(this.user).subscribe(
-        response => {
-          console.log('Login successful', response);
-        },
-        error => {
-          console.error('Login failed', error);
-          this.errorMessage = 'Invalid email or password. Please try again.';
+      this.authService.login(this.user).subscribe(response => {
+        const role = this.authService.getUserRole();
+        if (role === 'admin') {
+          this.router.navigate(['/admin/home']);
+        } else if (role === 'user') {
+          this.router.navigate(['/user/home']);
+        } else {
+          this.router.navigate(['/error']); // Redirect unknown roles
         }
-      );
+      }, error => {
+        this.errorMessage = 'Invalid email or password. Please try again.';
+      });
     }
   }
 }
