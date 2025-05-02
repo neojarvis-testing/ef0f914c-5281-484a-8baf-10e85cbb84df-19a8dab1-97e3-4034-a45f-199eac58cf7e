@@ -11,7 +11,9 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
+
+  private apiUrl = 'https://8080-bdbedbadfdcfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/feedback';
+
 
   private getHeaders() {
     const token = localStorage.getItem('authToken');
