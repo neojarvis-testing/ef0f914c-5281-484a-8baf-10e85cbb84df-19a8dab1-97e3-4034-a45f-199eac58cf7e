@@ -44,7 +44,7 @@ export class AdmineditinternshipComponent implements OnInit {
   onSubmit(form: NgForm): void {
     if (form.valid) {
       this.internshipService.updateInternship(this.internshipId, this.internship).subscribe(()=>{
-        this.router.navigate(['/viewInternships']);
+        this.router.navigate(['/view-internships']);
       })
       this.showSuccess = true;
 
@@ -60,7 +60,7 @@ export class AdmineditinternshipComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/viewInternships']);
+    this.router.navigate(['/view-internships']);
   }
 
 }
