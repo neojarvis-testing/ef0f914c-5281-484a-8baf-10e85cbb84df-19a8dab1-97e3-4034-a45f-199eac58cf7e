@@ -1,14 +1,17 @@
 <div class="container">
-  <!-- Heading -->
   <h1>Available Internship Opportunities</h1>
 
-  <!-- Check if internships exist -->
-  <div *ngIf="internships.length === 0">
-    <p>Oops! No records Found</p>
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search by Company Name or Location" />
+    <button class="btn btn-search" (click)="searchInternships()">Search</button>
   </div>
 
-  <!-- Display internships in a table -->
-  <table *ngIf="internships.length > 0" class="styled-table">
+  <div *ngIf="filteredInternships.length === 0">
+    <p>Oops! No records found.</p>
+  </div>
+
+  <table *ngIf="filteredInternships.length > 0" class="styled-table">
     <thead>
       <tr>
         <th>S.No</th>
@@ -23,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let internship of internships; let i = index">
+      <tr *ngFor="let internship of filteredInternships; let i = index">
         <td>{{ i + 1 }}</td>
         <td>{{ internship.title }}</td>
         <td>{{ internship.companyName }}</td>
@@ -34,15 +37,85 @@
         <td>{{ internship.applicationDeadline | date }}</td>
         <td>
           <button
-            [disabled]="isApplied(internship.id)"
+            [disabled]="hasApplied(internship.internshipId)"
             class="btn btn-green"
-            *ngIf="!isApplied(internship.id)"
-            (click)="applyInternship(internship.id)">
+            *ngIf="!hasApplied(internship.internshipId)"
+            (click)="applyForInternship(internship.internshipId)">
             Apply
           </button>
-          <span *ngIf="isApplied(internship.id)" class="applied-label">Applied</span>
+          <span *ngIf="hasApplied(internship.internshipId)" class="applied-label">Applied</span>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<!-- Styles -->
+<style>
+  .container {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .styled-table th, .styled-table td {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  .styled-table th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+  }
+
+  .styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+  }
+
+  .btn-green {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  .btn-green:hover {
+    background-color: darkgreen;
+  }
+
+  .applied-label {
+    color: gray;
+    font-weight: bold;
+  }
+
+  .search-bar {
+    margin-bottom: 20px;
+  }
+
+  .search-bar input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+  }
+
+  .search-bar button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .search-bar button:hover {
+    background-color: #0056b3;
+  }
+</style>

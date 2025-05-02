@@ -44,6 +44,7 @@ export class UseraddfeedbackComponent implements OnInit {
  
         this.showSuccessPopup = true;
         setTimeout(() => {
+
           this.router.navigate(['/user/view-feedbacks']);
         }, 1000);
         this.feedbackss.FeedbackText = '';
