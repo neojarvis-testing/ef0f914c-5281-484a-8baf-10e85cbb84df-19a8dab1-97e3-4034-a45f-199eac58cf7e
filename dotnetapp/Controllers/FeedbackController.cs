@@ -93,7 +93,7 @@ namespace dotnetapp.Controllers
                 {
                     // Logging successful response: Confirms feedback addition was successful
                     log.Info("Feedback added successfully.");
-                    return Ok("Feedback added successfully");
+                    return Ok();
                 }
 
                 // Logging warning: Indicates invalid feedback data was provided
@@ -126,7 +126,7 @@ namespace dotnetapp.Controllers
                 {
                     // Logging successful response: Confirms feedback deletion
                     log.Info($"Feedback ID {feedbackId} deleted successfully.");
-                    return Ok("Feedback deleted successfully");
+                    return Ok();
                 }
 
                 // Logging warning: Indicates feedback not found in the database
