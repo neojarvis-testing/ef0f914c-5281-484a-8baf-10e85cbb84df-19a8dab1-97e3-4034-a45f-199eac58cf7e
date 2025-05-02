@@ -1,71 +1,48 @@
-<div class="feedback-container">
-    <h2>My Feedback</h2>
-  
-    <div *ngFor="let feedback of feedbackList" class="feedback-card">
-      <div class="feedback-content">
-        <p><strong>Date:</strong> {{ feedback.Date | date:'MMMM d, y' }}</p>
-        <p>{{ feedback.FeedbackText }}</p>
-      </div>
-      <button class="delete-btn" (click)="confirmDelete(feedback.FeedbackId)">Delete</button>
-    </div>
-  
-    <!-- Delete Confirmation Modal -->
-    <div *ngIf="showDeleteConfirm" class="modal">
-      <div class="modal-content">
-        <p>Are you sure you want to delete this feedback?</p>
-        <button class="confirm-delete" (click)="deleteFeedback()">Yes, Delete</button>
-        <button class="cancel-delete" (click)="cancelDelete()">Cancel</button>
-      </div>
-    </div>
-  </div>
-  
 <div class="container">
-    <!-- Heading -->
-    <h1>Available Internship Opportunities</h1>
-     
-      <!-- Check for empty records -->
-    <div *ngIf="internships.length === 0" class="no-records">
-    <h2>Oops! No records Found</h2>
-    </div>
-     
-      <!-- Internship Table -->
-    <div *ngIf="internships.length > 0">
-    <table class="table table-striped">
+  <!-- Heading -->
+  <h1>Available Internship Opportunities</h1>
+ 
+  <!-- Check if internships exist -->
+  <div *ngIf="internships.length === 0">
+    <p>Oops! No records Found</p>
+  </div>
+ 
+  <!-- Display internships in a table -->
+  <table *ngIf="internships.length > 0" class="styled-table">
     <thead>
-    <tr>
-    <th>Title</th>
-    <th>Company Name</th>
-    <th>Location</th>
-    <th>Duration</th>
-    <th>Stipend</th>
-    <th>Actions</th>
-    </tr>
+      <tr>
+        <th>S.No</th>
+        <th>Internship Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Duration (Months)</th>
+        <th>Stipend</th>
+        <th>Skills Required</th>
+        <th>Application Deadline</th>
+        <th>Action</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let internship of internships">
-    <td>{{ internship.Title }}</td>
-    <td>{{ internship.CompanyName }}</td>
-    <td>{{ internship.Location }}</td>
-    <td>{{ internship.DurationInMonths }} months</td>
-    <td>{{ internship.Stipend | currency }}</td>
-    <td>
-    <!-- Check applied status -->
-    <button
-    
-                  class="btn"
-    
-                  [ngClass]="hasApplied(internship.InternshipId) ? 'btn-secondary' : 'btn-primary'"
-    
-                  [disabled]="hasApplied(internship.InternshipId)"
-    
-                  (click)="applyForInternship(internship.InternshipId)"
-    >
-    
-                  {{ hasApplied(internship.InternshipId) ? 'Applied' : 'Apply' }}
-    </button>
-    </td>
-    </tr>
+      <tr *ngFor="let internship of internships; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ internship.title }}</td>
+        <td>{{ internship.companyName }}</td>
+        <td>{{ internship.location }}</td>
+        <td>{{ internship.durationInMonths }}</td>
+        <td>{{ internship.stipend | currency }}</td>
+        <td>{{ internship.skillsRequired }}</td>
+        <td>{{ internship.applicationDeadline | date }}</td>
+        <td>
+          <button
+            [disabled]="isApplied(internship.id)"
+            class="btn btn-green"
+            *ngIf="!isApplied(internship.id)"
+            (click)="applyInternship(internship.id)">
+            Apply
+          </button>
+          <span *ngIf="isApplied(internship.id)" class="applied-label">Applied</span>
+        </td>
+      </tr>
     </tbody>
-    </table>
-    </div>
-    </div>
+  </table>
+</div>

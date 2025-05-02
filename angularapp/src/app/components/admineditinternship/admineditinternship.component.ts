@@ -46,7 +46,7 @@ export class AdmineditinternshipComponent implements OnInit {
 
       // Add internships to the internships list
       this.internshipService.addInternship(formData).subscribe(() => {
-        this.router.navigate(['/viewInternships']);
+        this.router.navigate(['/view-internships']);
       });
       this.showSuccess = true;
 
