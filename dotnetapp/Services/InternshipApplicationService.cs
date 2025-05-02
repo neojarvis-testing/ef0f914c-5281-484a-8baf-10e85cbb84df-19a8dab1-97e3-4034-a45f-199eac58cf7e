@@ -28,7 +28,10 @@ namespace dotnetapp.Services
         public async Task<IEnumerable<InternshipApplication>> GetAllInternshipApplications()
         {
             // Querying the database to get all internship applications.
-            return await _context.InternshipApplications.ToListAsync();
+            return await _context.InternshipApplications
+            .Include(a => a.User)
+            .Include(a => a.Internship)
+            .ToListAsync();
         }
 
         // Retrieves internship applications associated with a specific user ID.
@@ -38,6 +41,8 @@ namespace dotnetapp.Services
             // Querying the database for internship applications where the UserId matches.
             return await _context.InternshipApplications
                 .Where(application => application.UserId == userId)
+                .Include(a => a.User)
+                .Include(a => a.Internship)
                 .ToListAsync();
         }
 
