@@ -45,10 +45,10 @@ namespace dotnetapp.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime ApplicationDate { get; set; }
 
-        [JsonIgnore]
+        [JsonIgnore(Condition=JsonIgnoreCondition.WhenWritingNull)]
         public User? User { get; set; }
 
-        [JsonIgnore]
+        [JsonIgnore(Condition=JsonIgnoreCondition.WhenWritingNull)]
         public Internship? Internship { get; set; }
     }
 }
