@@ -45,6 +45,6 @@ export class InternshipformComponent implements OnInit {
     }
 
     alert('Successfully Submitted!'); // Success popup
-    this.router.navigate(['/userviewinternship']); // Redirect to userviewinternship
+    this.router.navigate(['/admin/userviewinternship']); // Redirect to userviewinternship
   }
 }

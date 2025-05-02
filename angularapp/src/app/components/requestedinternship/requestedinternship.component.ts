@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-requestedinternship',
@@ -6,19 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./requestedinternship.component.css']
 })
 export class RequestedinternshipComponent implements OnInit {
-  applications: Array<any> = []; // List of internship applications
+  applications: Array<any> = []; // List of applications
   filteredApplications: Array<any> = []; // Filtered list
   degreeProgramSearch: string = ''; // Search for Degree Program
   statusFilter: string = ''; // Filter by Status
   selectedResume: string | null = null; // Resume selected for popup display
 
-  constructor() {}
+  constructor(private route:Router) {}
 
   ngOnInit(): void {
     this.loadApplications(); // Load mock data
   }
 
-  // Load applications (mock data for now)
+  /** Load mock applications */
   loadApplications(): void {
     this.applications = [
       {
@@ -45,7 +46,7 @@ export class RequestedinternshipComponent implements OnInit {
     this.filteredApplications = [...this.applications]; // Initialize filtered list
   }
 
-  // Search and filter applications
+  /** Search and filter applications */
   searchAndFilter(): void {
     this.filteredApplications = this.applications.filter(application =>
       application.DegreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase()) &&
@@ -53,30 +54,29 @@ export class RequestedinternshipComponent implements OnInit {
     );
   }
 
-  // Approve application
+  /** Approve application and hide only Approve button */
   approveApplication(index: number): void {
-    this.applications[index].Status = 'Approved'; // Change status to Approved
-    this.searchAndFilter(); // Refresh filtered list
+    this.filteredApplications[index].Status = 'Approved'; // Change status
   }
 
-  // Reject application
+  /** Reject application and hide only Reject button */
   rejectApplication(index: number): void {
-    this.applications[index].Status = 'Rejected'; // Change status to Rejected
-    this.searchAndFilter(); // Refresh filtered list
+    this.filteredApplications[index].Status = 'Rejected'; // Change status
   }
 
-  // View resume popup
+  /** View Resume in Popup */
   viewResume(resume: string): void {
-    this.selectedResume = resume; // Set selected resume for popup
+    this.selectedResume = resume; // Set selected resume
   }
 
-  // Close resume popup
+  /** Close Resume Popup */
   closePopup(): void {
-    this.selectedResume = null; // Reset selected resume
+    this.selectedResume = null; // Reset popup
   }
 
-  // Navigate to Degree Program Chart
+  /** Navigate to Degree Program Chart */
   viewDegreeProgramChart(): void {
-    console.log('Navigating to Degree Program Chart...'); // Add your navigation logic here
+    this.route.navigate([`/admin/internshippiechart`]);
+    
   }
 }

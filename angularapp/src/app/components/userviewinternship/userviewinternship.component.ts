@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { InternshipService } from 'src/app/services/internship.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { Feedback } from 'src/app/models/feedback.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { Internship } from 'src/app/models/internship.model';
-
+import { InternshipApplication } from 'src/app/models/internshipapplication.model';
 
 @Component({
   selector: 'app-userviewinternship',
@@ -14,12 +12,13 @@ import { Internship } from 'src/app/models/internship.model';
   styleUrls: ['./userviewinternship.component.css']
 })
 export class UserviewinternshipComponent implements OnInit {
-  
+
   feedbackList: Feedback[] = [];
   showDeleteConfirm = false;
   selectedFeedbackId: number | null = null;
   internships: Internship[] = [];
   appliedInternships: number[] = [];
+  userId: number | null = null;
 
   constructor(
     private feedbackService: FeedbackService,
@@ -30,25 +29,30 @@ export class UserviewinternshipComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      const userId = Number(params['id']);
-      if (!isNaN(userId)) {
-        this.loadFeedbacks(userId);
+      this.userId = Number(params['id']);
+      if (!isNaN(this.userId)) {
+        this.loadFeedbacks();
+        this.loadAppliedInternships();
+      } else {
+        console.error('Invalid User ID:', params['id']);
       }
     });
 
     this.loadInternships();
-    this.loadAppliedInternships();
   }
 
-  loadFeedbacks(userId: number): void {
-    this.feedbackService.getAllFeedbacksByUserId(userId).subscribe(
-      data => {
-        this.feedbackList = data;
-      },
-      error => {
-        console.error('Error fetching feedback:', error);
-      }
-    );
+  loadFeedbacks(): void {
+    if (this.userId !== null) {
+      this.feedbackService.getAllFeedbacksByUserId(this.userId).subscribe(
+        (data) => {
+          this.feedbackList = data;
+          console.log('Feedback loaded:', this.feedbackList);
+        },
+        (error) => {
+          console.error('Error fetching feedback:', error);
+        }
+      );
+    }
   }
 
   confirmDelete(feedbackId: number): void {
@@ -58,11 +62,21 @@ export class UserviewinternshipComponent implements OnInit {
 
   deleteFeedback(): void {
     if (this.selectedFeedbackId !== null) {
-      this.feedbackService.deleteFeedback(this.selectedFeedbackId).subscribe(() => {
-        this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.selectedFeedbackId);
-        this.showDeleteConfirm = false;
-        this.selectedFeedbackId = null;
-      });
+      console.log('Deleting Feedback ID:', this.selectedFeedbackId);
+      this.feedbackService.deleteFeedback(this.selectedFeedbackId).subscribe(
+        () => {
+          this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.selectedFeedbackId);
+          this.showDeleteConfirm = false;
+          this.selectedFeedbackId = null;
+          alert('Feedback deleted successfully.');
+        },
+        (error) => {
+          console.error('Error deleting feedback:', error);
+          alert('Failed to delete feedback.');
+        }
+      );
+    } else {
+      console.error('Error: No feedback ID selected for deletion.');
     }
   }
 
@@ -73,17 +87,30 @@ export class UserviewinternshipComponent implements OnInit {
 
   loadInternships(): void {
     this.internshipService.getAllInternships().subscribe(
-      data => {
+      (data) => {
         this.internships = data;
+        console.log('Internships loaded:', this.internships);
       },
-      error => {
+      (error) => {
         console.error('Error fetching internships:', error);
       }
     );
   }
 
   loadAppliedInternships(): void {
-    this.appliedInternships = [1, 3]; // Replace with API call if needed
+    if (this.userId !== null) {
+      this.internshipService.getAppliedInternships(this.userId).subscribe(
+        (data: InternshipApplication[]) => {
+          this.appliedInternships = data.map(app => app.IntershipId);
+          console.log('Applied Internships:', this.appliedInternships);
+        },
+        (error) => {
+          console.error('Error fetching applied internships:', error);
+        }
+      );
+    } else {
+      console.error('Error: User ID is undefined.');
+    }
   }
 
   hasApplied(internshipId: number): boolean {
@@ -91,6 +118,44 @@ export class UserviewinternshipComponent implements OnInit {
   }
 
   applyForInternship(internshipId: number): void {
+    console.log('Navigating to apply for internship:', internshipId);
     this.router.navigate(['/internshipform', internshipId]);
   }
+
+  editInternship(internshipId: number | undefined): void {
+    console.log('Navigating to edit internship with ID:', internshipId);
+
+    if (internshipId === undefined) {
+      console.error('Error: Internship ID is undefined');
+      alert('Internship ID is missing, cannot edit.');
+      return;
+    }
+
+    this.router.navigate(['/admineditinternship', internshipId]);
+  }
+
+  deleteInternship(internshipId: number | undefined): void {
+    console.log('Attempting to delete Internship ID:', internshipId);
+
+    if (internshipId === undefined) {
+      console.error('Error: Internship ID is undefined');
+      alert('Internship ID is missing, cannot delete.');
+      return;
+    }
+
+    const confirmDelete = confirm('Are you sure you want to delete this internship?');
+    if (confirmDelete) {
+      this.internshipService.deleteInternship(internshipId).subscribe(
+        () => {
+          alert('Internship deleted successfully');
+          this.loadInternships();
+        },
+        (error) => {
+          console.error('Error deleting internship:', error);
+          alert('Error deleting internship. Please check the logs for more details.');
+        }
+      );
+    }
+  }
 }
+

@@ -17,6 +17,7 @@ import { UserappliedinternshipComponent } from './components/userappliedinternsh
 import { AdmineditinternshipComponent } from './components/admineditinternship/admineditinternship.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewinternshipComponent } from './components/viewinternship/viewinternship.component';
+import { InternshippiechartComponent } from './components/internshippiechart/internshippiechart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
       { path: 'feedbacks', component: AdminviewfeedbackComponent },
       { path: 'createinternship', component: CreateinternshipComponent },
       { path: 'viewinternship', component: ViewinternshipComponent },
+      { path:'internshippiechart',component:InternshippiechartComponent}
     ],
   },
 
@@ -49,6 +51,7 @@ const routes: Routes = [
       { path: 'applied-internships', component: UserappliedinternshipComponent },
       { path: 'post-feedback', component: UseraddfeedbackComponent },
       { path: 'view-feedbacks', component: UserviewfeedbackComponent },
+
     ],
   },
 

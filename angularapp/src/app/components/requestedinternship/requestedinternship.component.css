@@ -1,91 +1,129 @@
+/* Container Styling */
 .container {
-    margin: 20px auto;
-    width: 90%;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #343a40;
-  }
-  
-  .no-records {
-    text-align: center;
-    color: #dc3545; /* Red for no records found */
-  }
-  
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px; /* Responsive limit */
+}
+
+/* Page Title */
+h1 {
+  text-align: center;
+  color: #343a40;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* No Records Found Message */
+.no-records {
+  text-align: center;
+  color: #dc3545; /* Red for no records found */
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Search & Filter Section */
+.search-filter {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 10px; /* Space between elements */
+  justify-content: space-between;
+}
+
+.search-filter input,
+.search-filter select {
+  width: 48%;
+  padding: 10px;
+  border: 1px solid #ccc; /* Softer border */
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: #007bff; /* Updated color: blue */
+  color: white;
+  text-align: left;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Approve Button */
+.btn-success {
+  background-color: #28a745; /* Standard green */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838; /* Slightly darker green */
+}
+
+/* Reject Button */
+.reject-btn {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reject-btn:hover {
+  background-color: #c82333; /* Darker red */
+}
+
+/* Resume Popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Smooth shadow */
+}
+
+.popup-content iframe {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .search-filter {
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
   }
-  
+
   .search-filter input,
   .search-filter select {
-    width: 48%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: 100%; /* Full width on smaller screens */
   }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .table thead th {
-    background-color: #87ceeb; /* Sky blue */
-    color: black;
-    text-align: left;
-    padding: 10px;
-  }
-  
-  .table th,
-  .table td {
-    text-align: left;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .btn {
-    margin-right: 5px;
-  }
-  
-  .reject-btn {
-    background-color: #dc3545; /* Red */
-    color: white;
-    border: none;
-  }
-  
-  .reject-btn:hover {
-    background-color: #c82333; /* Darker red */
-  }
-  
-  .chart-btn {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  .popup-content iframe {
-    border: none;
-  }
-  
-  
+}
