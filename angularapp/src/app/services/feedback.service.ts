@@ -13,8 +13,6 @@ export class FeedbackService {
 
   private apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
 
-
-
   private getHeaders() {
     const token = localStorage.getItem('authToken');
     return {

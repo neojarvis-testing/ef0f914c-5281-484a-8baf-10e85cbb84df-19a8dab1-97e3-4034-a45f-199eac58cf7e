@@ -99,7 +99,7 @@ namespace dotnetapp.Controllers
                 {
                     // Logging successful addition of the internship application.
                     log.Info("Internship application added successfully.");
-                    return Ok("Internship application added successfully"); // 200 OK response
+                    return Ok(); // 200 OK response
                 }
 
                 // Logging that invalid data was provided.
@@ -136,7 +136,7 @@ namespace dotnetapp.Controllers
                 {
                     // Logging successful update.
                     log.Info($"Internship application with ID {internshipApplicationId} updated successfully.");
-                    return Ok("Internship application updated successfully"); // 200 OK response
+                    return Ok(internshipApplication); // 200 OK response
                 }
 
                 // Logging that the application was not found.
@@ -167,7 +167,7 @@ namespace dotnetapp.Controllers
                 {
                     // Logging successful deletion.
                     log.Info($"Internship application with ID {internshipApplicationId} deleted successfully.");
-                    return Ok("Internship application deleted successfully"); // 200 OK response
+                    return Ok(); // 200 OK response
                 }
 
                 // Logging that the application was not found.

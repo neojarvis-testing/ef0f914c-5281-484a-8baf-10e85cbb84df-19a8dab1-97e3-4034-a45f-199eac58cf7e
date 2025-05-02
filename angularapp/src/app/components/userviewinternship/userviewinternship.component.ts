@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
+import { InternshipService } from 'src/app/services/internship.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { Feedback } from 'src/app/models/feedback.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
-import { InternshipService } from 'src/app/services/internship.service';
 import { Internship } from 'src/app/models/internship.model';
+
 
 @Component({
   selector: 'app-userviewinternship',
@@ -11,6 +14,7 @@ import { Internship } from 'src/app/models/internship.model';
   styleUrls: ['./userviewinternship.component.css']
 })
 export class UserviewinternshipComponent implements OnInit {
+  
   feedbackList: Feedback[] = [];
   showDeleteConfirm = false;
   selectedFeedbackId: number | null = null;

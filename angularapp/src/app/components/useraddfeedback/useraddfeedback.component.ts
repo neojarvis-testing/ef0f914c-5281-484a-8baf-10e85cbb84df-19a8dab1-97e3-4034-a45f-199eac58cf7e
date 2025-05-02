@@ -43,7 +43,8 @@ export class UseraddfeedbackComponent implements OnInit {
       return;
     }
 
-    this.feedbackss.UserId = +this.authService.getUserID();
+    this.feedbackss.UserId = +this.authService.getUserId();
+    console.log(this.feedbackss.UserId);
 
     this.feedbackService.sendFeedback(this.feedbackss).subscribe({
       next: () => {
@@ -51,7 +52,7 @@ export class UseraddfeedbackComponent implements OnInit {
         
         this.showSuccessPopup = true;
         setTimeout(() => {
-          this.router.navigate(['/view-feedbacks']);
+          this.router.navigate(['/user/view-feedbacks']);
         }, 1000);
         this.feedbackss.FeedbackText = '';
       },

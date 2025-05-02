@@ -1,0 +1,91 @@
+.container {
+    margin: 20px auto;
+    width: 90%;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #343a40;
+  }
+  
+  .no-records {
+    text-align: center;
+    color: #dc3545; /* Red for no records found */
+  }
+  
+  .search-filter {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .search-filter input,
+  .search-filter select {
+    width: 48%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table thead th {
+    background-color: #87ceeb; /* Sky blue */
+    color: black;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .table th,
+  .table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .btn {
+    margin-right: 5px;
+  }
+  
+  .reject-btn {
+    background-color: #dc3545; /* Red */
+    color: white;
+    border: none;
+  }
+  
+  .reject-btn:hover {
+    background-color: #c82333; /* Darker red */
+  }
+  
+  .chart-btn {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .popup-content iframe {
+    border: none;
+  }
+  
+  
