@@ -27,10 +27,10 @@ export class UserappliedinternshipComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // const storedUser = localStorage.getItem('role');
-    // const user = JSON.parse(storedUser);
-    // this.userId = user.userId;
-    this.userId = +this.authService.getUserID();
+    const storedUser = localStorage.getItem('role');
+    const user = JSON.parse(storedUser);
+    this.userId = user.userId;
+    // this.userId = +this.authService.getUserID();
     this.getInternships();
   }
 

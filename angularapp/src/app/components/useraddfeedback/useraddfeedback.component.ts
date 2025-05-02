@@ -17,6 +17,8 @@ export class UseraddfeedbackComponent implements OnInit {
     Date: new Date()
   };
 
+  userId: number;
+
   showSuccessPopup = false;
   validationMessage = '';
 
@@ -33,6 +35,10 @@ export class UseraddfeedbackComponent implements OnInit {
     //     console.error("Error fetching User ID:", err);
     //   }
     // });
+
+    const storedUser = localStorage.getItem('role');
+    const user = JSON.parse(storedUser);
+    this.userId = user.userId;
   }
 
   submitFeedback(): void {
@@ -43,7 +49,6 @@ export class UseraddfeedbackComponent implements OnInit {
       return;
     }
 
-    this.feedbackss.UserId = +this.authService.getUserID();
     console.log(this.feedbackss.UserId);
 
     this.feedbackService.sendFeedback(this.feedbackss).subscribe({

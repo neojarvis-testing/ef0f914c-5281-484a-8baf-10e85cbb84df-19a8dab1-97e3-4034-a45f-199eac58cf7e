@@ -13,16 +13,19 @@ export class UserviewfeedbackComponent implements OnInit {
   feedbackList: Feedback[]=[];
   showDeleteConfirm = false;
   FeedbackByUserId: number;
+  userId: number;
   constructor(private feedbackService: FeedbackService, private router: Router, private activatedRoute:ActivatedRoute, private authService : AuthService ) { }
 
   ngOnInit(): void {
    this.loadFeedbacks();
-    
+   const storedUser = localStorage.getItem('role');
+   const user = JSON.parse(storedUser);
+   this.userId = user.userId;
   }
   loadFeedbacks(): void
   {
-  const userid = +this.authService.getUserID();
-    this.feedbackService.getAllFeedbacksByUserId(userid).subscribe(data => {
+  // const userid = +this.authService.getUserID();
+    this.feedbackService.getAllFeedbacksByUserId(this.userId).subscribe(data => {
       console.log(data);
       
       this.feedbackList = data;
