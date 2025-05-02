@@ -21,7 +21,6 @@ export class AuthGuard implements CanActivate {
       return this.router.parseUrl('/login'); 
     }
     
-  
     if (currentPath.startsWith('admin') && userRole !== 'admin') {
       return this.router.parseUrl('/error');
     }
@@ -29,11 +28,6 @@ export class AuthGuard implements CanActivate {
     if (currentPath.startsWith('user') && userRole?.toLowerCase() !== 'user') {
       return this.router.parseUrl('/error');
     }
-    
-  
     return true;
   }
 }
-
-
-

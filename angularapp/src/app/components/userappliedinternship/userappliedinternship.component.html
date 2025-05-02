@@ -1,8 +1,8 @@
 <div class="internships-container">
   <h2>Applied Internships</h2>
   <hr class="line"> <!-- Search Bar -->
-  <div class="search-bar"> <input type="text" id="searchInput" placeholder="Search by Company Name"
-      [(ngModel)]="searchText" (input)="searchInternships()" /> </div> <!-- Internship Table -->
+  <div class="search-bar"> <input type="text" placeholder="Search by Company Name or Location" [(ngModel)]="searchText"
+      (input)="searchInternships()" /> </div> <!-- Internship Table -->
   <table *ngIf="filteredInternshipApplications.length > 0; else noRecords">
     <thead>
       <tr>
@@ -17,16 +17,19 @@
     <tbody>
       <tr *ngFor="let item of filteredInternshipApplications; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ item.Internship?.companyName }}</td>
-        <td> <button (click)="openResumeDialog(item.resume)">View Resume</button> </td>
+        <td>{{ item.internship?.companyName }}</td>
+        <td> <button (click)="openResumeDialog(item)">View Resume</button> </td>
         <td>{{ item.applicationDate | date }}</td>
         <td>{{ item.applicationStatus }}</td>
         <td> <button class="redButton" (click)="openDeleteDialog(item)">Delete</button> </td>
       </tr>
     </tbody>
-  </table> <!-- No Records Template --> <ng-template #noRecords>
+  </table>
+  <!-- No Records Template -->
+  <ng-template #noRecords>
     <p>Oops! No records found.</p>
-  </ng-template> <!-- Delete Confirmation Modal -->
+  </ng-template>
+  <!-- Delete Confirmation Modal -->
   <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isDeleteDialogOpen}" *ngIf="isDeleteDialogOpen">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -42,8 +45,8 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <p><strong>Resume Preview</strong></p> <iframe *ngIf="selectedApplication?.Resume"
-            [src]="selectedApplication.Resume" width="100%" height="500px"></iframe>
+          <p><strong>Resume Preview</strong></p> <iframe *ngIf="selectedApplication?.resume"
+            [src]="selectedApplication.resume" width="100%" height="500px"></iframe>
         </div>
         <div class="modal-footer"> <button type="button" class="btn btn-danger"
             (click)="closeResumeDialog()">Close</button> </div>
