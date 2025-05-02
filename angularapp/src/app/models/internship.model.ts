@@ -7,6 +7,7 @@ export interface Internship {
     stipend: number;
     description: string;
     skillsRequired: string;
-    applicationDeadline: string;  
-}
+    applicationDeadline: string;
+   }
+
  

@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { InternshipService } from 'src/app/services/internship.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { Feedback } from 'src/app/models/feedback.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { Internship } from 'src/app/models/internship.model';
-
 
 @Component({
   selector: 'app-userviewinternship',
@@ -14,12 +11,15 @@ import { Internship } from 'src/app/models/internship.model';
   styleUrls: ['./userviewinternship.component.css']
 })
 export class UserviewinternshipComponent implements OnInit {
-  
   feedbackList: Feedback[] = [];
   showDeleteConfirm = false;
   selectedFeedbackId: number | null = null;
   internships: Internship[] = [];
+  filteredInternships: Internship[] = []; // New filtered list
   appliedInternships: number[] = [];
+  internshipTitleSearch: string = ''; // Search field for internship title
+  locationFilter: string = ''; // Location filter
+  searchQuery : string='';
 
   constructor(
     private feedbackService: FeedbackService,
@@ -31,6 +31,7 @@ export class UserviewinternshipComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       const userId = Number(params['id']);
+      
       if (!isNaN(userId)) {
         this.loadFeedbacks(userId);
       }
@@ -51,30 +52,11 @@ export class UserviewinternshipComponent implements OnInit {
     );
   }
 
-  confirmDelete(feedbackId: number): void {
-    this.selectedFeedbackId = feedbackId;
-    this.showDeleteConfirm = true;
-  }
-
-  deleteFeedback(): void {
-    if (this.selectedFeedbackId !== null) {
-      this.feedbackService.deleteFeedback(this.selectedFeedbackId).subscribe(() => {
-        this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.selectedFeedbackId);
-        this.showDeleteConfirm = false;
-        this.selectedFeedbackId = null;
-      });
-    }
-  }
-
-  cancelDelete(): void {
-    this.showDeleteConfirm = false;
-    this.selectedFeedbackId = null;
-  }
-
   loadInternships(): void {
     this.internshipService.getAllInternships().subscribe(
       data => {
         this.internships = data;
+        this.filteredInternships = [...this.internships]; // Initialize filtered list
       },
       error => {
         console.error('Error fetching internships:', error);
@@ -91,6 +73,25 @@ export class UserviewinternshipComponent implements OnInit {
   }
 
   applyForInternship(internshipId: number): void {
-    this.router.navigate(['/internshipform', internshipId]);
+    
+    this.router.navigate([`/user/internshipform/${internshipId}`]);
+    console.log("Navigating to:", `/user/internshipform/${internshipId}`);
   }
+  
+
+
+  // New search and filter method
+  searchInternships(): void {
+    const query = this.searchQuery.toLowerCase();
+
+    this.filteredInternships = this.internships.filter(internship =>
+        internship.companyName?.toLowerCase().includes(query) || 
+        internship.location?.toLowerCase().includes(query)
+    );
+
+    console.log('Filtered Internships:', this.filteredInternships); // ✅ Debugging line
+}
+
+
+
 }
