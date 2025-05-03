@@ -12,12 +12,10 @@
       <option value="Rejected">Rejected</option>
     </select>
   </div>
-
   <!-- No Records Found -->
   <div *ngIf="filteredApplications.length === 0" class="no-records">
     <h2>Oops! No records Found</h2>
   </div>
-
   <!-- Applications Table -->
   <div *ngIf="filteredApplications.length > 0">
     <table class="table table-bordered">
