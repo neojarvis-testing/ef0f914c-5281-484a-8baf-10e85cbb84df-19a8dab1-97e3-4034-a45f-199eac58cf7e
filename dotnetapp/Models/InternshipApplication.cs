@@ -29,11 +29,11 @@ namespace dotnetapp.Models
         public string DegreeProgram { get; set; }
 
         [Required(ErrorMessage = "Resume is required.")]
-        [StringLength(16, ErrorMessage = "Resume can not exceed 16 characters.")]
+        [StringLength(1024, ErrorMessage = "Resume can not exceed 1024 characters.")]
         public string Resume { get; set; }  // File Name
 
-        [Url(ErrorMessage ="Enter a valid URL.")]
-        [StringLength(128, ErrorMessage = "LinkedIn Profile can not exceed 128 characters.")]
+        // [Url(ErrorMessage ="Enter a valid URL.")]
+        [StringLength(512, ErrorMessage = "LinkedIn Profile can not exceed 512 characters.")]
         public string? LinkedInProfile { get; set; }
 
         [Required(ErrorMessage = "Application Status is required.")]
@@ -41,8 +41,8 @@ namespace dotnetapp.Models
         public string ApplicationStatus { get; set; }
 
         [Required(ErrorMessage = "Application Date is required.")]
-        [DataType(DataType.Date, ErrorMessage = "Date format should be dd-MM-yyyy.")]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date, ErrorMessage = "Date format should be yyyy-MM-dd.")]
+        //[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime ApplicationDate { get; set; }
 
         [JsonIgnore(Condition=JsonIgnoreCondition.WhenWritingNull)]

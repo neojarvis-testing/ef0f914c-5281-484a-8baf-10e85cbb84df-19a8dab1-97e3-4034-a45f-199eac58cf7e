@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InternshipService } from 'src/app/services/internship.service';
 
 @Component({
   selector: 'app-requestedinternship',
@@ -7,76 +8,65 @@ import { Router } from '@angular/router';
   styleUrls: ['./requestedinternship.component.css']
 })
 export class RequestedinternshipComponent implements OnInit {
-  applications: Array<any> = []; // List of applications
-  filteredApplications: Array<any> = []; // Filtered list
-  degreeProgramSearch: string = ''; // Search for Degree Program
-  statusFilter: string = ''; // Filter by Status
-  selectedResume: string | null = null; // Resume selected for popup display
+  applications: Array<any> = [];
+  filteredApplications: Array<any> = [];
+  degreeProgramSearch: string = ''; 
+  statusFilter: string = ''; 
+  selectedResumeUrl: string | null = null;
+  
 
-  constructor(private route:Router) {}
+  constructor(private internshipService: InternshipService, private router: Router) {}
 
   ngOnInit(): void {
-    this.loadApplications(); // Load mock data
+    this.loadApplications();
   }
 
-  /** Load mock applications */
+  /** Load internship applications */
   loadApplications(): void {
-    this.applications = [
-      {
-        SNo: 1,
-        Username: 'John Doe',
-        UniversityName: 'MIT',
-        DegreeProgram: 'Computer Science',
-        ApplicationDate: '2023-06-01',
-        LinkedInProfile: 'https://www.linkedin.com/in/johndoe',
-        Status: 'Pending',
-        Resume: 'assets/resume1.pdf'
+    this.internshipService.getAllInternshipApplications().subscribe(
+      data => {
+        this.applications = data;
       },
-      {
-        SNo: 2,
-        Username: 'Jane Smith',
-        UniversityName: 'Harvard',
-        DegreeProgram: 'Business Administration',
-        ApplicationDate: '2023-06-05',
-        LinkedInProfile: 'https://www.linkedin.com/in/janesmith',
-        Status: 'Pending',
-        Resume: 'assets/resume2.pdf'
+      error => {
+        alert('Failed to load applications.');
       }
-    ];
-    this.filteredApplications = [...this.applications]; // Initialize filtered list
+    );
   }
 
   /** Search and filter applications */
   searchAndFilter(): void {
     this.filteredApplications = this.applications.filter(application =>
-      application.DegreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase()) &&
-      (!this.statusFilter || application.Status.toLowerCase() === this.statusFilter.toLowerCase())
+      application.degreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase()) &&
+      (!this.statusFilter || application.status.toLowerCase() === this.statusFilter.toLowerCase())
     );
   }
 
-  /** Approve application and hide only Approve button */
+  /** Approve internship application */
   approveApplication(index: number): void {
-    this.filteredApplications[index].Status = 'Approved'; // Change status
+    this.filteredApplications[index].status = 'Approved';
+    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe();
   }
 
-  /** Reject application and hide only Reject button */
+  /** Reject internship application */
   rejectApplication(index: number): void {
-    this.filteredApplications[index].Status = 'Rejected'; // Change status
+    this.filteredApplications[index].status = 'Rejected';
+    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe();
   }
 
-  /** View Resume in Popup */
-  viewResume(resume: string): void {
-    this.selectedResume = resume; // Set selected resume
+  /** View Resume */
+  viewResume(resumeUrl: string): void {
+    this.selectedResumeUrl = resumeUrl; 
   }
 
-  /** Close Resume Popup */
+  /** Close Resume Viewer */
   closePopup(): void {
-    this.selectedResume = null; // Reset popup
+    this.selectedResumeUrl = null; 
   }
 
   /** Navigate to Degree Program Chart */
   viewDegreeProgramChart(): void {
-    this.route.navigate([`/admin/internshippiechart`]);
-    
+    this.router.navigate(['/admin/internshippiechart']);
   }
 }
+
+

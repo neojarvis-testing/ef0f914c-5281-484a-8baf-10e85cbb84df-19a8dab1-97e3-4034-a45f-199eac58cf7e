@@ -16,11 +16,11 @@ namespace dotnetapp.Models
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Company Name is required.")]
-        [StringLength(64, ErrorMessage = "Company name cannot exceed 64 characters.")]
+        [StringLength(128, ErrorMessage = "Company name cannot exceed 128 characters.")]
         public string CompanyName { get; set; }
 
         [Required(ErrorMessage = "Location is required.")]
-        [StringLength(64, ErrorMessage = "Location cannot exceed 64 characters.")]
+        [StringLength(128, ErrorMessage = "Location cannot exceed 128 characters.")]
         public string Location { get; set; }
 
         [Required(ErrorMessage = "Duration is required.")]
@@ -36,13 +36,13 @@ namespace dotnetapp.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Skills Required is required.")]
-        [StringLength(128, ErrorMessage = "Skills Required cannot exceed 128 characters.")]
+        [StringLength(200, ErrorMessage = "Skills Required cannot exceed 200 characters.")]
         public string SkillsRequired { get; set; }
 
         [Required(ErrorMessage = "Application Deadline is required.")]
-        [DataType(DataType.Date, ErrorMessage = "Date format should be dd-MM-yyyy.")]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        [StringLength(16, ErrorMessage = "Skills Required cannot exceed 16 characters.")]
+        [DataType(DataType.Date, ErrorMessage = "Date format should be yyyy-MM-dd.")]
+        // [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [StringLength(16, ErrorMessage = "Application Deadline cannot exceed 16 characters.")]
         public string ApplicationDeadline { get; set; }
     }
 }

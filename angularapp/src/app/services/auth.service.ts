@@ -53,9 +53,13 @@ export class AuthService {
     localStorage.setItem(this.tokenKey, token);
     const decodedToken = this.decodeJwtToken(token);
     if (decodedToken) {
+      console.log(decodedToken);
+      
       const role = decodedToken.role?.toLowerCase() || '';
+      const id = decodedToken.nameid;
       console.log('Decoded role:', role); // 🔥 Debugging output
       localStorage.setItem('role', role);
+      localStorage.setItem('userId', id);
       this.roleSubject.next(role);
     }
   }
@@ -84,10 +88,30 @@ export class AuthService {
     return localStorage.getItem(this.tokenKey);
   }
 
-  /** Get user ID */
-  getUserID(): string | null {
-    return localStorage.getItem('id');
-  }
+  // /** Get user ID */
+  // getUserId(): string | null {
+  //   const token = this.getToken();
+  //   if (token) {
+  //     try {
+  //       const payload = JSON.parse(atob(token.split('.')[1])); // Decode the token
+  //       console.log('Decoded JWT Payload:', payload);   // Access UserId using the custom key
+  //       return payload['nameId'] || payload['UserId'];
+
+  //     } catch (error) {
+  //       console.error('Error decoding token:', error);
+  //       return null;
+  //     }
+  //   }
+  //   return null;
+  // }
+
+
+
+  getUserId(): number {
+    const storedUserId = localStorage.getItem('userId');
+    return storedUserId ? Number(storedUserId) : -1; // Return -1 if not found
+}
+
 
   /** Decode JWT token */
   public decodeJwtToken(token: string): any {

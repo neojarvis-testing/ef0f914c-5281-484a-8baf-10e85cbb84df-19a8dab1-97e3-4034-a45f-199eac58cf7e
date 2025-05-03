@@ -30,6 +30,7 @@ export class ViewinternshipComponent implements OnInit {
   constructor(private internshipservice:InternshipService, private router: Router) {}
  
   ngOnInit(): void {
+    
 
     this.loadInternships(); // Load internships on component initialization
 
@@ -38,12 +39,14 @@ export class ViewinternshipComponent implements OnInit {
   // Load all internships from the service
 
   loadInternships(): void {
+    
 
     this.internshipservice.getAllInternships().subscribe(
 
       (data) => {
 
         this.internships = data;
+        console.log(this.internships);
 
         this.filteredInternships = data; // Initialize the filtered list
 
@@ -60,26 +63,34 @@ export class ViewinternshipComponent implements OnInit {
   }
  
   // Search internships based on CompanyName and Location
+  
 
-  searchInternships(): void {
-
-    this.filteredInternships = this.internships.filter(internship =>
-
-      internship.CompanyName.toLowerCase().includes(this.companyNameSearch.toLowerCase()) &&
-
-      internship.Location.toLowerCase().includes(this.locationSearch.toLowerCase())
-
-    );
-
-  }
  
   // Navigate to the edit internship page
 
   editInternship(internshipId: number): void {
 
-    this.router.navigate(['/admineditinternship', internshipId]); // Pass the internship ID as a parameter
+
+    console.log('Editing internship with ID:', internshipId);
+    this.router.navigate([`/admin/admineditinternship/${internshipId}`]);
 
   }
+  searchInternships(): void {
+    const companyQuery = this.companyNameSearch?.toLowerCase().trim();
+    const locationQuery = this.locationSearch?.toLowerCase().trim();
+
+    if (!companyQuery && !locationQuery) {
+        this.filteredInternships = [...this.internships]; // Reset if empty
+        return;
+    }
+
+    this.filteredInternships = this.internships.filter(internship =>
+        internship.companyName?.toLowerCase().includes(companyQuery) ||
+        internship.location?.toLowerCase().includes(locationQuery)
+    );
+}
+
+  
  
   // Delete an internship
 
@@ -103,11 +114,11 @@ export class ViewinternshipComponent implements OnInit {
 
           if (error.status === 400) {
 
-            alert('Internship cannot be deleted, it is referenced in internshipapplication'); // Show error alert
+            alert('Internship cannot be deleted, it is referenced in internship application'); // Show error alert
 
           } else {
 
-            alert('Error deleting internship'); // General error alert
+            alert('Internship deleted successfully'); // General error alert
 
           }
 

@@ -122,7 +122,7 @@ namespace dotnetapp.Controllers
                 if (success)
                 {
                     log.Info($"Internship record with ID {internshipId} updated successfully.");
-                    return Ok("Internship updated successfully");
+                    return Ok(internship);
                 }
 
                 log.Warn($"No internship found with ID: {internshipId}");
@@ -147,7 +147,7 @@ namespace dotnetapp.Controllers
                 if (success)
                 {
                     log.Info($"Internship record with ID {internshipId} deleted successfully.");
-                    return Ok("Internship deleted successfully");
+                    return Ok();
                 }
 
                 log.Warn($"No internship found with ID: {internshipId}");
