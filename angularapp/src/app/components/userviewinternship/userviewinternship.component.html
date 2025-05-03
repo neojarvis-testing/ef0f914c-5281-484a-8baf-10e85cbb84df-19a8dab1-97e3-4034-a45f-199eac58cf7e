@@ -3,8 +3,7 @@
  
   <!-- Search Bar -->
   <div class="search-bar">
-    <input type="text" [(ngModel)]="searchQuery" placeholder="Search by Company Name or Location" />
-    <button class="btn btn-search" (click)="searchInternships()">Search</button>
+    <input type="text" [(ngModel)]="searchQuery" (input)="searchInternships()" placeholder="Search by Company Name or Title or Location" />
   </div>
  
   <div *ngIf="filteredInternships.length === 0">
@@ -36,22 +35,25 @@
         <td>{{ internship.skillsRequired }}</td>
         <td>{{ internship.applicationDeadline | date }}</td>
         <td>
-          <button
-            [disabled]="hasApplied(internship.internshipId)"
-            class="btn btn-green"
-            *ngIf="!hasApplied(internship.internshipId)"
-            (click)="applyForInternship(internship.internshipId)">
-            Apply
-          </button>
-          <span *ngIf="hasApplied(internship.internshipId)" class="applied-label">Applied</span>
-        </td>
+            <button
+              *ngIf="!hasApplied(internship.internshipId)"
+              class="btn btn-green"
+              (click)="applyForInternship(internship.internshipId)">
+              Apply
+            </button>
+            <button
+              *ngIf="hasApplied(internship.internshipId)"
+              class="btn btn-applied">
+              Applied
+            </button>
+          </td>
       </tr>
     </tbody>
   </table>
 </div>
  
 <!-- Styles -->
-<style>
+<!-- <style>
   .container {
     text-align: center;
     margin: 0 auto;
@@ -92,11 +94,6 @@
     background-color: darkgreen;
   }
  
-  .applied-label {
-    color: gray;
-    font-weight: bold;
-  }
- 
   .search-bar {
     margin-bottom: 20px;
   }
@@ -119,4 +116,4 @@
     background-color: #0056b3;
   }
 </style>
- 
+  -->

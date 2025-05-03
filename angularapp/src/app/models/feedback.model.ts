@@ -1,6 +1,9 @@
+import { User } from "./user.model";
+
 export class Feedback {
     feedbackId?: number;
-    UserId: number;
-    FeedbackText: string;
-    Date: Date;
+    userId?: number;
+    user?: User;
+    feedbackText: string;
+    date: Date;
 }

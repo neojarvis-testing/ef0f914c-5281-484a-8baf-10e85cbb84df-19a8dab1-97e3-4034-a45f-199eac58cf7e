@@ -12,10 +12,12 @@
       <option value="Rejected">Rejected</option>
     </select>
   </div>
+
   <!-- No Records Found -->
   <div *ngIf="filteredApplications.length === 0" class="no-records">
-    <h2>Oops! No records Found</h2>
+    <h2>Oops! No records found.</h2>
   </div>
+
   <!-- Applications Table -->
   <div *ngIf="filteredApplications.length > 0">
     <table class="table table-bordered">
@@ -34,13 +36,19 @@
       <tbody>
         <tr *ngFor="let application of filteredApplications; let i = index">
           <td>{{ i + 1 }}</td>
-          <td>{{ application.username }}</td>
+          <td>{{ application.user.username }}</td>
           <td>{{ application.universityName }}</td>
           <td>{{ application.degreeProgram }}</td>
-          <td>{{ application.applicationDate }}</td>
+          <td>{{ application.applicationDate | date }}</td>
           <td>
-            <a *ngIf="application.linkedInProfile" [href]="application.linkedInProfile" target="_blank">View LinkedIn</a>
+            <div *ngIf="application.linkedInProfile; else noLinkedIn">
+                <a [href]="application.linkedInProfile" target="_blank">View LinkedIn</a>
+              <ng-template #noLinkedIn>
+                <span>N/A</span>
+              </ng-template>
+            </div>
           </td>
+          
           <td>{{ application.status }}</td>
           <td>
             <!-- Approve Button -->
@@ -57,15 +65,17 @@
     </table>
   </div>
 
-  <!-- Resume Popup (Supports PNG & TXT) -->
-  <div *ngIf="selectedResumeUrl" class="popup">
+  <!-- Resume Popup -->
+  <div *ngIf="showResumePopup" class="resume-popup">
     <div class="popup-content">
-      <!-- View TXT Resumes -->
-      <iframe *ngIf="selectedResumeUrl.endsWith('.txt')" [src]="selectedResumeUrl | safeUrl" width="100%" height="500px"></iframe>
+      <h2>Resume Preview</h2>
       
-      <!-- View PNG Resumes -->
-      <img *ngIf="selectedResumeUrl.endsWith('.png')" [src]="selectedResumeUrl" alt="Resume Image" width="100%" />
+      <!-- Show TXT Resumes -->
+      <iframe *ngIf="selectedResumeUrl?.endsWith('.txt')" [src]="selectedResumeUrl | safeUrl" width="100%" height="500px"></iframe>
       
+      <!-- Show PNG Resumes -->
+      <img *ngIf="selectedResumeUrl?.endsWith('.png')" [src]="selectedResumeUrl" alt="Resume Image" width="100%" />
+
       <button class="btn btn-secondary" (click)="closePopup()">Close</button>
     </div>
   </div>

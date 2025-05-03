@@ -38,7 +38,7 @@ export class UserviewinternshipComponent implements OnInit {
     });
  
     this.loadInternships();
-    this.loadAppliedInternships();
+    // this.loadAppliedInternships();
   }
  
   loadFeedbacks(userId: number): void {
@@ -64,13 +64,14 @@ export class UserviewinternshipComponent implements OnInit {
     );
   }
  
-  loadAppliedInternships(): void {
-    this.appliedInternships = [1, 3]; // Replace with API call if needed
-  }
- 
+  // loadAppliedInternships(): void {
+  //   this.appliedInternships = [1, 3]; // Replace with API call if needed
+  // }
+
   hasApplied(internshipId: number): boolean {
-    return this.appliedInternships.includes(internshipId);
+    return this.appliedInternships.includes(internshipId) || localStorage.getItem(`applied_${internshipId}`) === 'true';
   }
+  
  
   applyForInternship(internshipId: number): void {
    
@@ -83,10 +84,11 @@ export class UserviewinternshipComponent implements OnInit {
   // New search and filter method
   searchInternships(): void {
     const query = this.searchQuery.toLowerCase();
- 
+      console.log(query)
     this.filteredInternships = this.internships.filter(internship =>
         internship.companyName?.toLowerCase().includes(query) ||
-        internship.location?.toLowerCase().includes(query)
+        internship.location?.toLowerCase().includes(query) ||
+        internship.title?.toLowerCase().includes(query)
     );
  
     console.log('Filtered Internships:', this.filteredInternships); // ✅ Debugging line

@@ -39,6 +39,7 @@ const routes: Routes = [
       { path: 'viewinternship', component: ViewinternshipComponent },
       { path: 'admineditinternship/:internshipId', component: AdmineditinternshipComponent },
       { path: 'internshippiechart', component: InternshippiechartComponent},
+      { path: 'requestedInternship', component: RequestedinternshipComponent}
     ],
   },
 

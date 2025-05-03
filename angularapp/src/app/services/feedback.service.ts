@@ -11,12 +11,7 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) {}
 
-
-
   private apiUrl = 'https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
-
-
-
 
   private getHeaders() {
     const token = localStorage.getItem('authToken');
@@ -28,6 +23,7 @@ export class FeedbackService {
   }
 
   sendFeedback(feedback: Feedback): Observable<Feedback> {
+    feedback.date = new Date();
     return this.http.post<Feedback>(this.apiUrl, feedback, this.getHeaders());
   }
 

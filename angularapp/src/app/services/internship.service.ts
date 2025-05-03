@@ -8,9 +8,9 @@ import { InternshipApplication } from '../models/internshipapplication.model';
   providedIn: 'root'
 })
 export class InternshipService {
- 
-  public apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
-  public applicationApiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
+                  //  https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship
+  public apiUrl = ' https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
+  public applicationApiUrl = 'https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
  
  
   constructor(private http: HttpClient) {}
@@ -19,7 +19,7 @@ export class InternshipService {
     const token = localStorage.getItem('authToken');
     return {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       })
     };
   }

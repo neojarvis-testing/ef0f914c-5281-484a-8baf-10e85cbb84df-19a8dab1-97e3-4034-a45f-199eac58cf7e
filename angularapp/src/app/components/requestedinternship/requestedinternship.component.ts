@@ -1,82 +1,80 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { InternshipService } from 'src/app/services/internship.service';
 
 @Component({
   selector: 'app-requestedinternship',
   templateUrl: './requestedinternship.component.html',
   styleUrls: ['./requestedinternship.component.css']
 })
- 
 export class RequestedinternshipComponent implements OnInit {
-  applications: Array<any> = []; // List of internship applications
-  filteredApplications: Array<any> = []; // Filtered list
-  degreeProgramSearch: string = ''; // Search for Degree Program
-  statusFilter: string = ''; // Filter by Status
-  selectedResume: string | null = null; // Resume selected for popup display
+  applications: any[] = [];
+  filteredApplications: any[] = [];
+  degreeProgramSearch: string = ''; 
+  statusFilter: string = ''; 
+  selectedResumeUrl: string | null = null;
+  showResumePopup: boolean = false; // ✅ Control popup visibility
 
-  constructor() {}
+  constructor(private internshipService: InternshipService, private router: Router) {}
 
   ngOnInit(): void {
-    this.loadApplications(); // Load mock data
+    this.loadApplications();
   }
 
-  // Load applications (mock data for now)
+  /** Load internship applications */
   loadApplications(): void {
-    this.applications = [
-      {
-        SNo: 1,
-        Username: 'John Doe',
-        UniversityName: 'MIT',
-        DegreeProgram: 'Computer Science',
-        ApplicationDate: '2023-06-01',
-        LinkedInProfile: 'https://www.linkedin.com/in/johndoe',
-        Status: 'Pending',
-        Resume: 'assets/resume1.pdf'
+    this.internshipService.getAllInternshipApplications().subscribe(
+      data => {
+        this.applications = data.map(app => ({
+          ...app,
+          status: app.applicationStatus || 'Pending' // ✅ Ensure default status is "Pending"
+        }));
+        this.filteredApplications = [...this.applications]; 
+        console.log(this.filteredApplications);
       },
-      {
-        SNo: 2,
-        Username: 'Jane Smith',
-        UniversityName: 'Harvard',
-        DegreeProgram: 'Business Administration',
-        ApplicationDate: '2023-06-05',
-        LinkedInProfile: 'https://www.linkedin.com/in/janesmith',
-        Status: 'Pending',
-        Resume: 'assets/resume2.pdf'
+      error => {
+        alert('Failed to load applications.');
       }
-    ];
-    this.filteredApplications = [...this.applications]; // Initialize filtered list
-  }
-
-  // Search and filter applications
-  searchAndFilter(): void {
-    this.filteredApplications = this.applications.filter(application =>
-      application.degreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase()) &&
-      (!this.statusFilter || application.status.toLowerCase() === this.statusFilter.toLowerCase())
     );
   }
 
-  // Approve application
+  /** Search and filter applications */
+  searchAndFilter(): void {
+    this.filteredApplications = this.applications.filter(application =>
+      (this.degreeProgramSearch === '' || application.degreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase())) &&
+      (this.statusFilter === '' || application.status.toLowerCase() === this.statusFilter.toLowerCase())
+    );
+  }
+
+  /** Approve internship application */
   approveApplication(index: number): void {
-    this.applications[index].Status = 'Approved'; // Change status to Approved
-    this.searchAndFilter(); // Refresh filtered list
+    this.filteredApplications[index].status = 'Approved';
+    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe(() => {
+      this.loadApplications();
+    });
   }
 
-  // Reject application
+  /** Reject internship application */
   rejectApplication(index: number): void {
-    this.applications[index].Status = 'Rejected'; // Change status to Rejected
-    this.searchAndFilter(); // Refresh filtered list
+    this.filteredApplications[index].status = 'Rejected';
+    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe(() => {
+      this.loadApplications();
+    });
   }
 
-  // View resume popup
-  viewResume(resume: string): void {
-    this.selectedResume = resume; // Set selected resume for popup
+  /** Show Resume Preview */
+  viewResume(resumeUrl: string): void {
+    this.selectedResumeUrl = resumeUrl; 
+    this.showResumePopup = true; // ✅ Open popup
   }
 
-  // Close resume popup
+  /** Close Resume Viewer */
   closePopup(): void {
-    this.selectedResume = null; // Reset selected resume
+    this.selectedResumeUrl = null; 
+    this.showResumePopup = false; // ✅ Close popup
   }
 
-  // Navigate to Degree Program Chart
+  /** Navigate to Degree Program Chart */
   viewDegreeProgramChart(): void {
     this.router.navigate(['/admin/internshippiechart']);
   }

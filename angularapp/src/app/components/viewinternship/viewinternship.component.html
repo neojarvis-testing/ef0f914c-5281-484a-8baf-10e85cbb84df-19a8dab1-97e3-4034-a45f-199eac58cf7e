@@ -1,53 +1,50 @@
 <div class="container">
-    <!-- Heading -->
-    <h1>Internship Listings</h1>
-  
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <input
-        type="text"
-        placeholder="Search by Company Name or Location"
-        [(ngModel)]="companyNameSearch"
-        (input)="searchInternships()"
-      />
-      <button (click)="searchInternships()">Search</button>
-    </div>
-  
-    <!-- Table -->
-    <table class="styled-table">
-      <thead>
-        <tr>
-          <th>S.No</th>
-          <th>Title</th>
-          <th>Company Name</th>
-          <th>Location</th>
-          <th>Duration (Months)</th>
-          <th>Stipend</th>
-          <th>Skills Required</th>
-          <th>Application Deadline</th>
-          <th>Description</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let internship of filteredInternships; let i = index">
-          <td>{{ i + 1 }}</td> <!-- Serial number -->
-          <td>{{ internship.title }}</td>
-          <td>{{ internship.companyName }}</td>
-          <td>{{ internship.location }}</td>
-          <td>{{ internship.durationInMonths }} months</td>
-          <td>{{ internship.stipend | currency }}</td>
-          <td>{{ internship.skillsRequired }}</td>
-          <td>{{ internship.applicationDeadline }}</td>
-          <td>{{ internship.description }}</td>
-          <td>
-            <button class="btn btn-green" (click)="editInternship(internship.internshipId)">Edit</button>
-            <button class="btn btn-red" (click)="deleteInternship(internship.internshipId)">Delete</button>
+  <!-- Heading -->
+  <h1>Internship Listings</h1>
 
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search by Company Name or Title or Location"
+      [(ngModel)]="searchTerm"
+      (input)="searchInternships()"
+    />
+    <!-- <button class="btn btn-search" (click)="searchInternships()">Search</button> -->
   </div>
-  
-  
+
+  <!-- Table -->
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Title</th>
+        <th>Company Name</th>
+        <th>Location</th>
+        <th>Duration</th>
+        <th>Stipend (in $)</th>
+        <th>Skills Required</th>
+        <th>Application Deadline</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let internship of filteredInternships; let i = index">
+        <td>{{ i + 1 }}</td> <!-- Serial number -->
+        <td>{{ internship.title }}</td>
+        <td>{{ internship.companyName }}</td>
+        <td>{{ internship.location }}</td>
+        <td>{{ internship.durationInMonths }} months</td>
+        <td>{{ internship.stipend }}</td>
+        <td>{{ internship.skillsRequired }}</td>
+        <td>{{ internship.applicationDeadline }}</td>
+        <td>{{ internship.description }}</td>
+        <td>
+          <button class="btn btn-green" (click)="editInternship(internship?.internshipId)">Edit</button>
+          <button class="btn btn-red" (click)="deleteInternship(internship?.internshipId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
