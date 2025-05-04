@@ -3,7 +3,7 @@
   text-align: center;
   margin: 0 auto;
   padding: 20px;
-  max-width: 80%;
+  max-width: 90%;
 }
 
 /* Heading Styling */
@@ -14,18 +14,71 @@ h1 {
 }
 
 /* Search and Filter Section */
+/* Search and Filter Section Styling */
 .search-filter {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 15px;
   margin-bottom: 20px;
 }
 
-.search-filter input, .search-filter select {
-  padding: 10px;
+/* Styling for Search Bar */
+.search-filter input {
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 16px;
+  width: 250px;
+  max-width: 100%;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
+
+.search-filter input:focus {
+  border-color: #007bff;
+}
+
+/* Styling for Filter Dropdown */
+.search-filter select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  width: 150px;
+  max-width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.search-filter select:focus {
+  border-color: #007bff;
+}
+
+/* Optional Label Styling */
+.search-filter label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Responsive Layout for Search and Filter */
+@media (max-width: 768px) {
+  .search-filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-filter input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .search-filter select {
+    width: 100%;
+  }
+}
+
 
 /* No Records Found Styling */
 .no-records {
@@ -33,6 +86,7 @@ h1 {
   font-size: 20px;
   font-weight: bold;
   margin-top: 20px;
+  text-align: center;
 }
 
 /* Styled Table */
@@ -58,79 +112,80 @@ h1 {
   background-color: #f3f3f3;
 }
 
-/* Buttons */
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+/* Action Button Container */
 button {
-  padding: 10px 15px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-block;
+  margin: 5px;
 }
 
+/* Button: General */
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* Approve Button */
 .btn-success {
-  background-color: green;
+  background-color: #28a745;
   color: white;
-  border: none;
 }
 
 .btn-success:hover {
-  background-color: darkgreen;
+  background-color: #218838;
 }
 
+/* Reject Button */
 .btn-danger {
-  background-color: red;
+  background-color: #dc3545;
   color: white;
-  border: none;
 }
 
 .btn-danger:hover {
-  background-color: darkred;
+  background-color: #c82333;
 }
 
+/* View Resume Button */
 .btn-primary {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
-  border: none;
 }
 
 .btn-primary:hover {
   background-color: #0056b3;
 }
 
-.btn-secondary {
-  background: gray;
-  color: white;
-  border: none;
-}
-
-.btn-secondary:hover {
-  background: darkgray;
-}
-
-.btn-info {
-  background: #17a2b8;
-  color: white;
-  border: none;
-}
-
-.btn-info:hover {
-  background: #117a8b;
-}
-
-/* Applied Button */
+/* Applied Button (Disabled Style) */
 .btn-applied {
-  background-color: red;
+  background-color: #6c757d;
   color: white;
-  border: none;
-  padding: 10px 15px;
   cursor: not-allowed;
   font-weight: bold;
-  text-align: center;
-  width: 100px;
 }
 
 .btn-applied:hover {
-  background-color: darkred;
+  background-color: #6c757d;
+  opacity: 1;
+  transform: none;
 }
+
+/* Responsive Layout for Buttons */
+@media (max-width: 768px) {
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
 
 /* Resume Popup */
 .resume-popup {
@@ -145,6 +200,7 @@ button {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  z-index: 1000;
 }
 
 .popup-content h2 {
@@ -165,4 +221,39 @@ button {
 .chart-btn {
   text-align: center;
   margin-top: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .search-filter {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .table th, .table td {
+    font-size: 16px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .btn-info, .btn-success, .btn-danger, .btn-primary, .btn-secondary, .btn-applied {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .resume-popup {
+    height: 70%;
+    width: 80%;
+  }
 }

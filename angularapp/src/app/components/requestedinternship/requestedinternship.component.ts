@@ -10,12 +10,12 @@ import { InternshipService } from 'src/app/services/internship.service';
 export class RequestedinternshipComponent implements OnInit {
   applications: any[] = [];
   filteredApplications: any[] = [];
-  degreeProgramSearch: string = ''; 
-  statusFilter: string = ''; 
+  degreeProgramSearch: string = '';
+  statusFilter: string = '';
   selectedResumeUrl: string | null = null;
   showResumePopup: boolean = false; // ✅ Control popup visibility
 
-  constructor(private internshipService: InternshipService, private router: Router) {}
+  constructor(private internshipService: InternshipService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadApplications();
@@ -29,7 +29,7 @@ export class RequestedinternshipComponent implements OnInit {
           ...app,
           status: app.applicationStatus || 'Pending' // ✅ Ensure default status is "Pending"
         }));
-        this.filteredApplications = [...this.applications]; 
+        this.filteredApplications = [...this.applications];
         console.log(this.filteredApplications);
       },
       error => {
@@ -46,31 +46,70 @@ export class RequestedinternshipComponent implements OnInit {
     );
   }
 
-  /** Approve internship application */
   approveApplication(index: number): void {
-    this.filteredApplications[index].status = 'Approved';
-    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe(() => {
-      this.loadApplications();
-    });
+    const application = this.filteredApplications[index];
+    if (!application || !application.internshipApplicationId) {
+      console.error("Invalid application data:", application);
+      alert("Error: Internship Application ID is missing.");
+      return;
+    }
+  
+    application.applicationStatus = 'Approved';
+    application.status = 'Approved';
+    this.internshipService.updateApplicationStatus(application.internshipApplicationId, application).subscribe(
+      response => {
+        console.log("✅ API Response:", response); // Should reflect "Approved" or "Rejected"
+        if (response && response.applicationStatus === application.status) { 
+          this.loadApplications();
+        } else {
+          // alert("Error: Status update failed.");
+        }
+      },
+      error => {
+        console.error("❌ API Error:", error);
+        // alert("Failed to update application status.");
+      }
+    );    
   }
+  
 
-  /** Reject internship application */
   rejectApplication(index: number): void {
-    this.filteredApplications[index].status = 'Rejected';
-    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe(() => {
-      this.loadApplications();
-    });
-  }
+    const application = this.filteredApplications[index];
+    if (!application || !application.internshipApplicationId) {
+      console.error("Invalid application data:", application);
+      alert("Error: Internship Application ID is missing.");
+      return;
+    }
+  
+    application.applicationStatus = 'Rejected';
+    application.status = 'Rejected';
+    this.internshipService.updateApplicationStatus(application.internshipApplicationId, application).subscribe(
+      response => {
+        console.log("✅ API Response:", response); // Should reflect "Approved" or "Rejected"
+        if (response && response.applicationStatus === application.status) { 
+          this.loadApplications();
+        } else {
+          // alert("Error: Status update failed.");
+        }
+      },
+      error => {
+        console.error("❌ API Error:", error);
+        // alert("Failed to update application status.");
+      }
+    );
+    
+  }  
+
 
   /** Show Resume Preview */
   viewResume(resumeUrl: string): void {
-    this.selectedResumeUrl = resumeUrl; 
+    this.selectedResumeUrl = resumeUrl;
     this.showResumePopup = true; // ✅ Open popup
   }
 
   /** Close Resume Viewer */
   closePopup(): void {
-    this.selectedResumeUrl = null; 
+    this.selectedResumeUrl = null;
     this.showResumePopup = false; // ✅ Close popup
   }
 

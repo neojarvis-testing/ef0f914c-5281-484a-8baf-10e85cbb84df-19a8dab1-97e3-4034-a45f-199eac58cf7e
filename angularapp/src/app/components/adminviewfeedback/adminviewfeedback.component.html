@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Feedback Details</h1>
 
-  <div *ngIf="feedbacks.length === 0">
+  <div *ngIf="feedbacks.length === 0" class="no-data">
     No data found
   </div>
 
@@ -9,7 +9,7 @@
     <table class="full-width-table">
       <thead>
         <tr>
-          <th>S.No</th>
+          <th>Sl.No.</th>
           <th>User Name</th>
           <th>Feedback</th>
           <th>Posted Date</th>
@@ -21,7 +21,7 @@
           <td>{{ i + 1 }}</td>
           <td>{{ feedback.user.username }}</td>
           <td>{{ feedback.feedbackText }}</td>
-          <td>{{ feedback.date }}</td>
+          <td>{{ feedback.date | date }}</td>
           <td>
             <button (click)="showProfile(feedback)">Show Profile</button>
           </td>
@@ -31,6 +31,7 @@
   </div>
 
   <!-- Profile Modal -->
+  <div *ngIf="selectedUser" class="modal-overlay" (click)="closeProfile()"></div>
   <div *ngIf="selectedUser" class="modal">
     <div class="modal-content">
       <h2>User Details:</h2>

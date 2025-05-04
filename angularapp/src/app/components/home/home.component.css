@@ -1,84 +1,79 @@
+/* ===== Container Styling ===== */
 .container {
-  max-width: 800px;
-  margin: 50px auto;
-  background: linear-gradient(135deg, #e8f4fc, #ffffff);
-  padding: 25px 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-  font-family: 'Arial', sans-serif;
+  max-width: 900px;
+  margin: 60px auto;
+  background: linear-gradient(135deg, #222, #444); /* Dark gradient for consistency */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease-in-out forwards;
 }
 
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle Hover Lift */
 .container:hover {
-  transform: scale(1.02);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  transform: scale(1.04);
+  box-shadow: 0px 12px 26px rgba(0, 0, 0, 0.3);
 }
 
+/* ===== Title Styling ===== */
 h1 {
-  font-size: 2.8rem;
-  color: #1a73e8;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 5px rgba(26, 115, 232, 0.3);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffcc00; /* Golden text to match your theme */
+  margin-bottom: 25px;
+  letter-spacing: 1.2px;
+  text-shadow: 3px 3px 6px rgba(255, 204, 0, 0.4); /* Subtle glow */
 }
 
+/* ===== Paragraph Styling ===== */
 p {
   line-height: 1.8;
-  font-size: 1.3rem;
-  color: #444;
+  font-size: 1.2rem;
+  color: #ddd; /* Light grey text for better readability on dark background */
   text-align: justify;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
+/* ===== Strong & Emphasis Styling ===== */
 strong {
-  color: #1a73e8;
+  color: #ffcc00; /* Golden color for emphasis */
   font-weight: bold;
 }
 
 em {
-  color: #5a5a5a;
+  color: #aaa; /* Lighter grey for emphasized text */
   font-style: italic;
 }
 
+/* ===== Responsive Adjustments ===== */
 @media (max-width: 768px) {
   .container {
-    padding: 20px;
+    padding: 30px;
   }
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   p {
     font-size: 1.1rem;
   }
 }
-  
-
-  /* Background Image Styling */
-/* .background-container {
-  background-image: url('/assets/my-image.jpg.png'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-} */
-
-/* Overlay Text */
-/* Overlay Text with Solid Background */
-/* .text-overlay {
-  background: rgba(0, 0, 0, 0.8); 
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  color: white;
-  font-weight: bold; 
-  font-size: 22px;
-  max-width: 70%;
-} */
-

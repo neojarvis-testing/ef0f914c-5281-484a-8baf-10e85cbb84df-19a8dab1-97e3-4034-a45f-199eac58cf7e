@@ -1,58 +1,81 @@
-.navbar {  
-    background: linear-gradient(to right, black, #444, #858484); 
-    color: white;
+/* Navbar Container */
+.navbar {
+    background: linear-gradient(to right, #222, #555, #777);
+    padding: 15px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar Content */
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
-    transition: background 0.5s ease-in-out;
+    padding: 0 30px;
 }
 
-/* Navbar Hover Effect */
-.navbar:hover {  
-    background: linear-gradient(to right, #111, #555, #999); 
-}
-
-/* Fancy Glowing Title */
-.navbar h1 {  
-    font-weight: bold;
-    font-size: 20px;
+/* Navbar Title */
+.navbar-title {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+    letter-spacing: 1.5px;
+    text-shadow: 0px 3px 4px rgba(255, 255, 255, 0.6);
+    margin: 0;
 }
 
-/* Link Styling */
-.nav-links a {  
-    margin-left: 20px;
+/* Navbar Links Container */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Navbar Links */
+.nav-link {
     color: white;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 17px;
+    font-weight: 500;
     position: relative;
+    padding: 10px 15px;
     transition: color 0.3s ease-in-out;
 }
 
-/* Cool Underline Effect on Hover */
-.nav-links a::after {
+/* Hover Effect for Links */
+.nav-link:hover {
+    color: #ffcc00;
+    text-shadow: 0px 3px 6px #ffcc00;
+}
+
+/* Elegant Underline on Hover */
+.nav-link::after {
     content: '';
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: -5px;
-    width: 100%;
+    width: 0%;
     height: 2px;
     background: white;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
 }
 
-.nav-links a:hover::after {
-    transform: scaleX(1);
+.nav-link:hover::after {
+    width: 100%;
 }
 
-/* Slight Glow on Hover */
-.nav-links a:hover {
-    color: #ffcc00;
-    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

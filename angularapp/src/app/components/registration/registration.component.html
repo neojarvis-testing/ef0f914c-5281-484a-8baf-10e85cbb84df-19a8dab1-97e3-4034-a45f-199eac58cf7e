@@ -1,14 +1,17 @@
 <div class="registration-container">
   <h1>Registration</h1>
   <form #registrationForm="ngForm" (ngSubmit)="register()">
+    <!-- Username Field -->
     <div>
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="user.Username" #usernameNgModel="ngModel" required />
+      <input type="text" id="username" name="username" [(ngModel)]="user.Username" #usernameNgModel="ngModel"
+        required />
       <div class="error-message" *ngIf="usernameNgModel.invalid && (usernameNgModel.dirty || usernameNgModel.touched)">
         Username is required
       </div>
     </div>
 
+    <!-- Email Field -->
     <div>
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" [(ngModel)]="user.Email" #emailNgModel="ngModel" required />
@@ -17,34 +20,42 @@
       </div>
     </div>
 
+    <!-- Mobile Number Field -->
     <div>
       <label for="mobileNumber">Mobile Number:</label>
-      <input type="text" id="mobileNumber" name="mobileNumber" [(ngModel)]="user.MobileNumber" #mobileNumberNgModel="ngModel" required pattern="[0-9]{10}" />
-      <div class="error-message" *ngIf="mobileNumberNgModel.invalid && (mobileNumberNgModel.dirty || mobileNumberNgModel.touched)">
+      <input type="text" id="mobileNumber" name="mobileNumber" [(ngModel)]="user.MobileNumber"
+        #mobileNumberNgModel="ngModel" required pattern="[0-9]{10}" />
+      <div class="error-message"
+        *ngIf="mobileNumberNgModel.invalid && (mobileNumberNgModel.dirty || mobileNumberNgModel.touched)">
         Mobile number must be 10 digits
       </div>
     </div>
 
+    <!-- Password Field -->
     <div>
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="user.Password" #passwordNgModel="ngModel" required 
-        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}" />
+      <input type="password" id="password" name="password" [(ngModel)]="user.Password" #passwordNgModel="ngModel"
+        required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}" />
       <div class="error-message" *ngIf="passwordNgModel.invalid && (passwordNgModel.dirty || passwordNgModel.touched)">
         Password must include at least one uppercase letter, one lowercase letter, one digit, and one special character
       </div>
     </div>
 
+    <!-- Confirm Password Field -->
     <div>
       <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" #confirmPasswordNgModel="ngModel" required />
-      <div class="error-message" *ngIf="confirmPasswordNgModel.invalid && (confirmPasswordNgModel.dirty || confirmPasswordNgModel.touched)">
+      <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword"
+        #confirmPasswordNgModel="ngModel" required />
+      <div class="error-message"
+        *ngIf="confirmPasswordNgModel.invalid && (confirmPasswordNgModel.dirty || confirmPasswordNgModel.touched)">
         Confirm Password is required
       </div>
       <div *ngIf="(confirmPassword !== user.Password)" class="error-message">
-          Passwords do not match
+        Passwords do not match
       </div>
     </div>
 
+    <!-- Role Selection -->
     <div>
       <label for="role">Role:</label>
       <select id="role" name="role" [(ngModel)]="user.UserRole" #roleNgModel="ngModel" required>
@@ -57,26 +68,21 @@
       </div>
     </div>
 
+    <!-- Secret Key for Admin Role -->
     <div *ngIf="user.UserRole === 'Admin'">
       <label for="secretKey">Secret Key:</label>
-      <input 
-        type="password" 
-        id="secretKey" 
-        name="secretKey" 
-        [(ngModel)]="user.SecretKey" 
-        #secretKeyNgModel="ngModel" 
-        required
-        autocomplete="off"  
-        autocorrect="off"   
-        spellcheck="false"  
-      />
-      <div class="error-message" *ngIf="secretKeyNgModel.invalid && (secretKeyNgModel.dirty || secretKeyNgModel.touched)">
+      <input type="password" id="secretKey" name="secretKey" [(ngModel)]="user.SecretKey" #secretKeyNgModel="ngModel"
+        required autocomplete="off" autocorrect="off" spellcheck="false" />
+      <div class="error-message"
+        *ngIf="secretKeyNgModel.invalid && (secretKeyNgModel.dirty || secretKeyNgModel.touched)">
         Secret Key is required
       </div>
     </div>
-    
 
+    <!-- Submit Button -->
     <button type="submit" id="submit" [disabled]="registrationForm.invalid">REGISTER</button>
+
+    <!-- Error Message Display -->
     <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
   </form>
 </div>

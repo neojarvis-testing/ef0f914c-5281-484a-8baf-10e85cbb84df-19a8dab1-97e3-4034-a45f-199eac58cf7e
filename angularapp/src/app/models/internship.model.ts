@@ -1,5 +1,5 @@
 export interface Internship {
-    InternshipId?: number;
+    internshipId?: number;
     title: string;
     companyName: string;
     location: string;
@@ -8,6 +8,5 @@ export interface Internship {
     description: string;
     skillsRequired: string;
     applicationDeadline: string;
-   }
+}
 
- 

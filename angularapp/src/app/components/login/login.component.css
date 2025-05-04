@@ -7,6 +7,8 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s ease-in-out;
 }
 
 /* Heading styling */
@@ -41,6 +43,31 @@ input {
     font-size: 16px;
 }
 
+/* Password container with visibility toggle */
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    width: calc(100% - 40px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s;
+}
+
 /* Error message styling */
 .error-message {
     color: red;
@@ -63,13 +90,15 @@ button {
 
 /* Button color when form is invalid (grey) */
 button:disabled {
-    background-color: #b0b0b0; /* Grey */
+    background-color: #b0b0b0;
+    /* Grey */
     cursor: not-allowed;
 }
 
 /* Button color when form is valid (green) */
 button:enabled {
-    background-color: #28a745; /* Green */
+    background-color: #7d7e7d;
+    /* Green */
     color: white;
 }
 
@@ -81,5 +110,18 @@ button:enabled:hover {
 @media (max-width: 500px) {
     .login-container {
         width: 90%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input,
+    button {
+        font-size: 14px;
+    }
+
+    .password-container input {
+        font-size: 14px;
     }
 }

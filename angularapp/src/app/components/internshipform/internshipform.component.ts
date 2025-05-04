@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -108,48 +109,3 @@ export class InternshipformComponent implements OnInit {
     );
   }
 }  
-
-//   /** Handle form submission */
-//   onSubmit(): void {
-//     this.submitted = true;
-
-//     if (this.internshipForm.invalid || !this.resumeFile) {
-//       alert('All fields are required.');
-//       return;
-//     }
-
-//     const selectedInternship = this.internships[0]; // ✅ Dynamically get the first internship ID (Modify logic if needed)
-
-//     if (!selectedInternship) {
-//       alert('No internship selected.');
-//       return;
-//     }
-
-//     // ✅ Create the JSON object for API submission
-//     let applicationData: any = {
-//       userId: +this.authService.getUserId(),
-//       internshipId: selectedInternship.internshipId, // ✅ Dynamically set internship ID
-//       universityName: this.internshipForm.value.universityName,
-//       degreeProgram: this.internshipForm.value.degreeProgram,
-//       resume: this.resumeFile?.name || '',
-//       linkedInProfile: this.internshipForm.value.linkedInProfile || 'NA',
-//       applicationStatus: 'Pending',
-//       applicationDate: new Date().toISOString()
-//     };
-
-//     console.log('Submitting Application Data:', applicationData);
-
-//     this.internshipService.addInternshipApplication(applicationData).subscribe(
-//       response => {
-//         console.log('Response:', response);
-//         alert('Application submitted successfully!');
-//         this.router.navigate(['/user/view-internships']);
-//       },
-//       error => {
-//         console.error('Submission Error:', error);
-//         alert('Failed to submit application.');
-//       }
-//     );
-//   }
-// }
-

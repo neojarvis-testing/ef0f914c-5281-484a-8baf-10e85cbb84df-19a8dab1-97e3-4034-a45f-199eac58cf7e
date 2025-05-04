@@ -1,90 +1,162 @@
-/* General container styling */
+/* ===== Upgraded Registration Container ===== */
 .registration-container {
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 420px;
+    margin: 60px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #222, #444);
+    /* Dark gradient consistent with other elements */
+    border-radius: 12px;
+    box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.3);
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease-in-out;
 }
 
-/* Heading styling */
+/* Subtle Hover Lift */
+.registration-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 12px 26px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Title Styling ===== */
 h1 {
-    font-size: 24px;
-    color: #333;
+    font-size: 26px;
+    font-weight: 600;
+    color: #ffcc00;
+    /* Golden accent color */
     margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(255, 204, 0, 0.4);
+    /* Subtle glow effect */
 }
 
-/* Form styling */
+/* ===== Form Styling ===== */
 form {
     display: flex;
     flex-direction: column;
-}
-
-/* Label styling */
-label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-    text-align: left;
-}
-
-/* Input field styling */
-input, select {
+    align-items: flex-start;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    /* Ensures the form is the full width of its container */
+}
+
+/* ===== Label Styling ===== */
+label {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: left;
+    color: #ddd;
+    /* Lighter color for readability */
+    width: 100%;
+    /* Ensures labels take up full width */
+}
+
+/* ===== Input Field Styling ===== */
+input,
+select {
+    width: 100%;
+    /* Ensures input fields take full width */
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 2px solid #555;
+    /* Dark border for consistency */
+    border-radius: 6px;
     font-size: 16px;
+    box-sizing: border-box;
+    /* Ensures padding doesn't affect width */
+    transition: all 0.3s ease-in-out;
 }
 
-/* Secret key field - Highlight when role is Admin */
+/* ===== Input Focus Effect ===== */
+input:focus,
+select:focus {
+    border-color: #ffcc00;
+    /* Golden color on focus */
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.3);
+    /* Glow effect */
+}
+
+/* ===== Secret Key Field - Highlight for Admin Role ===== */
 #secretKey {
-    border: 2px solid #ff6b6b; /* Red border for emphasis */
+    border: 2px solid #ff6b6b;
+    /* Highlighted red border for Admin */
 }
 
-/* Default button styling (Grey when disabled) */
+/* ===== Smooth Error Message Animation ===== */
+.error-message {
+    color: #ff6b6b;
+    /* Red for errors */
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(-5px);
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Button Styling ===== */
 button {
     width: 100%;
     padding: 12px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     border: none;
 }
 
-/* Button color when form is invalid (grey) */
+/* ===== Button Disabled ===== */
 button:disabled {
-    background-color: #b0b0b0; /* Grey */
+    background-color: #b0b0b0;
     cursor: not-allowed;
 }
 
-/* Button color when form is valid (green) */
+/* ===== Button Enabled ===== */
 button:enabled {
-    background-color: #28a745; /* Green */
+    background-color: #28a745;
+    /* Green for the submit button */
     color: white;
 }
 
+/* ===== Button Hover ===== */
 button:enabled:hover {
     background-color: #218838;
+    /* Darker green on hover */
+    transform: scale(1.05);
+    box-shadow: 0px 5px 12px rgba(40, 167, 69, 0.3);
+    /* Soft glow effect */
 }
 
-/* Error message styling */
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-/* Responsive adjustments */
+/* ===== Responsive Adjustments ===== */
 @media (max-width: 500px) {
     .registration-container {
         width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input,
+    select {
+        font-size: 15px;
     }
 }

@@ -1,58 +1,95 @@
+/* Professional Error Container */
 .error-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background: linear-gradient(135deg, #fce4e4, #ffecec);
-    border: 2px solid #f08080;
-    border-radius: 15px;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    color: #b22222;
-    animation: fadeIn 0.5s ease-in-out;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 35px;
+  background: linear-gradient(135deg, #fce4e4, #ffecec);
+  border: 2px solid #f08080;
+  border-radius: 15px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.25);
+  color: #b22222;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Error Icon Animation */
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  animation: shake 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .error-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
+
+  25% {
+    transform: rotate(-3deg);
   }
-  
-  h2 {
-    font-size: 2rem;
-    color: #8b0000;
-    margin-bottom: 10px;
+
+  50% {
+    transform: rotate(3deg);
   }
-  
-  p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    color: #333;
-    margin-bottom: 20px;
+
+  75% {
+    transform: rotate(-2deg);
   }
-  
-  .retry-button {
-    background-color: #ff6f61;
-    color: #fff;
-    font-size: 1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+
+  100% {
+    transform: rotate(2deg);
   }
-  
-  .retry-button:hover {
-    background-color: #ff4633;
+}
+
+/* Error Title */
+h2 {
+  font-size: 2rem;
+  color: #8b0000;
+  margin-bottom: 12px;
+  letter-spacing: 1.2px;
+}
+
+/* Error Text */
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Retry Button Enhancement */
+.retry-button {
+  background-color: #ff6f61;
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Smooth Hover Effect */
+.retry-button:hover {
+  background-color: #ff4633;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 10px rgba(255, 111, 97, 0.3);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+
+

@@ -31,7 +31,7 @@ export class LoginComponent {
    * @param router - Angular Router for navigation
    * @param authService - Service responsible for authentication requests
    */
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) { }
 
   /**
    * login method
@@ -56,4 +56,5 @@ export class LoginComponent {
       });
     }
   }
+
 }

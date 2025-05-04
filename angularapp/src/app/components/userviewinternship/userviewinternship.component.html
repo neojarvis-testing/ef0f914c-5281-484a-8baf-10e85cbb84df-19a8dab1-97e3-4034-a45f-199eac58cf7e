@@ -1,119 +1,54 @@
 <div class="container">
-  <h1>Available Internship Opportunities</h1>
- 
+  <h1>My Internship Applications</h1>
+
   <!-- Search Bar -->
   <div class="search-bar">
-    <input type="text" [(ngModel)]="searchQuery" (input)="searchInternships()" placeholder="Search by Company Name or Title or Location" />
+    <input type="text" [(ngModel)]="searchQuery" (input)="searchInternships()" class="form-control"
+      placeholder="Search by Company Name or Title or Location" />
   </div>
- 
+
   <div *ngIf="filteredInternships.length === 0">
-    <p>Oops! No records found.</p>
+    <p>Oops! No applications found.</p>
   </div>
- 
+
   <table *ngIf="filteredInternships.length > 0" class="styled-table">
     <thead>
       <tr>
         <th>S.No</th>
-        <th>Internship Title</th>
+        <th>Title</th>
         <th>Company</th>
         <th>Location</th>
-        <th>Duration (Months)</th>
+        <th>Duration</th>
         <th>Stipend</th>
-        <th>Skills Required</th>
-        <th>Application Deadline</th>
-        <th>Action</th>
+        <th>Skills</th>
+        <th>Deadline</th>
+        <th>Status / Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let internship of filteredInternships; let i = index">
+      <tr *ngFor="let app of filteredInternships; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ internship.title }}</td>
-        <td>{{ internship.companyName }}</td>
-        <td>{{ internship.location }}</td>
-        <td>{{ internship.durationInMonths }}</td>
-        <td>{{ internship.stipend | currency }}</td>
-        <td>{{ internship.skillsRequired }}</td>
-        <td>{{ internship.applicationDeadline | date }}</td>
+        <td>{{ app.title }}</td>
+        <td>{{ app.companyName }}</td>
+        <td>{{ app.location }}</td>
+        <td>{{ app.durationInMonths }}</td>
+        <td>{{ app.stipend }}</td>
+        <td>{{ app.skillsRequired }}</td>
+        <td>{{ app.applicationDeadline | date }}</td>
         <td>
-            <button
-              *ngIf="!hasApplied(internship.internshipId)"
-              class="btn btn-green"
-              (click)="applyForInternship(internship.internshipId)">
-              Apply
-            </button>
-            <button
-              *ngIf="hasApplied(internship.internshipId)"
-              class="btn btn-applied">
-              Applied
-            </button>
-          </td>
+          <button
+            *ngIf="!hasApplied(app.internshipId)"
+            class="btn btn-green"
+            (click)="applyForInternship(app.internshipId)">
+            Apply
+          </button>
+          <button
+            *ngIf="hasApplied(app.internshipId)"
+            class="btn btn-applied">
+            Applied
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
- 
-<!-- Styles -->
-<!-- <style>
-  .container {
-    text-align: center;
-    margin: 0 auto;
-    padding: 20px;
-  }
- 
-  .styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 18px;
-    text-align: center;
-  }
- 
-  .styled-table th, .styled-table td {
-    padding: 10px;
-    border: 1px solid black;
-  }
- 
-  .styled-table th {
-    background-color: #007BFF;
-    color: white;
-    font-weight: bold;
-  }
- 
-  .styled-table tbody tr:nth-child(even) {
-    background-color: #f3f3f3;
-  }
- 
-  .btn-green {
-    background-color: green;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
- 
-  .btn-green:hover {
-    background-color: darkgreen;
-  }
- 
-  .search-bar {
-    margin-bottom: 20px;
-  }
- 
-  .search-bar input {
-    width: 300px;
-    padding: 10px;
-    margin-right: 10px;
-  }
- 
-  .search-bar button {
-    padding: 10px 15px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
- 
-  .search-bar button:hover {
-    background-color: #0056b3;
-  }
-</style>
-  -->

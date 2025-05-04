@@ -3,19 +3,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, #1e3c72, #2a9861);
+  background: linear-gradient(to right, #3a3a3a, #808181); /* Follow the green-to-blue gradient */
   color: white;
   padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
 }
 
 /* Branding */
 .navbar-brand {
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
-/* Navbar Links: Ensures everything stays aligned */
+/* Navbar Links Section */
 .navbar-links {
   display: flex;
   gap: 20px; /* Proper spacing between items */
@@ -24,32 +27,39 @@
 
 /* Navbar Individual Link Styling */
 .navbar-links a {
-  color: #fff;
+  color: #fff; /* White color for normal links */
   text-decoration: none;
   font-weight: 500;
-  padding: 5px 10px;
+  padding: 8px 15px;
   border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Logout Button Styling */
-.navbar-links a:last-child {
+/* Hover effect for navigation links */
+.navbar-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: underline;
+}
+
+/* Separate styling for logout button */
+.navbar-links a.logout {
   background-color: white;
   color: red;
   border: 1px solid red;
 }
 
-.navbar-links a:last-child:hover {
+.navbar-links a.logout:hover {
   background-color: #ffe5e5;
-}
-
-.navbar-links a:hover {
-  text-decoration: underline;
+  color: red;
 }
 
 /* Dropdown Styling */
 .dropdown {
   position: relative;
   cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 6px;
+  background-color: transparent;
 }
 
 /* Dropdown Title */
@@ -59,7 +69,7 @@
   padding: 5px;
 }
 
-/* Dropdown Menu Fix */
+/* Dropdown Menu Styling */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -67,20 +77,47 @@
   min-width: 150px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   top: 100%;
   left: 0;
+  z-index: 10;
 }
 
-/* Dropdown Menu Items */
+/* Dropdown Menu Items Styling */
 .dropdown-menu a {
   display: block;
   padding: 8px 12px;
   text-decoration: none;
-  color: black;
+  color: black; /* Ensure both links in the dropdown are black */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for dropdown menu items */
+.dropdown-menu a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black; /* Maintain black color on hover */
 }
 
 /* Show Dropdown on Hover */
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .navbar-links a {
+    width: 100%;
+    text-align: center;
+  }
 }

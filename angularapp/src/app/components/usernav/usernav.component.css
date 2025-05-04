@@ -1,34 +1,42 @@
-/* User Navbar Layout: Matches Admin Navbar */
+/* User Navbar Layout */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, #1e3c72, #2a9861); /* Same as Admin Nav */
+  background: linear-gradient(to right, rgb(62, 65, 71), rgb(139, 140, 139)); /* Gradient background */
   color: white;
   padding: 10px 20px;
+  box-sizing: border-box;
 }
 
 /* Navbar Title */
-.navbar-title {
-  color: #fff;
-  font-size: 18px;
+.navbar-brand {
+  font-size: 22px;
   font-weight: bold;
+  color: white;
 }
 
-/* Navbar Links */
+/* Navbar Links Container */
 .navbar-links {
   display: flex;
-  gap: 20px; /* Ensures same spacing as Admin Navbar */
+  gap: 25px; /* Spacing between links */
   align-items: center;
 }
 
-/* Navbar Individual Link Styling */
-.nav-link {
-  color: #fff;
+/* Navbar Links */
+.navbar-links a {
+  color: white;
   text-decoration: none;
   font-weight: 500;
-  padding: 5px 10px;
+  padding: 8px 14px;
   border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effects for Links */
+.navbar-links a:hover {
+  background-color: #4a89c9;
+  color: white;
 }
 
 /* Logout Button Styling */
@@ -36,21 +44,17 @@
   background-color: white;
   color: red;
   border: 1px solid red;
-  padding: 6px 12px;
+  padding: 8px 14px;
   cursor: pointer;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .logout-button:hover {
   background-color: #ffe5e5;
 }
 
-/* Hover Effects */
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-/* Dropdown Styling */
+/* Dropdown Container */
 .dropdown {
   position: relative;
   cursor: pointer;
@@ -60,7 +64,8 @@
 .dropdown-title {
   font-weight: bold;
   color: white;
-  padding: 5px;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
 }
 
 /* Dropdown Menu */
@@ -68,12 +73,13 @@
   display: none;
   position: absolute;
   background-color: white;
-  min-width: 150px;
+  min-width: 160px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px;
   border-radius: 4px;
   top: 100%;
   left: 0;
+  z-index: 1;
 }
 
 /* Dropdown Menu Items */
@@ -82,9 +88,33 @@
   padding: 8px 12px;
   text-decoration: none;
   color: black;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover Effect for Dropdown Items */
+.dropdown-menu a:hover {
+  background-color: #817d7d;
 }
 
 /* Show Dropdown on Hover */
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+/* Adjust Navbar for Small Screens */
+@media (max-width: 768px) {
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .navbar-brand {
+    margin-bottom: 15px;
+  }
+
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
 }

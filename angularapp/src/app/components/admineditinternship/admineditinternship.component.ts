@@ -16,7 +16,7 @@ export class AdmineditinternshipComponent implements OnInit {
 
   internship: Internship = 
     { 
-      InternshipId : 0, 
+      internshipId : 0, 
       title: "",
       companyName: "",
       location: "",

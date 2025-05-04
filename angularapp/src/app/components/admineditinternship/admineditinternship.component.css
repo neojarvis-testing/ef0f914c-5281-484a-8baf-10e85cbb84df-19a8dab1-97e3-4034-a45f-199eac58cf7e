@@ -1,4 +1,4 @@
-
+/* Form Container */
 .form-container {
   max-width: 600px;
   margin: 30px auto;
@@ -8,7 +8,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Header with Back Button Styling */
+/* Header Section with Back Button */
 .header {
   display: flex;
   justify-content: space-between;
@@ -19,6 +19,8 @@
 h2 {
   margin: 0;
   color: #333;
+  font-size: 24px;
+  text-align: center;
 }
 
 /* Back Button Styling */
@@ -37,6 +39,7 @@ h2 {
   background-color: #0056b3;
 }
 
+/* Form Fields */
 .form-field {
   margin-bottom: 18px;
 }
@@ -48,6 +51,7 @@ h2 {
   color: #444;
 }
 
+/* Form Inputs and Textarea */
 .form-field input,
 .form-field textarea {
   width: 100%;
@@ -55,6 +59,7 @@ h2 {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 15px;
+  transition: border-color 0.3s ease;
 }
 
 textarea {
@@ -62,6 +67,21 @@ textarea {
   min-height: 100px;
 }
 
+/* On Focus, change border color */
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Error Message for Invalid Fields */
+.error {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Submit Button */
 button[type="submit"] {
   background-color: #007bff;
   color: white;
@@ -79,12 +99,7 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-.error {
-  color: #d9534f;
-  font-size: 14px;
-  margin-top: 4px;
-}
-
+/* Success Popup */
 .success-popup {
   position: fixed;
   top: 0;
@@ -124,6 +139,7 @@ button[type="submit"]:hover {
   background-color: #218838;
 }
 
+/* Asterisk Symbol for Required Fields */
 .asterisk {
   color: red;
   font-weight: bold;
