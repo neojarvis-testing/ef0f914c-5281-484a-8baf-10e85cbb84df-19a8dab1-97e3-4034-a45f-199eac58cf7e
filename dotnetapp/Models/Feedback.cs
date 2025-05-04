@@ -20,11 +20,11 @@ namespace dotnetapp.Models
         public string? FeedbackText { get; set; }
 
         [Required(ErrorMessage = "Date is required.")]
-        [DataType(DataType.Date, ErrorMessage = "Date format should be dd-MM-yyyy.")]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date, ErrorMessage = "Date format should be yyyy-MM-dd.")]
+        // [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
-        [JsonIgnore]
+        [JsonIgnore(Condition=JsonIgnoreCondition.WhenWritingNull)]
         public User? User { get; set; }
     }
 }

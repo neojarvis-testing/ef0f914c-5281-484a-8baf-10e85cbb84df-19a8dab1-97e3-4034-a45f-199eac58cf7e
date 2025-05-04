@@ -57,14 +57,24 @@
       </div>
     </div>
 
-    <!-- Secret Key Field (Only visible when Admin role is selected) -->
     <div *ngIf="user.UserRole === 'Admin'">
       <label for="secretKey">Secret Key:</label>
-      <input type="text" id="secretKey" name="secretKey" [(ngModel)]="user.SecretKey" #secretKeyNgModel="ngModel" required />
+      <input 
+        type="password" 
+        id="secretKey" 
+        name="secretKey" 
+        [(ngModel)]="user.SecretKey" 
+        #secretKeyNgModel="ngModel" 
+        required
+        autocomplete="off"  
+        autocorrect="off"   
+        spellcheck="false"  
+      />
       <div class="error-message" *ngIf="secretKeyNgModel.invalid && (secretKeyNgModel.dirty || secretKeyNgModel.touched)">
         Secret Key is required
       </div>
     </div>
+    
 
     <button type="submit" id="submit" [disabled]="registrationForm.invalid">REGISTER</button>
     <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>

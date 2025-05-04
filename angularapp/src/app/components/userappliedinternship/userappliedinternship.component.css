@@ -1,87 +1,84 @@
 .internships-container {
-  max-width: 900px;
+  width: 80%;
   margin: auto;
+  background: #f9f9f9;
   padding: 20px;
-  background-color: #f8f9fa;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   text-align: center;
-  font-size: 24px;
   color: #333;
 }
 
 .line {
-  border: none;
+  width: 100%;
   height: 2px;
-  background-color: #007bff;
-  margin-bottom: 20px;
+  background: #007bff;
+  border: none;
 }
 
 .search-bar {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .search-bar input {
-  width: 80%;
+  width: 60%;
   padding: 10px;
-  border: 2px solid #007bff;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background: white;
 }
 
 th, td {
+  border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
-  border-bottom: 1px solid #ddd;
 }
 
 th {
-  background-color: #007bff;
+  background: #007bff;
   color: white;
 }
 
 button {
   padding: 8px 12px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-.redButton {
-  background-color: #dc3545;
+button.redButton {
+  background: #dc3545;
   color: white;
 }
 
+button:hover {
+  opacity: 0.8;
+}
+
 .modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal.show {
-  display: block;
-}
-
-.modal-dialog {
-  background: white;
+.modal-content {
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.modal-footer button {
-  margin: 5px;
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
 }
+

@@ -1,129 +1,168 @@
-/* Container Styling */
+/* General Container Styling */
 .container {
-  margin: 20px auto;
-  width: 90%;
-  max-width: 1200px; /* Responsive limit */
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 80%;
 }
- 
-/* Page Title */
+
+/* Heading Styling */
 h1 {
-  text-align: center;
-  color: #343a40;
+  color: #333;
   font-size: 28px;
-  font-weight: bold;
+  margin-bottom: 20px;
 }
- 
-/* No Records Found Message */
-.no-records {
-  text-align: center;
-  color: #dc3545; /* Red for no records found */
-  font-weight: bold;
-  font-size: 18px;
-}
- 
-/* Search & Filter Section */
+
+/* Search and Filter Section */
 .search-filter {
-  margin: 20px 0;
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  gap: 10px; /* Space between elements */
-  justify-content: space-between;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
- 
-.search-filter input,
-.search-filter select {
-  width: 48%;
+
+.search-filter input, .search-filter select {
   padding: 10px;
-  border: 1px solid #ccc; /* Softer border */
-  border-radius: 6px;
-  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
- 
-/* Table Styling */
+
+/* No Records Found Styling */
+.no-records {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Styled Table */
 .table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 18px;
+  text-align: center;
 }
- 
+
+.table th, .table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
 .table th {
-  background-color: #007bff; /* Updated color: blue */
+  background-color: #007BFF;
   color: white;
-  text-align: left;
-  padding: 12px;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+/* Buttons */
+button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 16px;
 }
- 
-.table th,
-.table td {
-  text-align: left;
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
- 
-/* Approve Button */
+
 .btn-success {
-  background-color: #28a745; /* Standard green */
+  background-color: green;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
- 
+
 .btn-success:hover {
-  background-color: #218838; /* Slightly darker green */
+  background-color: darkgreen;
 }
- 
-/* Reject Button */
-.reject-btn {
-  background-color: #dc3545; /* Red */
+
+.btn-danger {
+  background-color: red;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
- 
-.reject-btn:hover {
-  background-color: #c82333; /* Darker red */
+
+.btn-danger:hover {
+  background-color: darkred;
 }
- 
+
+.btn-primary {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background: gray;
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background: darkgray;
+}
+
+.btn-info {
+  background: #17a2b8;
+  color: white;
+  border: none;
+}
+
+.btn-info:hover {
+  background: #117a8b;
+}
+
+/* Applied Button */
+.btn-applied {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: not-allowed;
+  font-weight: bold;
+  text-align: center;
+  width: 100px;
+}
+
+.btn-applied:hover {
+  background-color: darkred;
+}
+
 /* Resume Popup */
-.popup {
+.resume-popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Darker overlay */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
- 
-.popup-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: white;
   padding: 20px;
+  height: 60%;
+  width: 60%;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Smooth shadow */
 }
- 
-.popup-content iframe {
-  border-radius: 6px;
-  border: 1px solid #ccc;
+
+.popup-content h2 {
+  color: #333;
+  margin-bottom: 15px;
 }
- 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .search-filter {
-    flex-direction: column;
-  }
- 
-  .search-filter input,
-  .search-filter select {
-    width: 100%; /* Full width on smaller screens */
-  }
+
+.popup-content iframe, .popup-content img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.popup-content button {
+  margin-top: 15px;
+}
+
+/* Chart Button */
+.chart-btn {
+  text-align: center;
+  margin-top: 20px;
 }

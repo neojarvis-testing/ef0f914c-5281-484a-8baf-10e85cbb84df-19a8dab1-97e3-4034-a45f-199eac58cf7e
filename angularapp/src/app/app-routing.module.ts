@@ -18,6 +18,7 @@ import { AdmineditinternshipComponent } from './components/admineditinternship/a
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewinternshipComponent } from './components/viewinternship/viewinternship.component';
 import { InternshipformComponent } from './components/internshipform/internshipform.component';
+import { InternshippiechartComponent } from './components/internshippiechart/internshippiechart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,6 +38,8 @@ const routes: Routes = [
       { path: 'createinternship', component: CreateinternshipComponent },
       { path: 'viewinternship', component: ViewinternshipComponent },
       { path: 'admineditinternship/:internshipId', component: AdmineditinternshipComponent },
+      { path: 'internshippiechart', component: InternshippiechartComponent},
+      { path: 'requestedInternship', component: RequestedinternshipComponent}
     ],
   },
 

@@ -22,7 +22,9 @@ namespace dotnetapp.Services
         public async Task<IEnumerable<Feedback>> GetAllFeedbacks()  
         {
             // Fetch all feedback records from the Feedbacks table asynchronously
-            var feedbackList = await _context.Feedbacks.ToListAsync();
+            var feedbackList = await _context.Feedbacks
+                                    .Include(u => u.User)
+                                    .ToListAsync();
             return feedbackList; // Return the list of feedback entries
         }
 
@@ -33,6 +35,7 @@ namespace dotnetapp.Services
             // Query the Feedbacks table to filter feedbacks matching the given user ID
             var userFeedbacks = await _context.Feedbacks
                 .Where(feedback => feedback.UserId == userId) // Filtering logic
+                .Include(u => u.User)
                 .ToListAsync(); // Convert result into a list asynchronously
             
             return userFeedbacks; // Return the filtered feedbacks

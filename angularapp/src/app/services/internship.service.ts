@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,13 +8,10 @@ import { InternshipApplication } from '../models/internshipapplication.model';
   providedIn: 'root'
 })
 export class InternshipService {
-
-
-
-  public apiUrl = 'https://8080-bdbedbadfdcfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
-  public applicationApiUrl = 'https://8080-bdbedbadfdcfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
-
-
+                  //  https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship
+  public apiUrl = ' https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
+  public applicationApiUrl = 'https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
+ 
  
   constructor(private http: HttpClient) {}
  
@@ -23,7 +19,7 @@ export class InternshipService {
     const token = localStorage.getItem('authToken');
     return {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       })
     };
   }
@@ -45,7 +41,7 @@ export class InternshipService {
   }
  
   deleteInternship(internshipId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${internshipId}`,this.getHeaders());
+    return this.http.delete<void>(`${this.apiUrl}/${internshipId}`, this.getHeaders());
   }
  
   getAppliedInternships(userId: number): Observable<InternshipApplication[]> {

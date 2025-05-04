@@ -1,23 +1,27 @@
+.btn-danger {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* Darker red */
+}
+
 .chart-container {
-    width: 50%; /* Reduce container width */
-    margin: 20px auto;
-    text-align: center;
-  }
-  
-  .chart-wrapper {
-    position: relative;
-    width: 300px; /* Set fixed width */
-    height: 300px; /* Set fixed height */
-    margin: 0 auto; /* Center the chart */
-  }
-  
-  h1 {
-    color: #343a40;
-    margin-bottom: 20px;
-  }
-  
-  canvas {
-    max-width: 100%; /* Ensure the chart scales properly */
-    height: auto; /* Maintain proportions */
-  }
-  
+  text-align: center;
+  position: relative;
+}
+
+.chart-container .btn-danger {
+  position: absolute;
+  top: 10px;
+  right: 20px; /* ✅ Positions button at the top-right of the chart */
+}
+

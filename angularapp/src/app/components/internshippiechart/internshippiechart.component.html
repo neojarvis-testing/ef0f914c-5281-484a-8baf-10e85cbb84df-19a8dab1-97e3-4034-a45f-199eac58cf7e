@@ -1,7 +1,8 @@
-<div class="chart-container">
-    <h1>Degree Program Chart</h1>
-    <div class="chart-wrapper">
-      <canvas id="degreeProgramChart"></canvas>
-    </div>
+<div class="chart-container" *ngIf="showChart"> <!-- ✅ Show/Hide chart based on condition -->
+  <h1>Internship Applications by Degree Program</h1>
+  <button class="btn btn-danger" (click)="closeChart()">Close Chart</button> <!-- ✅ Close Button -->
+
+  <div class="chart-wrapper">
+    <canvas id="degreeProgramChart"></canvas>
   </div>
-  
+</div>
