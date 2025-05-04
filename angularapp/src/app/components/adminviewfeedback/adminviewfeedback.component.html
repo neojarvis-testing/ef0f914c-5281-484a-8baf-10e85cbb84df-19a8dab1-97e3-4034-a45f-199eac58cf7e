@@ -1,46 +1,43 @@
-
 <div class="container">
-    <h1>Feedback Details</h1>
-    
-    <div *ngIf="feedbacks.length === 0">
-      No data found
-    </div>
-    
-    <div *ngIf="feedbacks.length > 0">
-      <table class="full-width-table">
-        <thead>
-          <tr>
-            <th>S.No</th>
-            <th>User Name</th>
-            <th>Feedback</th>
-            <th>Posted Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let feedback of feedbacks; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ feedback.user }}</td>
-            <td>{{ feedback.feedback }}</td>
-            <td>{{ feedback.postedDate }}</td>
-            <td>
-              <button (click)="showProfile(feedback)">Show Profile</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-    <!-- Profile Modal -->
-    <div *ngIf="selectedUser" class="modal">
-      <div class="modal-content">
-        <h2>User Details:</h2>
-        <p><strong>Email:</strong> {{ selectedUser.email }}</p>
-        <p><strong>Username:</strong> {{ selectedUser.user }}</p>
-        <p><strong>Mobile Number:</strong> {{ selectedUser.mobileNo }}</p>
-        <button class="close-btn" (click)="closeProfile()">Close</button>
-      </div>
-      
-    </div>
+  <h1>Feedback Details</h1>
+
+  <div *ngIf="feedbacks.length === 0">
+    No data found
   </div>
 
+  <div *ngIf="feedbacks.length > 0">
+    <table class="full-width-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>User Name</th>
+          <th>Feedback</th>
+          <th>Posted Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of feedbacks; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ feedback.user.username }}</td>
+          <td>{{ feedback.feedbackText }}</td>
+          <td>{{ feedback.date }}</td>
+          <td>
+            <button (click)="showProfile(feedback)">Show Profile</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Profile Modal -->
+  <div *ngIf="selectedUser" class="modal">
+    <div class="modal-content">
+      <h2>User Details:</h2>
+      <p><strong>Email:</strong> {{ selectedUser.user.email }}</p>
+      <p><strong>Username:</strong> {{ selectedUser.user.username }}</p>
+      <p><strong>Mobile Number:</strong> {{ selectedUser.user.mobileNumber }}</p>
+      <button class="close-btn" (click)="closeProfile()">Close</button>
+    </div>
+  </div>
+</div>

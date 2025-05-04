@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -19,7 +18,7 @@ export class InternshipService {
     const token = localStorage.getItem('authToken');
     return {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       })
     };
   }
@@ -41,7 +40,7 @@ export class InternshipService {
   }
  
   deleteInternship(internshipId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${internshipId}`,this.getHeaders());
+    return this.http.delete<void>(`${this.apiUrl}/${internshipId}`, this.getHeaders());
   }
  
   getAppliedInternships(userId: number): Observable<InternshipApplication[]> {

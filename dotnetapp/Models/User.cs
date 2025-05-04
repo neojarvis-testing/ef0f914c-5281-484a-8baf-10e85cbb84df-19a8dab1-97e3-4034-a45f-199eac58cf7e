@@ -34,7 +34,7 @@ namespace dotnetapp.Models
         public string UserRole { get; set; }
 
         // Required only during admin registration
-        [StringLength(16, ErrorMessage = "Secret Key can not exceed 16 characters.")]
+        [StringLength(56, ErrorMessage = "Secret Key can not exceed 56 characters.")]
         public string? SecretKey { get; set; }
     }
 }

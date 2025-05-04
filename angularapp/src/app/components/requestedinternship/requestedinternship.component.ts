@@ -1,72 +1,79 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InternshipService } from 'src/app/services/internship.service';
- 
+
 @Component({
   selector: 'app-requestedinternship',
   templateUrl: './requestedinternship.component.html',
   styleUrls: ['./requestedinternship.component.css']
 })
- 
 export class RequestedinternshipComponent implements OnInit {
-  applications: Array<any> = []; // List of applications
-  filteredApplications: Array<any> = []; // Filtered list
-  degreeProgramSearch: string = ''; // Search for Degree Program
-  statusFilter: string = ''; // Filter by Status
-  selectedResume: string | null = null; // Resume selected for popup display
- 
-  constructor(private router: Router, private internshipService: InternshipService) {} // Inject the service
- 
+  applications: any[] = [];
+  filteredApplications: any[] = [];
+  degreeProgramSearch: string = ''; 
+  statusFilter: string = ''; 
+  selectedResumeUrl: string | null = null;
+  showResumePopup: boolean = false; // ✅ Control popup visibility
+
+  constructor(private internshipService: InternshipService, private router: Router) {}
+
   ngOnInit(): void {
-    this.loadApplications(); // Load applications from the service
+    this.loadApplications();
   }
- 
-  /** Load applications from the service */
+
+  /** Load internship applications */
   loadApplications(): void {
     this.internshipService.getAllInternshipApplications().subscribe(
       data => {
-        this.applications = data;
-        this.filteredApplications = [...this.applications]; // Initialize filtered list
+        this.applications = data.map(app => ({
+          ...app,
+          status: app.applicationStatus || 'Pending' // ✅ Ensure default status is "Pending"
+        }));
+        this.filteredApplications = [...this.applications]; 
+        console.log(this.filteredApplications);
       },
       error => {
-        alert('Failed to load applications. Please try again.'); // Error handling
+        alert('Failed to load applications.');
       }
     );
   }
- 
- 
+
   /** Search and filter applications */
   searchAndFilter(): void {
     this.filteredApplications = this.applications.filter(application =>
-      application.degreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase()) &&
-      (!this.statusFilter || application.status.toLowerCase() === this.statusFilter.toLowerCase())
+      (this.degreeProgramSearch === '' || application.degreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase())) &&
+      (this.statusFilter === '' || application.status.toLowerCase() === this.statusFilter.toLowerCase())
     );
   }
- 
-  /** Approve application and hide only Approve button */
+
+  /** Approve internship application */
   approveApplication(index: number): void {
-    this.filteredApplications[index].status = 'Approved'; // Change status
-    // Update status in the backend
-    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe();
+    this.filteredApplications[index].status = 'Approved';
+    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe(() => {
+      this.loadApplications();
+    });
   }
- 
-  /** Reject application and hide only Reject button */
+
+  /** Reject internship application */
   rejectApplication(index: number): void {
-    this.filteredApplications[index].status = 'Rejected'; // Change status
-    // Update status in the backend
-    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe();
+    this.filteredApplications[index].status = 'Rejected';
+    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe(() => {
+      this.loadApplications();
+    });
   }
- 
-  /** View Resume in Popup */
-  viewResume(resume: string): void {
-    this.selectedResume = resume; // Set selected resume
+
+  /** Show Resume Preview */
+  viewResume(resumeUrl: string): void {
+    this.selectedResumeUrl = resumeUrl; 
+    this.showResumePopup = true; // ✅ Open popup
   }
- 
-  /** Close Resume Popup */
+
+  /** Close Resume Viewer */
   closePopup(): void {
-    this.selectedResume = null; // Reset popup
+    this.selectedResumeUrl = null; 
+    this.showResumePopup = false; // ✅ Close popup
   }
- 
+
   /** Navigate to Degree Program Chart */
   viewDegreeProgramChart(): void {
     this.router.navigate(['/admin/internshippiechart']);

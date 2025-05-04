@@ -24,6 +24,7 @@ export class FeedbackService {
   }
 
   sendFeedback(feedback: Feedback): Observable<Feedback> {
+    feedback.date = new Date();
     return this.http.post<Feedback>(this.apiUrl, feedback, this.getHeaders());
   }
 
