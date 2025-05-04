@@ -41,7 +41,7 @@ export class InternshipService {
   }
  
   deleteInternship(internshipId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${internshipId}`, this.getHeaders());
+    return this.http.delete<void>(`${this.apiUrl}/${internshipId}`,this.getHeaders());
   }
  
   getAppliedInternships(userId: number): Observable<InternshipApplication[]> {

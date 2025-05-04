@@ -10,7 +10,7 @@
         [(ngModel)]="companyNameSearch"
         (input)="searchInternships()"
       />
-      <button class="btn btn-search" (click)="searchInternships()">Search</button>
+      <button (click)="searchInternships()">Search</button>
     </div>
   
     <!-- Table -->
@@ -21,7 +21,7 @@
           <th>Title</th>
           <th>Company Name</th>
           <th>Location</th>
-          <th>Duration</th>
+          <th>Duration (Months)</th>
           <th>Stipend</th>
           <th>Skills Required</th>
           <th>Application Deadline</th>
@@ -41,8 +41,9 @@
           <td>{{ internship.applicationDeadline }}</td>
           <td>{{ internship.description }}</td>
           <td>
-            <button class="btn btn-green" (click)="editInternship(internship?.internshipId)">Edit</button>
-            <button class="btn btn-red" (click)="deleteInternship(internship?.internshipId)">Delete</button>
+            <button class="btn btn-green" (click)="editInternship(internship.internshipId)">Edit</button>
+            <button class="btn btn-red" (click)="deleteInternship(internship.internshipId)">Delete</button>
+
           </td>
         </tr>
       </tbody>

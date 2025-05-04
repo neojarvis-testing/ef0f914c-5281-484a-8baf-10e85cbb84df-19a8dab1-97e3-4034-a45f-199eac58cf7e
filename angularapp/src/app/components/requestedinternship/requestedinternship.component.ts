@@ -1,82 +1,74 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { InternshipService } from 'src/app/services/internship.service';
+ 
 @Component({
   selector: 'app-requestedinternship',
   templateUrl: './requestedinternship.component.html',
   styleUrls: ['./requestedinternship.component.css']
 })
+ 
 export class RequestedinternshipComponent implements OnInit {
-  applications: Array<any> = []; // List of internship applications
+  applications: Array<any> = []; // List of applications
   filteredApplications: Array<any> = []; // Filtered list
   degreeProgramSearch: string = ''; // Search for Degree Program
   statusFilter: string = ''; // Filter by Status
   selectedResume: string | null = null; // Resume selected for popup display
-
-  constructor() {}
-
+ 
+  constructor(private router: Router, private internshipService: InternshipService) {} // Inject the service
+ 
   ngOnInit(): void {
-    this.loadApplications(); // Load mock data
+    this.loadApplications(); // Load applications from the service
   }
-
-  // Load applications (mock data for now)
+ 
+  /** Load applications from the service */
   loadApplications(): void {
-    this.applications = [
-      {
-        SNo: 1,
-        Username: 'John Doe',
-        UniversityName: 'MIT',
-        DegreeProgram: 'Computer Science',
-        ApplicationDate: '2023-06-01',
-        LinkedInProfile: 'https://www.linkedin.com/in/johndoe',
-        Status: 'Pending',
-        Resume: 'assets/resume1.pdf'
+    this.internshipService.getAllInternshipApplications().subscribe(
+      data => {
+        this.applications = data;
+        this.filteredApplications = [...this.applications]; // Initialize filtered list
       },
-      {
-        SNo: 2,
-        Username: 'Jane Smith',
-        UniversityName: 'Harvard',
-        DegreeProgram: 'Business Administration',
-        ApplicationDate: '2023-06-05',
-        LinkedInProfile: 'https://www.linkedin.com/in/janesmith',
-        Status: 'Pending',
-        Resume: 'assets/resume2.pdf'
+      error => {
+        alert('Failed to load applications. Please try again.'); // Error handling
       }
-    ];
-    this.filteredApplications = [...this.applications]; // Initialize filtered list
-  }
-
-  // Search and filter applications
-  searchAndFilter(): void {
-    this.filteredApplications = this.applications.filter(application =>
-      application.DegreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase()) &&
-      (!this.statusFilter || application.Status.toLowerCase() === this.statusFilter.toLowerCase())
     );
   }
-
-  // Approve application
+ 
+ 
+  /** Search and filter applications */
+  searchAndFilter(): void {
+    this.filteredApplications = this.applications.filter(application =>
+      application.degreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase()) &&
+      (!this.statusFilter || application.status.toLowerCase() === this.statusFilter.toLowerCase())
+    );
+  }
+ 
+  /** Approve application and hide only Approve button */
   approveApplication(index: number): void {
-    this.applications[index].Status = 'Approved'; // Change status to Approved
-    this.searchAndFilter(); // Refresh filtered list
+    this.filteredApplications[index].status = 'Approved'; // Change status
+    // Update status in the backend
+    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe();
   }
-
-  // Reject application
+ 
+  /** Reject application and hide only Reject button */
   rejectApplication(index: number): void {
-    this.applications[index].Status = 'Rejected'; // Change status to Rejected
-    this.searchAndFilter(); // Refresh filtered list
+    this.filteredApplications[index].status = 'Rejected'; // Change status
+    // Update status in the backend
+    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe();
   }
-
-  // View resume popup
+ 
+  /** View Resume in Popup */
   viewResume(resume: string): void {
-    this.selectedResume = resume; // Set selected resume for popup
+    this.selectedResume = resume; // Set selected resume
   }
-
-  // Close resume popup
+ 
+  /** Close Resume Popup */
   closePopup(): void {
-    this.selectedResume = null; // Reset selected resume
+    this.selectedResume = null; // Reset popup
   }
-
-  // Navigate to Degree Program Chart
+ 
+  /** Navigate to Degree Program Chart */
   viewDegreeProgramChart(): void {
-    console.log('Navigating to Degree Program Chart...'); // Add your navigation logic here
+    this.router.navigate(['/admin/internshippiechart']);
   }
 }

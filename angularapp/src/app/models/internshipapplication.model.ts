@@ -1,15 +1,17 @@
 import { Internship } from "./internship.model";
+import { User } from "./user.model";
 
 export interface InternshipApplication
 {
-    InternshipApplicationId?: number;
-    UserId: number;
-    IntershipId: number;
-    Intership? : Internship;
-    UniversityName: string;
-    DegreeProgram: string;
-    Resume: string;
-    LinkedInProfile?: string;
-    ApplicationStatus: string;
-    ApplicationDate: string;
+    internshipApplicationId?: number;
+    userId: number;
+    user? : User;
+    intershipId: number;
+    internship? : Internship;
+    universityName: string;
+    degreeProgram: string;
+    resume: string;
+    linkedInProfile?: string;
+    applicationStatus: string;
+    applicationDate: string;
 }
