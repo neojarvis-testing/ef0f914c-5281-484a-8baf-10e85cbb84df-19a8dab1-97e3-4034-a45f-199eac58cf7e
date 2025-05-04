@@ -41,11 +41,7 @@ builder.Services.AddScoped<InternshipApplicationService>();
 builder.Services.AddScoped<FeedbackService>();
 
 // ✅ **Configure database connection with retry handling**
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("myconnString"),
-        sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()
-    ));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("myconnString")));
 
 // ✅ **Configure Identity**
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
