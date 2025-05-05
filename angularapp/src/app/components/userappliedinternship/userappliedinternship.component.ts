@@ -21,8 +21,7 @@ export class UserappliedinternshipComponent implements OnInit {
   selectedApplication: InternshipApplication | null = null;
   userId: number;
   showNoRecordsMessage: boolean = false; // Added for delay handling
-  resume: string
-
+  resume: string;
  
   constructor(
     private route: ActivatedRoute,
