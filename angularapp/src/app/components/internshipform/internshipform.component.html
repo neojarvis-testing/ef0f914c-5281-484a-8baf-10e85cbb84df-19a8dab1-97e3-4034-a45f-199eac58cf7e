@@ -29,8 +29,8 @@
 
       <!-- Resume Upload -->
       <div class="form-group">
-        <label for="resumeUpload">Resume Upload (PNG/TXT only): <span class="required">*</span></label>
-        <input type="file" id="resumeUpload" (change)="onFileChange($event)" class="form-control" accept=".png,.txt" />
+        <label for="resumeUpload">Upload Resume (PDF Only): <span class="required">*</span></label>
+        <input type="file" id="resumeUpload" (change)="onFileChange($event)" class="form-control" accept=".pdf" />
         <div *ngIf="fileError" class="validation-error">{{ fileError }}</div>
         <div *ngIf="submitted && f.resumeUpload.errors" class="validation-error">Resume upload is required.</div>
       </div>

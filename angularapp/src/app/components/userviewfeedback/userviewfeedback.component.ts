@@ -17,7 +17,9 @@ export class UserviewfeedbackComponent implements OnInit {
  
   ngOnInit(): void {
    this.loadFeedbacks();
-   
+  //  const storedUser = localStorage.getItem('role');
+  //  const user = JSON.parse(storedUser);
+  //  this.userId = user.userId;
   }
   loadFeedbacks(): void
   {

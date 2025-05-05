@@ -52,7 +52,6 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-// ✅ **Ensure roles exist during application startup**
 async Task SeedRoles(IServiceProvider serviceProvider)
 {
     using (var scope = serviceProvider.CreateScope())

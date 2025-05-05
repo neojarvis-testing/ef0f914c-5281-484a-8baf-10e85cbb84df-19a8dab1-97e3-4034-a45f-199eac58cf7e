@@ -19,9 +19,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewinternshipComponent } from './components/viewinternship/viewinternship.component';
 import { InternshipformComponent } from './components/internshipform/internshipform.component';
 import { InternshippiechartComponent } from './components/internshippiechart/internshippiechart.component';
+import { NavHomeComponent } from './components/nav-home/nav-home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: NavHomeComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'error', component: ErrorComponent },

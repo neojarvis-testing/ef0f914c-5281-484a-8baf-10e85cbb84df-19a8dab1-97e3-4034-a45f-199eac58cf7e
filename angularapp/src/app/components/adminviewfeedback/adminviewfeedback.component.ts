@@ -11,6 +11,7 @@ export class AdminviewfeedbackComponent implements OnInit {
 
   feedbacks: Feedback[] = [];
   selectedUser: Feedback = null;
+  showNoDataMessage: boolean = false; // ✅ Initially hidden
 
   constructor(private feedbackService: FeedbackService) {}
 
@@ -23,6 +24,13 @@ export class AdminviewfeedbackComponent implements OnInit {
       (data) => {
         this.feedbacks = data;
         console.log(data);
+
+        // ✅ Delay showing "No data found" by 4 seconds
+        if (this.feedbacks.length === 0) {
+          setTimeout(() => {
+            this.showNoDataMessage = true;
+          }, 4000);
+        }
       },
       (error) => {
         console.error('Error fetching feedbacks:', error);

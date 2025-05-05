@@ -1,0 +1,62 @@
+<div class="home-container">
+    <h1 class="animated-heading">
+        Make Your <span class="highlight">Dream Career </span> a Reality!
+      </h1>
+      
+      <!-- Curved Arrow from Dreams to Reality -->
+      <svg class="curved-arrow" width="300" height="100" viewBox="0 0 300 100">
+        <path d="M20,20 Q150,80 280,20" stroke="#007bff" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </svg>
+      
+      
+    <div class="grid-box">
+      <div class="box fade-in">
+        <h2>Your One-Stop Platform for Landing Internships</h2>
+        <p>Find tailored opportunities in technology, finance, healthcare, and more.</p>
+      </div>
+  
+      <div class="box slide-in">
+        <h2>Loved by Thousands</h2>
+        <p>Thousands of students and young professionals trust us to kickstart their careers.</p>
+      </div>
+  
+      <div class="box zoom-in">
+        <h2>Trusted by Industry Leaders</h2>
+        <p>Partnering with top companies to bring you the best internship programs.</p>
+      </div>
+  
+      <div class="box flip-in">
+        <h2>Make Your Dream Career a Reality</h2>
+        <p>Take the next step towards success—your journey starts here.</p>
+      </div>
+    </div>
+  
+    <a href="/register" class="cta-btn">Register Now !!</a>
+  </div>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const arrowPath = document.getElementById("arrowPath");
+    const arrowHead = document.getElementById("arrowHead");
+  
+    let pathLength = arrowPath.getTotalLength();
+  
+    function moveArrowhead(progress) {
+      let point = arrowPath.getPointAtLength(progress * pathLength);
+      let angle = Math.atan2(point.y - 30, point.x - 30) * (180 / Math.PI);
+      arrowHead.setAttribute("transform", `translate(${point.x}, ${point.y}) rotate(${angle})`);
+    }
+  
+    let progress = 0;
+    function animate() {
+      if (progress <= 1) {
+        moveArrowhead(progress);
+        progress += 0.005;
+        requestAnimationFrame(animate);
+      }
+    }
+  
+    animate();
+  });
+  </script>
+  

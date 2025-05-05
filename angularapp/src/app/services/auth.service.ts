@@ -3,24 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
- 
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  public apiUrl = 'https://8080-edccfcacceabdfddaeecadabeafeaccfe.premiumproject.examly.io'; 
-  private tokenKey = 'authToken'; 
+
+  public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io';
+
+  private tokenKey = 'authToken';
   public roleSubject = new BehaviorSubject<string | null>(null);
- 
-  constructor(private http: HttpClient, private router: Router) {}
- 
+
+  constructor(private http: HttpClient, private router: Router) { }
+
   /** Register a new user */
   register(user: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/api/register`, user).pipe(
       catchError(this.handleError<any>('register'))
     );
   }
- 
+
   isLoggedIn(): boolean {
     return !!localStorage.getItem('authToken');
   }
@@ -32,7 +34,7 @@ export class AuthService {
     const role = localStorage.getItem('role');
     return role === 'user';
   }
- 
+
   /** Log in and store JWT token */
   login(credentials: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/api/login`, credentials).pipe(
@@ -45,7 +47,7 @@ export class AuthService {
       catchError(this.handleError<any>('login'))
     );
   }
- 
+
   /** Store JWT token */
   storeToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
@@ -57,7 +59,7 @@ export class AuthService {
       this.roleSubject.next(role);
     }
   }
- 
+
   /** Navigate user based on role */
   navigateBasedOnRole(): void {
     const role = this.getUserRole();
@@ -69,36 +71,58 @@ export class AuthService {
       this.router.navigate(['/']);
     }
   }
- 
+
   /** Logout */
   logout(): void {
-    localStorage.clear(); 
+    localStorage.clear();
     this.roleSubject.next(null);
     this.router.navigate(['/login']);
   }
- 
+
   /** Get JWT token */
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
- 
+
   /** Get user ID */
   getUserId(): string | null {
     const token = this.getToken();
     if (token) {
-        try {
-            const payload = JSON.parse(atob(token.split('.')[1])); // Decode the token
-            console.log("Decoded Payload:", payload); // Debugging Output
-            return payload['nameid'] || null; // Ensure proper key access
-        } catch (error) {
-            console.error("Error decoding token:", error);
-            return null;
-        }
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1])); // Decode the token
+        console.log("Decoded Payload:", payload); // Debugging Output
+        return payload['nameid'] || null; // Ensure proper key access
+      } catch (error) {
+        console.error("Error decoding token:", error);
+        return null;
+      }
     }
     return null;
-}
- 
- 
+
+
+    // getUserId(): number {
+    //   const storedUserId = localStorage.getItem('userId');
+    //   return storedUserId ? Number(storedUserId) : -1; // Return -1 if not found
+  }
+
+  /** Get username */
+  getUsername(): string | null {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1])); // Decode JWT
+        console.log("Decoded Payload:", payload); // Debugging Output
+        return payload['username'] || null; // Ensure proper key access
+      } catch (error) {
+        console.error("Error decoding token:", error);
+        return null;
+      }
+    }
+    return null;
+  }
+
+
+
   /** Decode JWT token */
   public decodeJwtToken(token: string): any {
     try {
@@ -110,12 +134,12 @@ export class AuthService {
       return null;
     }
   }
- 
+
   /** Get user role */
   getUserRole(): string | null {
     return localStorage.getItem('role');
   }
- 
+
   /** Error Handling */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -123,6 +147,5 @@ export class AuthService {
       return throwError(() => new Error(`${operation} failed: ${error.message}`));
     };
   }
-  
+
 }
- 

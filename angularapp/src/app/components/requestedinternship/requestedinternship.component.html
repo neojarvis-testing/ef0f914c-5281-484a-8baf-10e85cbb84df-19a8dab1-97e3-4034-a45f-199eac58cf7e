@@ -14,9 +14,9 @@
   </div>
 
   <!-- No Records Found -->
-  <div *ngIf="filteredApplications.length === 0" class="no-records">
+  <div *ngIf="showNoRecordsMessage">
     <h2>Oops! No records found.</h2>
-  </div>
+  </div>  
 
   <!-- Applications Table -->
   <div *ngIf="filteredApplications.length > 0">

@@ -20,7 +20,8 @@ export class UserviewinternshipComponent implements OnInit {
   internshipTitleSearch: string = ''; // Search field for internship title
   locationFilter: string = ''; // Location filter
   searchQuery : string='';
- 
+  showNoRecordsMessage: boolean = false; // Added for delay handling
+
   constructor(
     private feedbackService: FeedbackService,
     private internshipService: InternshipService,
@@ -57,12 +58,18 @@ export class UserviewinternshipComponent implements OnInit {
       data => {
         this.internships = data;
         this.filteredInternships = [...this.internships]; // Initialize filtered list
+  
+        // Introduce a delay before showing the message
+        setTimeout(() => {
+          this.showNoRecordsMessage = this.filteredInternships.length === 0;
+        }, 4000); // 4-second delay
       },
       error => {
         console.error('Error fetching internships:', error);
       }
     );
   }
+  
  
   // loadAppliedInternships(): void {
   //   this.appliedInternships = [1, 3]; // Replace with API call if needed
@@ -79,7 +86,7 @@ export class UserviewinternshipComponent implements OnInit {
     console.log("Navigating to:", `/user/internshipform/${internshipId}`);
   }
  
- 
+  
  
   // New search and filter method
   searchInternships(): void {

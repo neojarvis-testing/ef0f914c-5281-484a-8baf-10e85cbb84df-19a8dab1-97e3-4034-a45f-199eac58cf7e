@@ -1,6 +1,7 @@
 <nav class="navbar">
   <div class="navbar-brand">INTERNSHIP APPLICATION SYSTEM</div>
   <div class="navbar-links">
+    <span>{{ username }}/Admin</span>
     <a routerLink="/admin/home">Home</a>
     <div class="dropdown">
       <span class="dropdown-title">Internship</span>
@@ -11,7 +12,7 @@
     </div>
     <a routerLink="/admin/internshiprequested">Internship Requested</a>
     <a routerLink="/admin/feedbacks">Feedbacks</a>
-    <a (click)="authService.logout()">Logout</a>
+    <a href="#" class="logout-btn" (click)="authService.logout()">Logout</a>
   </div>
 </nav>
 

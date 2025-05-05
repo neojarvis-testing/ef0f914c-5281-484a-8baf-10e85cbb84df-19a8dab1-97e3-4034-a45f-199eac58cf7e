@@ -10,18 +10,80 @@
   transition: background-color 0.3s ease-in-out;
 }
 
+h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ✅ Centers vertically */
+  text-align: center;
+}
+
 .btn-danger:hover {
   background-color: #c82333; /* Darker red */
 }
 
-.chart-container {
-  text-align: center;
-  position: relative;
+.chart-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.chart-container .btn-danger {
+.degree-counts {
+  flex: 1;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.degree-counts h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.degree-counts ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.degree-counts li {
+  font-size: 18px;
+  font-weight: 500;
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.degree-counts li:hover {
+  transform: scale(1.05);
+  background-color: #f0f8ff;
+}
+
+.chart-wrapper {
+  flex: 3;
+  position: relative; /* ✅ Ensures button positioning */
+}
+
+.close-btn-container {
   position: absolute;
   top: 10px;
-  right: 20px; /* ✅ Positions button at the top-right of the chart */
+  right: 10px; /* ✅ Moves the button to the right */
 }
-
