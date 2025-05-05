@@ -15,6 +15,7 @@ export class InternshipformComponent implements OnInit {
   resumeFile!: File | null;
   fileError = '';
   internships: any[] = []; // Store internships from API
+  base64File: string;
 
   constructor(private fb: FormBuilder, private router: Router, private internshipService: InternshipService, private authService: AuthService, private activatedRoute: ActivatedRoute) {}
 
@@ -49,26 +50,53 @@ export class InternshipformComponent implements OnInit {
   /** Handle file input change for PDF Upload */
   onFileChange(event: any): void {
     const file = event.target.files[0];
+    console.log(file);
 
     if (file) {
+      console.log(file);
+      
       // ✅ Allow only PDF files
       if (file.type !== 'application/pdf') {
+        // this.handleBase64(file).then(
+        //   (basestring) =>{
+        //     console.log(basestring);
+        //   }
+        // )
+        
         this.fileError = 'Only PDF files are allowed.';
         this.resumeFile = null;
         this.internshipForm.patchValue({ resumeUpload: null });
         return;
       }
+      this.handleBase64(file).then(
+        (basestring) =>{
+          console.log(basestring);
+          this.base64File = basestring
+          this.internshipForm.patchValue({ resumeUpload: basestring });
+
+        }
+      )
 
       this.fileError = ''; // Clear errors
       this.resumeFile = file;
-      this.internshipForm.patchValue({ resumeUpload: file.name });
+      // this.internshipForm.patchValue({ resumeUpload: file.name });
 
       // ✅ Save file locally inside `/assets/resumes/`
       const userId = this.authService.getUserId();
       const fileName = `resume_${userId}_${Date.now()}.pdf`;
-      localStorage.setItem(`resume_${userId}`, `/assets/resumes/${fileName}`);
+      // localStorage.setItem(`resume_${userId}`, `/assets/resumes/${fileName}`);
+      localStorage.setItem(`resume_${userId}`, `${this.base64File}`);
       console.log("Saved Resume Path:", `/assets/resumes/${fileName}`); // Debugging
     }
+  }
+
+  handleBase64(file: File): Promise<string>{
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve (reader.result as string);
+      reader.onerror =(error) => reject(error);
+      reader.readAsDataURL(file);
+    })
   }
 
   /** Handle form submission */
@@ -92,12 +120,15 @@ export class InternshipformComponent implements OnInit {
     console.log("User ID:", userId); // Debugging
 
     // ✅ Get stored resume path from Local Storage
-    const storedResumePath = localStorage.getItem(`resume_${userId}`);
+    // const storedResumePath = localStorage.getItem(`resume_${userId}`);
+    const storedResumePath = this.base64File;
     if (!storedResumePath) {
       alert("Resume file is missing.");
       return;
     }
     console.log("Stored Resume Path:", storedResumePath); // Debugging
+    // console.log(u);
+    
 
     let applicationData: any = {
       userId: +userId,

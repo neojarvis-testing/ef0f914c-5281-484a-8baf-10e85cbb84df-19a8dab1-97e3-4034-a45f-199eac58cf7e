@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { InternshipService } from 'src/app/services/internship.service';
 import { InternshipApplication } from 'src/app/models/internshipapplication.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
  
 @Component({
   selector: 'app-userappliedinternship',
@@ -16,16 +17,19 @@ export class UserappliedinternshipComponent implements OnInit {
   deleteId: number | null = null;
   isDeleteDialogOpen: boolean = false;
   isResumeDialogOpen: boolean = false;
+  selectedResume: SafeResourceUrl | null = null;
   selectedApplication: InternshipApplication | null = null;
   userId: number;
   showNoRecordsMessage: boolean = false; // Added for delay handling
+  resume: string
 
  
   constructor(
     private route: ActivatedRoute,
     private internshipService: InternshipService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private sanitizer: DomSanitizer
   ) {}
  
   ngOnInit(): void {
@@ -35,12 +39,15 @@ export class UserappliedinternshipComponent implements OnInit {
     this.userId = +this.authService.getUserId();
     console.log("User ID:", this.userId);
     this.getInternships();
+    
   }
  
   getInternships(): void {
     this.internshipService.getAppliedInternships(this.userId).subscribe((data) => {
       console.log("API Response:", data); // ✅ Log full data
       this.internships = data;
+      console.log(data[5].resume);
+      
       this.filteredInternshipApplications = data;
   
       // Introduce a delay before showing the message
@@ -54,7 +61,8 @@ export class UserappliedinternshipComponent implements OnInit {
   searchInternships(): void {
     if (this.searchText.trim()) {
       this.filteredInternshipApplications = this.internships.filter(appliedInternship =>
-        appliedInternship.internship?.companyName?.toLowerCase().includes(this.searchText.toLowerCase()) // ✅ Ensure `internship` exists before filtering
+        appliedInternship.internship?.companyName?.toLowerCase().includes(this.searchText.toLowerCase()) || // ✅ Ensure `internship` exists before filtering
+        appliedInternship.internship?.title?.toLowerCase().includes(this.searchText.toLowerCase())
       );
     } else {
       this.filteredInternshipApplications = this.internships; // ✅ Reset list when input is empty
@@ -103,7 +111,19 @@ export class UserappliedinternshipComponent implements OnInit {
     });
   }  
  
+  openDemo(item: string){
+    console.log("hai");
+    this.selectedResume = this.sanitizer.bypassSecurityTrustResourceUrl(item);
+    console.log(this.selectedResume);
+    
+    this.isResumeDialogOpen=true
+    let resume = item
+    // this.resume = this.selectedResume 
+
+  }
   openResumeDialog(item: any): void {
+    console.log(item);
+    
     const storedResumePath = item.resume; // ✅ Get stored resume URL
     if (!storedResumePath) {
       alert('No resume found.');

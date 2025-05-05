@@ -33,14 +33,14 @@
     <!-- Duration Field -->
     <div class="form-field">
       <label for="durationInMonths">Duration (Months)<span class="asterisk">*</span></label>
-      <input type="text" id="durationInMonths" name="durationInMonths" [(ngModel)]="internship.durationInMonths" required #durationInMonths="ngModel" placeholder="Duration in Months"/>
+      <input type="number" id="durationInMonths" name="durationInMonths" [(ngModel)]="internship.durationInMonths" required #durationInMonths="ngModel" placeholder="Duration in Months"/>
       <div class="error" *ngIf="durationInMonths.invalid && durationInMonths.touched">*Duration is required.</div>
     </div>
 
     <!-- Stipend Field -->
     <div class="form-field">
       <label for="stipend">Stipend (per month)<span class="asterisk">*</span></label>
-      <input type="text" id="stipend" name="stipend" [(ngModel)]="internship.stipend" required #stipend="ngModel" placeholder="Monthly Stipend"/>
+      <input type="number" id="stipend" name="stipend" [(ngModel)]="internship.stipend" required #stipend="ngModel" placeholder="Monthly Stipend"/>
       <div class="error" *ngIf="stipend.invalid && stipend.touched">*Stipend is required.</div>
     </div>
 
