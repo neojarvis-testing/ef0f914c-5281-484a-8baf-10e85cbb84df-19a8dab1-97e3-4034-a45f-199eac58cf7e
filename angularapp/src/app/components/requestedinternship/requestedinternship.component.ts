@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InternshipService } from 'src/app/services/internship.service';
-
+ 
 @Component({
   selector: 'app-requestedinternship',
   templateUrl: './requestedinternship.component.html',
@@ -10,41 +10,40 @@ import { InternshipService } from 'src/app/services/internship.service';
 export class RequestedinternshipComponent implements OnInit {
   applications: any[] = [];
   filteredApplications: any[] = [];
-  degreeProgramSearch: string = ''; 
-  statusFilter: string = ''; 
+  degreeProgramSearch: string = '';
+  statusFilter: string = '';
   selectedResumeUrl: string | null = null;
   showResumePopup: boolean = false; // ✅ Control popup visibility
   showNoRecordsMessage: boolean = false; // Added for delay handling
-
-
-  constructor(private internshipService: InternshipService, private router: Router) {}
-
+ 
+  constructor(private internshipService: InternshipService, private router: Router) { }
+ 
   ngOnInit(): void {
     this.loadApplications();
   }
+ 
+/** Load internship applications */
+loadApplications(): void {
+  this.internshipService.getAllInternshipApplications().subscribe(
+    data => {
+      this.applications = data.map(app => ({
+        ...app,
+        status: app.applicationStatus || 'Pending' // ✅ Ensure default status is "Pending"
+      }));
+      this.filteredApplications = [...this.applications];
 
-  /** Load internship applications */
-  loadApplications(): void {
-    this.internshipService.getAllInternshipApplications().subscribe(
-      data => {
-        this.applications = data.map(app => ({
-          ...app,
-          status: app.applicationStatus || 'Pending' // ✅ Ensure default status is "Pending"
-        }));
-        this.filteredApplications = [...this.applications];
+      // Introduce a delay before showing the message
+      setTimeout(() => {
+        this.showNoRecordsMessage = this.filteredApplications.length === 0;
+      }, 4000); // 4-second delay
+    },
+    error => {
+      alert('Failed to load applications.');
+    }
+  );
+}
   
-        // Introduce a delay before showing the message
-        setTimeout(() => {
-          this.showNoRecordsMessage = this.filteredApplications.length === 0;
-        }, 4000); // 4-second delay
-      },
-      error => {
-        alert('Failed to load applications.');
-      }
-    );
-  }
-  
-
+ 
   /** Search and filter applications */
   searchAndFilter(): void {
     this.filteredApplications = this.applications.filter(application =>
@@ -52,37 +51,77 @@ export class RequestedinternshipComponent implements OnInit {
       (this.statusFilter === '' || application.status.toLowerCase() === this.statusFilter.toLowerCase())
     );
   }
-
-  /** Approve internship application */
+ 
   approveApplication(index: number): void {
-    this.filteredApplications[index].status = 'Approved';
-    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe(() => {
-      this.loadApplications();
-    });
+    const application = this.filteredApplications[index];
+    if (!application || !application.internshipApplicationId) {
+      console.error("Invalid application data:", application);
+      alert("Error: Internship Application ID is missing.");
+      return;
+    }
+ 
+    application.applicationStatus = 'Approved';
+    application.status = 'Approved';
+    this.internshipService.updateApplicationStatus(application.internshipApplicationId, application).subscribe(
+      response => {
+        console.log("✅ API Response:", response); // Should reflect "Approved" or "Rejected"
+        if (response && response.applicationStatus === application.status) {
+          this.loadApplications();
+        } else {
+          // alert("Error: Status update failed.");
+        }
+      },
+      error => {
+        console.error("❌ API Error:", error);
+        // alert("Failed to update application status.");
+      }
+    );    
   }
-
-  /** Reject internship application */
+ 
+ 
   rejectApplication(index: number): void {
-    this.filteredApplications[index].status = 'Rejected';
-    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe(() => {
-      this.loadApplications();
-    });
-  }
-
+    const application = this.filteredApplications[index];
+    if (!application || !application.internshipApplicationId) {
+      console.error("Invalid application data:", application);
+      alert("Error: Internship Application ID is missing.");
+      return;
+    }
+ 
+    application.applicationStatus = 'Rejected';
+    application.status = 'Rejected';
+    this.internshipService.updateApplicationStatus(application.internshipApplicationId, application).subscribe(
+      response => {
+        console.log("✅ API Response:", response); // Should reflect "Approved" or "Rejected"
+        if (response && response.applicationStatus === application.status) {
+          this.loadApplications();
+        } else {
+          // alert("Error: Status update failed.");
+        }
+      },
+      error => {
+        console.error("❌ API Error:", error);
+        // alert("Failed to update application status.");
+      }
+    );
+   
+  }  
+ 
+ 
   /** Show Resume Preview */
   viewResume(resumeUrl: string): void {
-    this.selectedResumeUrl = resumeUrl; 
+    this.selectedResumeUrl = resumeUrl;
     this.showResumePopup = true; // ✅ Open popup
   }
-
+ 
   /** Close Resume Viewer */
   closePopup(): void {
-    this.selectedResumeUrl = null; 
+    this.selectedResumeUrl = null;
     this.showResumePopup = false; // ✅ Close popup
   }
-
+ 
   /** Navigate to Degree Program Chart */
   viewDegreeProgramChart(): void {
     this.router.navigate(['/admin/internshippiechart']);
   }
 }
+ 

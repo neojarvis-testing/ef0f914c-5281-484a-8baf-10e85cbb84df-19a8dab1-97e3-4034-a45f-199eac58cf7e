@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+.footer {
+    text-align: right;
+    /* Align text to the right */
+    padding: 10px;
+    background-color: white;
+    font-size: 14px;
+    color: #444;
+    width: 100%;
+}
