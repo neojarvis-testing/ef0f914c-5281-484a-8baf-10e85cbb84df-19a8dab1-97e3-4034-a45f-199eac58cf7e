@@ -19,7 +19,7 @@
         <th>Company</th>
         <th>Location</th>
         <th>Duration (Months)</th>
-        <th>Stipend</th>
+        <th>Stipend ($)</th>
         <th>Skills Required</th>
         <th>Application Deadline</th>
         <th>Action</th>
@@ -32,9 +32,9 @@
         <td>{{ internship.companyName }}</td>
         <td>{{ internship.location }}</td>
         <td>{{ internship.durationInMonths }}</td>
-        <td>{{ internship.stipend | currency }}</td>
+        <td>{{ internship.stipend }}</td>
         <td>{{ internship.skillsRequired }}</td>
-        <td>{{ internship.applicationDeadline | date }}</td>
+        <td>{{ internship.applicationDeadline | date : 'MM/dd/yyyy' }}</td>
         <td>
             <button
               *ngIf="!hasApplied(internship.internshipId)"

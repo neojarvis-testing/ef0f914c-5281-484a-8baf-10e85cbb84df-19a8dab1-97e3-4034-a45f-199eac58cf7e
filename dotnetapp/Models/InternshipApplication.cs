@@ -29,7 +29,7 @@ namespace dotnetapp.Models
         public string DegreeProgram { get; set; }
 
         [Required(ErrorMessage = "Resume is required.")]
-        [StringLength(1024, ErrorMessage = "Resume can not exceed 1024 characters.")]
+        // [StringLength(1024, ErrorMessage = "Resume can not exceed 1024 characters.")]
         public string Resume { get; set; }  // File Name
 
         // [Url(ErrorMessage ="Enter a valid URL.")]
