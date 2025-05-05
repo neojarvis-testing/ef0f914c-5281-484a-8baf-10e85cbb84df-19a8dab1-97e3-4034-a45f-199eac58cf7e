@@ -3,7 +3,7 @@
 
   <div class="search-filter">
     <input type="text" placeholder="Search by Degree Program" [(ngModel)]="degreeProgramSearch" (input)="searchAndFilter()" />
-    <label>Filter By ApplicationStatus:</label>
+    <label>Filter By Status:</label>
     <select [(ngModel)]="statusFilter" (change)="searchAndFilter()">
       <option value="">All</option>
       <option value="Pending">Pending</option>
