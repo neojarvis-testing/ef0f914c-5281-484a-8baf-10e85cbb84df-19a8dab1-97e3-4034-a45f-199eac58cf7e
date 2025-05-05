@@ -18,6 +18,8 @@ export class UserappliedinternshipComponent implements OnInit {
   isResumeDialogOpen: boolean = false;
   selectedApplication: InternshipApplication | null = null;
   userId: number;
+  showNoRecordsMessage: boolean = false; // Added for delay handling
+
  
   constructor(
     private route: ActivatedRoute,
@@ -40,8 +42,14 @@ export class UserappliedinternshipComponent implements OnInit {
       console.log("API Response:", data); // ✅ Log full data
       this.internships = data;
       this.filteredInternshipApplications = data;
+  
+      // Introduce a delay before showing the message
+      setTimeout(() => {
+        this.showNoRecordsMessage = this.filteredInternshipApplications.length === 0;
+      }, 4000); // 4-second delay
     });
   }
+  
  
   searchInternships(): void {
     if (this.searchText.trim()) {
@@ -95,16 +103,17 @@ export class UserappliedinternshipComponent implements OnInit {
     });
   }  
  
-  openResumeDialog(application: InternshipApplication): void {
-    if (application && application.resume) {
-      this.selectedApplication = application;
-      this.isResumeDialogOpen = true;
-      console.log("Opening Resume for:", application.resume); // ✅ Debugging log
-    } else {
-      alert('Resume not available or missing.');
-      console.warn("Resume is missing for:", application); // ✅ Additional debugging log
+  openResumeDialog(item: any): void {
+    const storedResumePath = item.resume; // ✅ Get stored resume URL
+    if (!storedResumePath) {
+      alert('No resume found.');
+      return;
     }
+  
+    this.selectedApplication = item;
+    this.isResumeDialogOpen = true;
   }
+  
  
  
   closeResumeDialog(): void {

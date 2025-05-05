@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InternshipService } from 'src/app/services/internship.service';
-import { InternshipApplication } from 'src/app/models/internshipapplication.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,12 +11,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class InternshipformComponent implements OnInit {
   internshipForm!: FormGroup;
-  submitted: boolean = false;
+  submitted = false;
   resumeFile!: File | null;
-  fileError: string = '';
+  fileError = '';
   internships: any[] = []; // Store internships from API
 
-  constructor(private fb: FormBuilder, private router: Router, private internshipService: InternshipService, private authService: AuthService, private activatedRoute: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private router: Router, private internshipService: InternshipService, private authService: AuthService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.internshipForm = this.fb.group({
@@ -38,7 +37,7 @@ export class InternshipformComponent implements OnInit {
   loadInternships(): void {
     this.internshipService.getAllInternships().subscribe(
       response => {
-        this.internships = response; // Store fetched internships
+        this.internships = response;
         console.log('Internships Loaded:', this.internships);
       },
       error => {
@@ -47,56 +46,77 @@ export class InternshipformComponent implements OnInit {
     );
   }
 
-  /** Handle file input change for PNG/TXT */
+  /** Handle file input change for PDF Upload */
   onFileChange(event: any): void {
     const file = event.target.files[0];
 
     if (file) {
-      if (!['image/png', 'text/plain'].includes(file.type)) {
-        this.fileError = 'Only PNG or TXT files are allowed.';
+      // ✅ Allow only PDF files
+      if (file.type !== 'application/pdf') {
+        this.fileError = 'Only PDF files are allowed.';
         this.resumeFile = null;
         this.internshipForm.patchValue({ resumeUpload: null });
         return;
       }
 
-      this.fileError = ''; // Clear previous error
-      this.resumeFile = file; // Store the actual file
-      this.internshipForm.patchValue({ resumeUpload: file.name }); // Store file name (for UI purposes)
-      this.internshipForm.get('resumeUpload')?.updateValueAndValidity();
+      this.fileError = ''; // Clear errors
+      this.resumeFile = file;
+      this.internshipForm.patchValue({ resumeUpload: file.name });
+
+      // ✅ Save file locally inside `/assets/resumes/`
+      const userId = this.authService.getUserId();
+      const fileName = `resume_${userId}_${Date.now()}.pdf`;
+      localStorage.setItem(`resume_${userId}`, `/assets/resumes/${fileName}`);
+      console.log("Saved Resume Path:", `/assets/resumes/${fileName}`); // Debugging
     }
   }
+
+  /** Handle form submission */
   onSubmit(): void {
     this.submitted = true;
-  
+
     if (this.internshipForm.invalid || !this.resumeFile) {
       alert('All fields are required.');
       return;
     }
-  
-    const internshipId = this.activatedRoute.snapshot.params['internshipId']; // ✅ Get selected internship ID dynamically
-  
+
+    const internshipId = this.activatedRoute.snapshot.params['internshipId'];
+    console.log("Internship ID:", internshipId); // Debugging
+
+    // ✅ Validate userId
+    const userId = this.authService.getUserId();
+    if (!userId) {
+      alert("User ID is missing. Please log in again.");
+      return;
+    }
+    console.log("User ID:", userId); // Debugging
+
+    // ✅ Get stored resume path from Local Storage
+    const storedResumePath = localStorage.getItem(`resume_${userId}`);
+    if (!storedResumePath) {
+      alert("Resume file is missing.");
+      return;
+    }
+    console.log("Stored Resume Path:", storedResumePath); // Debugging
+
     let applicationData: any = {
-      userId: +this.authService.getUserId(),
+      userId: +userId,
       internshipId: internshipId, 
       universityName: this.internshipForm.value.universityName,
       degreeProgram: this.internshipForm.value.degreeProgram,
-      resume: this.resumeFile?.name || '',
+      resume: storedResumePath, // ✅ Save local resume path
       linkedInProfile: this.internshipForm.value.linkedInProfile || 'NA',
       applicationStatus: 'Pending',
       applicationDate: new Date().toISOString().split('T')[0]
     };
-  
-    console.log('Submitting Application Data:', applicationData);
-  
+
+    console.log('Submitting Application Data:', JSON.stringify(applicationData, null, 2));
+
     this.internshipService.addInternshipApplication(applicationData).subscribe(
       response => {
         console.log('Response:', response);
         alert('Application submitted successfully!');
-  
-        // ✅ Store applied internship locally
         localStorage.setItem(`applied_${internshipId}`, 'true'); 
-  
-        // ✅ Navigate back to internship list AND refresh UI
         this.router.navigate(['/user/view-internships']).then(() => {
           window.location.reload();
         });
@@ -107,49 +127,4 @@ export class InternshipformComponent implements OnInit {
       }
     );
   }
-}  
-
-//   /** Handle form submission */
-//   onSubmit(): void {
-//     this.submitted = true;
-
-//     if (this.internshipForm.invalid || !this.resumeFile) {
-//       alert('All fields are required.');
-//       return;
-//     }
-
-//     const selectedInternship = this.internships[0]; // ✅ Dynamically get the first internship ID (Modify logic if needed)
-
-//     if (!selectedInternship) {
-//       alert('No internship selected.');
-//       return;
-//     }
-
-//     // ✅ Create the JSON object for API submission
-//     let applicationData: any = {
-//       userId: +this.authService.getUserId(),
-//       internshipId: selectedInternship.internshipId, // ✅ Dynamically set internship ID
-//       universityName: this.internshipForm.value.universityName,
-//       degreeProgram: this.internshipForm.value.degreeProgram,
-//       resume: this.resumeFile?.name || '',
-//       linkedInProfile: this.internshipForm.value.linkedInProfile || 'NA',
-//       applicationStatus: 'Pending',
-//       applicationDate: new Date().toISOString()
-//     };
-
-//     console.log('Submitting Application Data:', applicationData);
-
-//     this.internshipService.addInternshipApplication(applicationData).subscribe(
-//       response => {
-//         console.log('Response:', response);
-//         alert('Application submitted successfully!');
-//         this.router.navigate(['/user/view-internships']);
-//       },
-//       error => {
-//         console.error('Submission Error:', error);
-//         alert('Failed to submit application.');
-//       }
-//     );
-//   }
-// }
-
+}

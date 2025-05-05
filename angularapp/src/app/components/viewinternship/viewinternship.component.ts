@@ -23,6 +23,8 @@ export class ViewinternshipComponent implements OnInit {
   filteredInternships: Internship[] = []; // List of internships filtered by search
  
   searchTerm: string = ''; // Search term for CompanyName
+  showNoRecordsMessage: boolean = false; // Added for delay handling
+
  
   // locationSearch: string = ''; // Search term for Location
  
@@ -37,26 +39,22 @@ export class ViewinternshipComponent implements OnInit {
   // Load all internships from the service
  
   loadInternships(): void {
- 
     this.internshipservice.getAllInternships().subscribe(
- 
       (data) => {
- 
         this.internships = data;
- 
         this.filteredInternships = data; // Initialize the filtered list
- 
+  
+        // Introduce a delay before showing the message
+        setTimeout(() => {
+          this.showNoRecordsMessage = this.filteredInternships.length === 0;
+        }, 4000); // 4-second delay
       },
- 
       (error) => {
- 
         console.error('Error fetching internships:', error);
- 
       }
- 
     );
- 
   }
+  
  
   // Search internships based on CompanyName and Location
  

@@ -2,6 +2,10 @@
   <!-- Heading -->
   <h1>Internship Listings</h1>
 
+  <div *ngIf="showNoRecordsMessage">
+    <p>Oops! No records found.</p>
+  </div>  
+
   <!-- Search Bar -->
   <div class="search-bar">
     <input

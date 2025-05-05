@@ -14,6 +14,8 @@ export class RequestedinternshipComponent implements OnInit {
   statusFilter: string = ''; 
   selectedResumeUrl: string | null = null;
   showResumePopup: boolean = false; // ✅ Control popup visibility
+  showNoRecordsMessage: boolean = false; // Added for delay handling
+
 
   constructor(private internshipService: InternshipService, private router: Router) {}
 
@@ -29,14 +31,19 @@ export class RequestedinternshipComponent implements OnInit {
           ...app,
           status: app.applicationStatus || 'Pending' // ✅ Ensure default status is "Pending"
         }));
-        this.filteredApplications = [...this.applications]; 
-        console.log(this.filteredApplications);
+        this.filteredApplications = [...this.applications];
+  
+        // Introduce a delay before showing the message
+        setTimeout(() => {
+          this.showNoRecordsMessage = this.filteredApplications.length === 0;
+        }, 4000); // 4-second delay
       },
       error => {
         alert('Failed to load applications.');
       }
     );
   }
+  
 
   /** Search and filter applications */
   searchAndFilter(): void {

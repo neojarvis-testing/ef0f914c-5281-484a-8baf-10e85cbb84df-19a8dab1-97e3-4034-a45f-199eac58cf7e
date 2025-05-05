@@ -6,9 +6,10 @@
     <input type="text" [(ngModel)]="searchQuery" (input)="searchInternships()" placeholder="Search by Company Name or Title or Location" />
   </div>
  
-  <div *ngIf="filteredInternships.length === 0">
+  <div *ngIf="showNoRecordsMessage">
     <p>Oops! No records found.</p>
   </div>
+  
  
   <table *ngIf="filteredInternships.length > 0" class="styled-table">
     <thead>
