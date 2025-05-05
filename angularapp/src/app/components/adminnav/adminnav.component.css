@@ -1,104 +1,145 @@
-/* Navbar Layout Fix */
+/* NAVBAR CONTAINER */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to right, #1e3c72, #2a9861);
-    color: white;
-    padding: 10px 20px;
-}
-
-/* Branding */
-.navbar-brand {
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* Navbar Links: Ensures everything stays aligned */
-.navbar-links {
-    display: flex;
-    gap: 20px;
-    /* Proper spacing between items */
-    align-items: center;
-}
-
-/* Navbar Individual Link Styling */
-.navbar-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 4px;
-}
-
-/* Logout Button Styling (Fixed) */
-.navbar-links .logout-btn {
-  background-color: white;
-  color: rgb(0, 102, 255);
-  border: 1px solid rgb(47, 0, 255);
-}
-
-.navbar-links .logout-btn:hover {
-  background-color: #ffe5e5;
-}
-
-.navbar-links a:hover {
-    text-decoration: underline;
-}
-
-/* Dropdown Styling */
-.dropdown {
-    position: relative;
-    cursor: pointer;
-}
-
-/* Dropdown Title */
-.dropdown-title {
-  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #1e3c72, #2a9861);
   color: white;
-  padding: 8px;
+  padding: 12px 25px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* Dropdown Menu */
+/* BRANDING */
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* NAVBAR LINKS CONTAINER */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* USERNAME DISPLAY */
+.user-info {
+  font-weight: bold;
+  font-size: 16px;
+  color: #d4d4d4;
+}
+
+/* BASIC LINK STYLE */
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-links a:hover,
+.active-link {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-title {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-title:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 110%;
   left: 0;
-  background-color: white;
-  min-width: 180px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  border-radius: 6px;
+  background-color: #ffffff;
+  color: black;
+  padding: 12px 0;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   transform: translateY(10px);
-  z-index: 999; /* Ensures dropdown stays above other elements */
+  transition: all 0.3s ease-in-out;
+  min-width: 180px;
+  z-index: 999;
 }
 
-/* Dropdown Menu Items: Ensuring Consistency */
-.dropdown-menu a {
-  display: block;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  background-color: white; /* Consistent background */
-  border-radius: 4px; /* Uniform rounded edges */
-  border: 1px solid transparent; /* Prevent unexpected borders */
-  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
-}
-
-/* Smooth Hover Effect */
-.dropdown-menu a:hover {
-  background-color: #f4f4f4;
-  border: 1px solid #ccc; /* Ensuring uniform hover styling */
-}
-
-/* Dropdown Visibility on Hover */
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  background-color: white;
+  color: #007bff;
+  font-weight: bold;
+  border: 2px solid #007bff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #f0f8ff;
+  color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    background-color: #ffffff;
+    margin-left: 10px;
+  }
 }

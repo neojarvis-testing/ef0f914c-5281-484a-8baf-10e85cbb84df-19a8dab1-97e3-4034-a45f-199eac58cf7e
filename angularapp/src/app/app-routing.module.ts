@@ -11,7 +11,7 @@ import { UseraddfeedbackComponent } from './components/useraddfeedback/useraddfe
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { CreateinternshipComponent } from './components/createinternship/createinternship.component';
 import { RequestedinternshipComponent } from './components/requestedinternship/requestedinternship.component';
-import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
+// import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 import { UserviewinternshipComponent } from './components/userviewinternship/userviewinternship.component';
 import { UserappliedinternshipComponent } from './components/userappliedinternship/userappliedinternship.component';
 import { AdmineditinternshipComponent } from './components/admineditinternship/admineditinternship.component';
@@ -20,8 +20,10 @@ import { ViewinternshipComponent } from './components/viewinternship/viewinterns
 import { InternshipformComponent } from './components/internshipform/internshipform.component';
 import { InternshippiechartComponent } from './components/internshippiechart/internshippiechart.component';
 import { NavHomeComponent } from './components/nav-home/nav-home.component';
+import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 
 const routes: Routes = [
+  { path:'navbar', component: NavbarComponent },
   { path: '', component: NavHomeComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
@@ -39,8 +41,8 @@ const routes: Routes = [
       { path: 'createinternship', component: CreateinternshipComponent },
       { path: 'viewinternship', component: ViewinternshipComponent },
       { path: 'admineditinternship/:internshipId', component: AdmineditinternshipComponent },
-      { path: 'internshippiechart', component: InternshippiechartComponent},
-      { path: 'requestedInternship', component: RequestedinternshipComponent}
+      { path: 'internshippiechart', component: InternshippiechartComponent },
+      { path: 'requestedInternship', component: RequestedinternshipComponent }
     ],
   },
 
@@ -55,7 +57,7 @@ const routes: Routes = [
       { path: 'applied-internships', component: UserappliedinternshipComponent },
       { path: 'post-feedback', component: UseraddfeedbackComponent },
       { path: 'view-feedbacks', component: UserviewfeedbackComponent },
-      { path: 'internshipform/:internshipId', component: InternshipformComponent},
+      { path: 'internshipform/:internshipId', component: InternshipformComponent },
     ],
   },
 
@@ -66,4 +68,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

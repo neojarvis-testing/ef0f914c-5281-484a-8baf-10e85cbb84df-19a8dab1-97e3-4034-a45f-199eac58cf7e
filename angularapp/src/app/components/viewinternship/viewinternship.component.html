@@ -42,7 +42,7 @@
         <td>{{ internship.durationInMonths }} months</td>
         <td>{{ internship.stipend }}</td>
         <td>{{ internship.skillsRequired }}</td>
-        <td>{{ internship.applicationDeadline }}</td>
+        <td>{{ internship.applicationDeadline | date: 'MM/dd/yyyy'}}</td>
         <td>{{ internship.description }}</td>
         <td>
           <button class="btn btn-green" (click)="editInternship(internship?.internshipId)">Edit</button>

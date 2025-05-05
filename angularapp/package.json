@@ -24,6 +24,7 @@
     "ng2-charts": "^8.0.0",
     "puppeteer": "^19.7.5",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.21.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

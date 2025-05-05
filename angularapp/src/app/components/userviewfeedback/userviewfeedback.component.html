@@ -1,9 +1,9 @@
 <div class="feedback-container">
-    <h2>My Feedback</h2>
+    <h2>My Feedbacks</h2>
     <div *ngFor="let feedback of feedbackList">
-        <p>User Id: {{ feedback.userId }}</p>
-        <p>FeedBack Date: {{ feedback.date | date}}</p>
-        <p>Feedback Text: {{ feedback.feedbackText }}</p>
+        <p><strong>User Id:</strong> {{ feedback.userId }}</p>
+        <p><strong>FeedBack Date:</strong> {{ feedback.date | date: 'MM/dd/yyyy'}}</p>
+        <p><strong>Feedback Text:</strong> {{ feedback.feedbackText }}</p>
         <button (click)="confirmDelete(feedback)">Delete</button>
     </div>
 

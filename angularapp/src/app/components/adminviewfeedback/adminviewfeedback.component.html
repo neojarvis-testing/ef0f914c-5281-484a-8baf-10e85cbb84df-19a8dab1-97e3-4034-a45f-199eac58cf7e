@@ -9,7 +9,7 @@
     <table class="full-width-table">
       <thead>
         <tr>
-          <th>S.No</th>
+          <th>Sl.No.</th>
           <th>User Name</th>
           <th>Feedback</th>
           <th>Posted Date</th>
@@ -21,7 +21,7 @@
           <td>{{ i + 1 }}</td>
           <td>{{ feedback.user.username }}</td>
           <td>{{ feedback.feedbackText }}</td>
-          <td>{{ feedback.date }}</td>
+          <td>{{ feedback.date | date: 'MM/dd/yyyy' }}</td>
           <td>
             <button (click)="showProfile(feedback)">Show Profile</button>
           </td>
@@ -33,7 +33,7 @@
   <!-- Profile Modal -->
   <div *ngIf="selectedUser" class="modal">
     <div class="modal-content">
-      <h2>User Details:</h2>
+      <h2>User Details</h2>
       <p><strong>Email:</strong> {{ selectedUser.user.email }}</p>
       <p><strong>Username:</strong> {{ selectedUser.user.username }}</p>
       <p><strong>Mobile Number:</strong> {{ selectedUser.user.mobileNumber }}</p>

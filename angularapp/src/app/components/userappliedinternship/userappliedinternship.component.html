@@ -1,8 +1,9 @@
 <div class="internships-container">
   <h2>Applied Internships</h2>
   <hr class="line"> <!-- Search Bar -->
-  <div class="search-bar"> <input type="text" placeholder="Search by Company Name or Title" [(ngModel)]="searchText"
-      (input)="searchInternships()" /> </div> <!-- Internship Table -->
+  <div class="search-bar"> 
+    <input type="text" placeholder="Search by Company Name or Title" [(ngModel)]="searchText" (input)="searchInternships()" /> 
+  </div> <!-- Internship Table -->
   <table *ngIf="filteredInternshipApplications.length > 0">
     <thead>
       <tr>
@@ -20,28 +21,21 @@
         <td>{{ i + 1 }}</td>
         <td>{{ item.internship.title }}</td>
         <td>{{ item.internship?.companyName }}</td>
-        <!-- <td><button *ngIf="item.resume" (click)="openResumeDialog(item)">View Resume</button> -->
-        <td><button *ngIf="item.resume" (click)="openDemo(item.resume)">View Resume</button>
-          <!-- <img [src]="item.internship.resume" alt="Resume Preview" /> -->
-          <!-- {{item.resume}} -->
-          <!-- <a [href]="item.resume">resume</a> -->
-
+        <td>
+          <button *ngIf="item.resume" (click)="viewResume(item.resume)">View Resume</button>
         </td>
         <td>{{ item.applicationDate | date : 'MM/dd/yyyy' }}</td>
         <td>{{ item.applicationStatus }}</td>
-        <td> <button class="redButton" (click)="openDeleteDialog(item)">Delete</button> </td>
+        <td> 
+          <button class="redButton" (click)="openDeleteDialog(item)">Delete</button> 
+        </td>
       </tr>
     </tbody>
   </table>
-  <div *ngIf="isResumeDialogOpen">
-    <!-- <p>asdsad</p> -->
-    <!-- <img [src]="resume" alt="Preview" /> -->
-    <iframe [src]="selectedResume" width="100%" height="500px"></iframe>
-  </div>
-  <!-- No Records Template -->
   <div *ngIf="showNoRecordsMessage">
     <p>Oops! No records found.</p>
   </div>
+
   <!-- Delete Confirmation Modal -->
   <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isDeleteDialogOpen}" *ngIf="isDeleteDialogOpen">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -49,24 +43,24 @@
         <div class="modal-body text-center">
           <p><strong>Are you sure you want to delete this application?</strong></p>
         </div>
-        <div class="modal-footer"> <button (click)="confirmDelete()">Yes, Delete</button> <button type="button"
-            class="btn btn-danger" (click)="closeDeleteDialog()">Cancel</button> </div>
+        <div class="modal-footer"> 
+          <button (click)="confirmDelete()">Yes, Delete</button> 
+          <button type="button" class="btn btn-danger" (click)="closeDeleteDialog()">Cancel</button>
+        </div>
       </div>
     </div>
+  </div>
 
-
-
-    <!-- Resume Preview Modal -->
-    <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isResumeDialogOpen}" *ngIf="isResumeDialogOpen">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-body text-center">
-            <p><strong>Resume Preview</strong></p>
-            <iframe [src]="selectedResume" width="100%" height="500px"></iframe>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" (click)="closeResumeDialog()">Close</button>
-          </div>
+  <!-- Resume Preview Modal -->
+  <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isResumeDialogOpen}" *ngIf="isResumeDialogOpen">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <p><strong>Resume Preview</strong></p>
+          <iframe [src]="selectedResume" width="100%" height="500px" style="border:none;"></iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="closeResumeDialog()">Close</button>
         </div>
       </div>
     </div>
