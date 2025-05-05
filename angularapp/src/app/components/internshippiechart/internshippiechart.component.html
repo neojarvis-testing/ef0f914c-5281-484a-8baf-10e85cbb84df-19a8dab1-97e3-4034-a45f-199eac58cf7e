@@ -1,8 +1,21 @@
-<div class="chart-container" *ngIf="showChart"> <!-- ✅ Show/Hide chart based on condition -->
-  <h1>Internship Applications by Degree Program</h1>
-  <button class="btn btn-danger" (click)="closeChart()">Close Chart</button> <!-- ✅ Close Button -->
+<div class="chart-container" *ngIf="showChart">
+  <h2>Internship Applications by Degree Program</h2>
 
-  <div class="chart-wrapper">
-    <canvas id="degreeProgramChart"></canvas>
+  <div class="chart-layout">
+    <div class="degree-counts">
+      <h2>Degree Program Counts</h2>
+      <ul>
+        <li *ngFor="let program of degreePrograms | keyvalue">
+          {{ program.key }}: <strong>{{ program.value }}</strong>
+        </li>
+      </ul>
+    </div>
+
+    <div class="chart-wrapper">
+      <div class="close-btn-container">
+        <button class="btn btn-danger" (click)="closeChart()">Close Chart</button>
+      </div>
+      <canvas id="degreeProgramChart"></canvas>
+    </div>
   </div>
 </div>

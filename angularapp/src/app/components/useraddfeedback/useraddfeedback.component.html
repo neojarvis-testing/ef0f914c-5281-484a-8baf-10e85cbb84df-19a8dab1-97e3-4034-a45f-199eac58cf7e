@@ -14,8 +14,10 @@
   <button type="submit" class="submit-btn">Submit</button>
 </form>
 
-<!-- Success Popup -->
-<div *ngIf="showSuccessPopup" class="modal">
-  <p>Feedback submitted successfully!</p>
-  <button (click)="closeSuccessPopup()">Close</button>
+<!-- Success Popup with Overlay -->
+<div *ngIf="showSuccessPopup" class="modal-overlay">
+  <div class="modal">
+    <p>Feedback submitted successfully!</p>
+    <button (click)="closeSuccessPopup()">Close</button>
+  </div>
 </div>
