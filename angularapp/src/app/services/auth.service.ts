@@ -97,7 +97,29 @@ export class AuthService {
       }
     }
     return null;
+
+
+    // getUserId(): number {
+    //   const storedUserId = localStorage.getItem('userId');
+    //   return storedUserId ? Number(storedUserId) : -1; // Return -1 if not found
   }
+
+  /** Get username */
+  getUsername(): string | null {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1])); // Decode JWT
+        console.log("Decoded Payload:", payload); // Debugging Output
+        return payload['username'] || null; // Ensure proper key access
+      } catch (error) {
+        console.error("Error decoding token:", error);
+        return null;
+      }
+    }
+    return null;
+  }
+
 
 
   /** Decode JWT token */
@@ -124,6 +146,5 @@ export class AuthService {
       return throwError(() => new Error(`${operation} failed: ${error.message}`));
     };
   }
+
 }
-
-

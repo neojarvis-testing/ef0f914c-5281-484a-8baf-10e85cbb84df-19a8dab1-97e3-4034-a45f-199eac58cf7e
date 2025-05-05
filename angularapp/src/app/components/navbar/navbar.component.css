@@ -1,58 +1,53 @@
+/* Navbar Layout */
 .navbar {  
-    background: linear-gradient(to right, black, #444, #858484); 
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
-    transition: background 0.5s ease-in-out;
+  background: linear-gradient(to right, #1e3c72, #2a9861); 
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+  transition: background 0.5s ease-in-out;
 }
 
 /* Navbar Hover Effect */
 .navbar:hover {  
-    background: linear-gradient(to right, #111, #555, #999); 
+  background: linear-gradient(to right, #2569aa, #2eb286);
 }
 
-/* Fancy Glowing Title */
+/* Navbar Title */
 .navbar h1 {  
-    font-weight: bold;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 /* Link Styling */
 .nav-links a {  
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    transition: color 0.3s ease-in-out;
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease-in-out;
 }
 
 /* Cool Underline Effect on Hover */
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background: white;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
 }
 
 .nav-links a:hover::after {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
-/* Slight Glow on Hover */
-.nav-links a:hover {
-    color: #ffcc00;
-    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
-}

@@ -11,8 +11,7 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) {}
 
-
-  private apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/feedback';
+  private apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback';
 
 
   private getHeaders() {
@@ -25,6 +24,7 @@ export class FeedbackService {
   }
 
   sendFeedback(feedback: Feedback): Observable<Feedback> {
+    feedback.date = new Date();
     return this.http.post<Feedback>(this.apiUrl, feedback, this.getHeaders());
   }
 

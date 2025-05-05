@@ -7,64 +7,116 @@ import { InternshipService } from 'src/app/services/internship.service';
   templateUrl: './requestedinternship.component.html',
   styleUrls: ['./requestedinternship.component.css']
 })
- 
 export class RequestedinternshipComponent implements OnInit {
-  applications: Array<any> = []; // List of applications
-  filteredApplications: Array<any> = []; // Filtered list
-  degreeProgramSearch: string = ''; // Search for Degree Program
-  statusFilter: string = ''; // Filter by Status
-  selectedResume: string | null = null; // Resume selected for popup display
+  applications: any[] = [];
+  filteredApplications: any[] = [];
+  degreeProgramSearch: string = '';
+  statusFilter: string = '';
+  selectedResumeUrl: string | null = null;
+  showResumePopup: boolean = false; // ✅ Control popup visibility
+  showNoRecordsMessage: boolean = false; // Added for delay handling
  
-  constructor(private router: Router, private internshipService: InternshipService) {} // Inject the service
+  constructor(private internshipService: InternshipService, private router: Router) { }
  
   ngOnInit(): void {
-    this.loadApplications(); // Load applications from the service
+    this.loadApplications();
   }
  
-  /** Load applications from the service */
-  loadApplications(): void {
-    this.internshipService.getAllInternshipApplications().subscribe(
-      data => {
-        this.applications = data;
-        this.filteredApplications = [...this.applications]; // Initialize filtered list
-      },
-      error => {
-        alert('Failed to load applications. Please try again.'); // Error handling
-      }
-    );
-  }
- 
+/** Load internship applications */
+loadApplications(): void {
+  this.internshipService.getAllInternshipApplications().subscribe(
+    data => {
+      this.applications = data.map(app => ({
+        ...app,
+        status: app.applicationStatus || 'Pending' // ✅ Ensure default status is "Pending"
+      }));
+      this.filteredApplications = [...this.applications];
+
+      // Introduce a delay before showing the message
+      setTimeout(() => {
+        this.showNoRecordsMessage = this.filteredApplications.length === 0;
+      }, 4000); // 4-second delay
+    },
+    error => {
+      alert('Failed to load applications.');
+    }
+  );
+}
+  
  
   /** Search and filter applications */
   searchAndFilter(): void {
     this.filteredApplications = this.applications.filter(application =>
-      application.degreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase()) &&
-      (!this.statusFilter || application.status.toLowerCase() === this.statusFilter.toLowerCase())
+      (this.degreeProgramSearch === '' || application.degreeProgram.toLowerCase().includes(this.degreeProgramSearch.toLowerCase())) &&
+      (this.statusFilter === '' || application.status.toLowerCase() === this.statusFilter.toLowerCase())
     );
   }
  
-  /** Approve application and hide only Approve button */
   approveApplication(index: number): void {
-    this.filteredApplications[index].status = 'Approved'; // Change status
-    // Update status in the backend
-    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe();
+    const application = this.filteredApplications[index];
+    if (!application || !application.internshipApplicationId) {
+      console.error("Invalid application data:", application);
+      alert("Error: Internship Application ID is missing.");
+      return;
+    }
+ 
+    application.applicationStatus = 'Approved';
+    application.status = 'Approved';
+    this.internshipService.updateApplicationStatus(application.internshipApplicationId, application).subscribe(
+      response => {
+        console.log("✅ API Response:", response); // Should reflect "Approved" or "Rejected"
+        if (response && response.applicationStatus === application.status) {
+          this.loadApplications();
+        } else {
+          // alert("Error: Status update failed.");
+        }
+      },
+      error => {
+        console.error("❌ API Error:", error);
+        // alert("Failed to update application status.");
+      }
+    );    
   }
  
-  /** Reject application and hide only Reject button */
+ 
   rejectApplication(index: number): void {
-    this.filteredApplications[index].status = 'Rejected'; // Change status
-    // Update status in the backend
-    this.internshipService.updateApplicationStatus(this.filteredApplications[index].id, this.filteredApplications[index]).subscribe();
+    const application = this.filteredApplications[index];
+    if (!application || !application.internshipApplicationId) {
+      console.error("Invalid application data:", application);
+      alert("Error: Internship Application ID is missing.");
+      return;
+    }
+ 
+    application.applicationStatus = 'Rejected';
+    application.status = 'Rejected';
+    this.internshipService.updateApplicationStatus(application.internshipApplicationId, application).subscribe(
+      response => {
+        console.log("✅ API Response:", response); // Should reflect "Approved" or "Rejected"
+        if (response && response.applicationStatus === application.status) {
+          this.loadApplications();
+        } else {
+          // alert("Error: Status update failed.");
+        }
+      },
+      error => {
+        console.error("❌ API Error:", error);
+        // alert("Failed to update application status.");
+      }
+    );
+   
+  }  
+ 
+ 
+  /** Show Resume Preview */
+  viewResume(resumeUrl: string): void {
+    this.selectedResumeUrl = resumeUrl;
+    this.showResumePopup = true; // ✅ Open popup
   }
  
-  /** View Resume in Popup */
-  viewResume(resume: string): void {
-    this.selectedResume = resume; // Set selected resume
-  }
- 
-  /** Close Resume Popup */
+  /** Close Resume Viewer */
   closePopup(): void {
-    this.selectedResume = null; // Reset popup
+    this.selectedResumeUrl = null;
+    this.showResumePopup = false; // ✅ Close popup
   }
  
   /** Navigate to Degree Program Chart */
@@ -72,3 +124,4 @@ export class RequestedinternshipComponent implements OnInit {
     this.router.navigate(['/admin/internshippiechart']);
   }
 }
+ 

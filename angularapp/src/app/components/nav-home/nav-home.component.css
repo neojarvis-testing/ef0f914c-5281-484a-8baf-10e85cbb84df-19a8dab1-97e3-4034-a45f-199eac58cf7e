@@ -1,0 +1,103 @@
+/* Main Container */
+.home-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  /* Grid Layout */
+  .grid-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Individual Box Styling */
+  .box {
+    background: linear-gradient(135deg, #f8fbff, #dff0ff);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Animations */
+  .fade-in { animation: fadeIn 1s ease-in-out; }
+  .slide-in { animation: slideIn 1s ease-in-out; }
+  .zoom-in { animation: zoomIn 1s ease-in-out; }
+  .flip-in { animation: flipIn 1s ease-in-out; }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes flipIn {
+    from { transform: rotateY(90deg); opacity: 0; }
+    to { transform: rotateY(0); opacity: 1; }
+  }
+  
+  /* CTA Button */
+  .cta-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .cta-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+
+/* Heading Styling */
+.animated-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* SVG Curved Arrow */
+  .curved-arrow {
+    display: block;
+    margin: 20px auto;
+    animation: drawArrow 2s linear forwards;
+  }
+  
+  /* Arrow Animation */
+  @keyframes drawArrow {
+    from { stroke-dasharray: 300; stroke-dashoffset: 300; }
+    to { stroke-dasharray: 300; stroke-dashoffset: 0; }
+  }
+  
+  
+  
+  

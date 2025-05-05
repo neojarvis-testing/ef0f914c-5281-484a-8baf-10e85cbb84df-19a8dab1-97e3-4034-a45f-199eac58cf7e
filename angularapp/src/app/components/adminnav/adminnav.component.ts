@@ -11,10 +11,14 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./adminnav.component.css']
 })
 export class AdminnavComponent implements OnInit {
+  username: string | null = '';
+  userRole: string | null = '';
 
   constructor(private router: Router, public authService: AuthService) { }
 
   ngOnInit(): void {
+    this.username = this.authService.getUsername();
+    this.userRole = this.authService.getUserRole();
   }
 
   logout(): void {

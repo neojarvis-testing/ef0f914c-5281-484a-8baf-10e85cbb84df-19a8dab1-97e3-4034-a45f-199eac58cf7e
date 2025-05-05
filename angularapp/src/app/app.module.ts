@@ -24,6 +24,8 @@ import { ViewinternshipComponent } from './components/viewinternship/viewinterns
 import { UsernavComponent } from './components/usernav/usernav.component';
 import { UseraddfeedbackComponent } from './components/useraddfeedback/useraddfeedback.component';
 import { UserappliedinternshipComponent } from './components/userappliedinternship/userappliedinternship.component';
+import { CommonModule } from '@angular/common';
+import { NavHomeComponent } from './components/nav-home/nav-home.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { UserappliedinternshipComponent } from './components/userappliedinternsh
     UsernavComponent,
     UserviewfeedbackComponent,
     UserviewinternshipComponent,
-    ViewinternshipComponent
+    ViewinternshipComponent,
+    NavHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { UserappliedinternshipComponent } from './components/userappliedinternsh
 
     FormsModule,
     ReactiveFormsModule,
+    CommonModule
    
 
   ],

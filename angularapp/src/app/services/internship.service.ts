@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,9 +9,8 @@ import { InternshipApplication } from '../models/internshipapplication.model';
 })
 export class InternshipService {
 
-  public apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
-  public applicationApiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
-
+  public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
+  public applicationApiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
  
   constructor(private http: HttpClient) {}
  
@@ -20,7 +18,7 @@ export class InternshipService {
     const token = localStorage.getItem('authToken');
     return {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       })
     };
   }

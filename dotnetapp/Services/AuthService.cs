@@ -96,7 +96,8 @@ namespace dotnetapp.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, role)
+                new Claim(ClaimTypes.Role, role),
+                new Claim("username", user.Username) // ✅ Add username to JWT
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor

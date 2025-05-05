@@ -17,9 +17,12 @@ import { UserappliedinternshipComponent } from './components/userappliedinternsh
 import { AdmineditinternshipComponent } from './components/admineditinternship/admineditinternship.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewinternshipComponent } from './components/viewinternship/viewinternship.component';
+import { InternshipformComponent } from './components/internshipform/internshipform.component';
+import { InternshippiechartComponent } from './components/internshippiechart/internshippiechart.component';
+import { NavHomeComponent } from './components/nav-home/nav-home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: NavHomeComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'error', component: ErrorComponent },
@@ -35,7 +38,9 @@ const routes: Routes = [
       { path: 'feedbacks', component: AdminviewfeedbackComponent },
       { path: 'createinternship', component: CreateinternshipComponent },
       { path: 'viewinternship', component: ViewinternshipComponent },
-      { path: 'admineditinternship/:internshipId', component: AdmineditinternshipComponent}
+      { path: 'admineditinternship/:internshipId', component: AdmineditinternshipComponent },
+      { path: 'internshippiechart', component: InternshippiechartComponent},
+      { path: 'requestedInternship', component: RequestedinternshipComponent}
     ],
   },
 
@@ -50,10 +55,11 @@ const routes: Routes = [
       { path: 'applied-internships', component: UserappliedinternshipComponent },
       { path: 'post-feedback', component: UseraddfeedbackComponent },
       { path: 'view-feedbacks', component: UserviewfeedbackComponent },
+      { path: 'internshipform/:internshipId', component: InternshipformComponent},
     ],
   },
 
-  { path: '**', redirectTo: '/error' } // Redirect unknown routes to error page
+  // { path: '**', redirectTo: '/error' } // Redirect unknown routes to error page
 ];
 
 @NgModule({

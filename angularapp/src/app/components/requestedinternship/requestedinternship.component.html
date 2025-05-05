@@ -1,14 +1,9 @@
 <div class="container">
   <h1>Internship Applications for Approval</h1>
- 
+
   <!-- Search and Filter -->
   <div class="search-filter">
-    <input
-      type="text"
-      placeholder="Search by Degree Program"
-      [(ngModel)]="degreeProgramSearch"
-      (input)="searchAndFilter()"
-    />
+    <input type="text" placeholder="Search by Degree Program" [(ngModel)]="degreeProgramSearch" (input)="searchAndFilter()" />
     <label>Filter by Status</label>
     <select [(ngModel)]="statusFilter" (change)="searchAndFilter()">
       <option value="">All</option>
@@ -17,12 +12,12 @@
       <option value="Rejected">Rejected</option>
     </select>
   </div>
- 
+
   <!-- No Records Found -->
-  <div *ngIf="filteredApplications.length === 0" class="no-records">
-    <h2>Oops! No records Found</h2>
-  </div>
- 
+  <div *ngIf="showNoRecordsMessage">
+    <h2>Oops! No records found.</h2>
+  </div>  
+
   <!-- Applications Table -->
   <div *ngIf="filteredApplications.length > 0">
     <table class="table table-bordered">
@@ -40,46 +35,52 @@
       </thead>
       <tbody>
         <tr *ngFor="let application of filteredApplications; let i = index">
-          <td>{{ application.SNo }}</td>
-          <td>{{ application.Username }}</td>
-          <td>{{ application.UniversityName }}</td>
-          <td>{{ application.DegreeProgram }}</td>
-          <td>{{ application.ApplicationDate }}</td>
+          <td>{{ i + 1 }}</td>
+          <td>{{ application.user.username }}</td>
+          <td>{{ application.universityName }}</td>
+          <td>{{ application.degreeProgram }}</td>
+          <td>{{ application.applicationDate | date }}</td>
           <td>
-            <a *ngIf="application.LinkedInProfile" [href]="application.LinkedInProfile" target="_blank">
-              View LinkedIn
-            </a>
+            <div *ngIf="application.linkedInProfile; else noLinkedIn">
+                <a [href]="application.linkedInProfile" target="_blank">View LinkedIn</a>
+              <ng-template #noLinkedIn>
+                <span>N/A</span>
+              </ng-template>
+            </div>
           </td>
-          <td>{{ application.Status }}</td>
+          
+          <td>{{ application.status }}</td>
           <td>
-            <!-- Approve Button: Disappears only after approval -->
-            <button *ngIf="application.Status !== 'Approved'" class="btn btn-success" (click)="approveApplication(i)">
-              Approve
-            </button>
- 
-            <!-- Reject Button: Disappears only after rejection -->
-            <button *ngIf="application.Status !== 'Rejected'" class="btn btn-danger reject-btn" (click)="rejectApplication(i)">
-              Reject
-            </button>
- 
-            <button class="btn btn-primary" (click)="viewResume(application.Resume)">
-              View Resume
-            </button>
+            <!-- Approve Button -->
+            <button *ngIf="application.status !== 'Approved'" class="btn btn-success" (click)="approveApplication(i)">Approve</button>
+            
+            <!-- Reject Button -->
+            <button *ngIf="application.status !== 'Rejected'" class="btn btn-danger" (click)="rejectApplication(i)">Reject</button>
+
+            <!-- View Resume Button -->
+            <button class="btn btn-primary" (click)="viewResume(application.resumeUrl)">View Resume</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
- 
+
   <!-- Resume Popup -->
-  <div *ngIf="selectedResume" class="popup">
+  <div *ngIf="showResumePopup" class="resume-popup">
     <div class="popup-content">
-      <iframe [src]="selectedResume | safeUrl" width="100%" height="500px"></iframe>
+      <h2>Resume Preview</h2>
+      
+      <!-- Show TXT Resumes -->
+      <iframe *ngIf="selectedResumeUrl?.endsWith('.txt')" [src]="selectedResumeUrl | safeUrl" width="100%" height="500px"></iframe>
+      
+      <!-- Show PNG Resumes -->
+      <img *ngIf="selectedResumeUrl?.endsWith('.png')" [src]="selectedResumeUrl" alt="Resume Image" width="100%" />
+
       <button class="btn btn-secondary" (click)="closePopup()">Close</button>
     </div>
   </div>
- 
-  <!-- View Degree Program Chart Button -->
+
+  <!-- View Degree Program Chart -->
   <div class="chart-btn">
     <button class="btn btn-info" (click)="viewDegreeProgramChart()">View Degree Program Chart</button>
   </div>

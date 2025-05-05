@@ -69,10 +69,12 @@ export class RegistrationComponent {
     this.authService.register(this.user).subscribe(
       (res) => {
         console.log('Registration successful', res);
+        alert("Registration Successful..");
         this.router.navigate(['/login']);
       },
       (error) => {
         console.error('Registration failed', error);
+        alert("Registration failed.. Please Try Again..");
         this.errorMessage = 'Registration failed. Please try again.';
       }
     );

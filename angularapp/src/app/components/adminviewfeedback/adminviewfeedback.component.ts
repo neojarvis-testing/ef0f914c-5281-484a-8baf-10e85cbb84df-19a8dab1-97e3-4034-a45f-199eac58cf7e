@@ -1,6 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
- 
+import { Feedback } from 'src/app/models/feedback.model';
+import { FeedbackService } from 'src/app/services/feedback.service';
+
 @Component({
   selector: 'app-adminviewfeedback',
   templateUrl: './adminviewfeedback.component.html',
@@ -8,32 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminviewfeedbackComponent implements OnInit {
 
-  feedbacks = [
-    { 
-      id: 1, 
-      user: 'John Doe', 
-      email: 'johndoe@example.com', 
-      mobileNo: '123-456-7890', 
-      feedback: 'Great service!', 
-      postedDate: '2025-04-25' 
-    },
-    { 
-      id: 2, 
-      user: 'Jane Smith', 
-      email: 'janesmith@example.com', 
-      mobileNo: '987-654-3210', 
-      feedback: 'Could be better.', 
-      postedDate: '2025-04-27' 
-    }
-  ]; // Example data
+  feedbacks: Feedback[] = [];
+  selectedUser: Feedback = null;
+  showNoDataMessage: boolean = false; // ✅ Initially hidden
 
-  selectedUser: any = null;
- 
-  constructor() { }
- 
+  constructor(private feedbackService: FeedbackService) {}
+
   ngOnInit(): void {
+    this.loadFeedbacks();
   }
- 
+
+  loadFeedbacks(): void {
+    this.feedbackService.getFeedbacks().subscribe(
+      (data) => {
+        this.feedbacks = data;
+        console.log(data);
+
+        // ✅ Delay showing "No data found" by 4 seconds
+        if (this.feedbacks.length === 0) {
+          setTimeout(() => {
+            this.showNoDataMessage = true;
+          }, 4000);
+        }
+      },
+      (error) => {
+        console.error('Error fetching feedbacks:', error);
+      }
+    );
+  }
+
   showProfile(user: any): void {
     this.selectedUser = user;
   }
