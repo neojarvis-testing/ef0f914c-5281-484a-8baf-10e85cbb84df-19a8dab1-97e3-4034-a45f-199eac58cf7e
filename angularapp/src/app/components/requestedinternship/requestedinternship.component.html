@@ -3,7 +3,7 @@
 
   <div class="search-filter">
     <input type="text" placeholder="Search by Degree Program" [(ngModel)]="degreeProgramSearch" (input)="searchAndFilter()" />
-    <label>Filter By ApplicationStatus:</label>
+    <label>Filter By Status:</label>
     <select [(ngModel)]="statusFilter" (change)="searchAndFilter()">
       <option value="">All</option>
       <option value="Pending">Pending</option>
@@ -21,6 +21,7 @@
       <tr>
         <th>Sl. No.</th>
         <th>Username</th>
+        <th>Internship Title</th>
         <th>University</th>
         <th>Degree Program</th>
         <th>Application Date</th>
@@ -33,6 +34,7 @@
       <tr *ngFor="let application of filteredApplications; let i = index">
         <td>{{ i + 1 }}</td>
         <td>{{ application.user.username }}</td>
+        <td>{{ application.internship.title }}</td>
         <td>{{ application.universityName }}</td>
         <td>{{ application.degreeProgram }}</td>
         <td>{{ application.applicationDate | date: 'mediumDate' }}</td>
