@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+.noRecord {
+  color: red;
+  font-size: 40px;
+}
+
 
 .full-width-table {
   width: 100%;

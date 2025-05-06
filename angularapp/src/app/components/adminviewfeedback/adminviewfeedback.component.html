@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Feedback Details</h1>
 
-  <div *ngIf="showNoDataMessage">
-    No data found
+  <div class="noRecord" *ngIf="showNoDataMessage">
+    No records found!
   </div>
 
   <div *ngIf="feedbacks.length > 0">
