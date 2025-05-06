@@ -11,7 +11,7 @@ export class AdminnavComponent implements OnInit {
   username: string | null = '';
   userRole: string | null = '';
 
-  constructor(private router: Router, public authService: AuthService) { }
+  constructor(private router: Router, public authService: AuthService) {}
 
   ngOnInit(): void {
     this.username = this.authService.getUsername();
@@ -19,11 +19,8 @@ export class AdminnavComponent implements OnInit {
   }
 
   logout(): void {
-    // Clear session storage or local storage
     sessionStorage.clear();
     localStorage.clear();
-
-    // Redirect to login page
     this.router.navigate(['/login']);
   }
 }

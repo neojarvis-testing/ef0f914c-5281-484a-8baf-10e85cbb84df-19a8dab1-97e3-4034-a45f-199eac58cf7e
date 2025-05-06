@@ -1,91 +1,102 @@
-
 .form-container {
-max-width: 600px;
-margin: 30px auto;
-padding: 25px;
-border-radius: 10px;
-background-color: #f9f9f9;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 40rem;
+    margin: 64px auto;
+    padding: 58px;
+    border-radius: 39px;
+    background-color: #f1f8ec;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
+
 h2 {
-text-align: center;
-margin-bottom: 25px;
-color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
 }
+
 .form-field {
-margin-bottom: 18px;
+    margin-bottom: 18px;
 }
+
 .form-field label {
-display: block;
-font-weight: 600;
-margin-bottom: 5px;
-color: #444;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
 }
+
 .form-field input,
 .form-field textarea {
-width: 100%;
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
-font-size: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
 }
+
 textarea {
-resize: vertical;
-min-height: 100px;
+    resize: vertical;
+    min-height: 100px;
 }
+
 button[type="submit"] {
-background-color: #007bff;
-color: white;
-padding: 12px 25px;
-border: none;
-border-radius: 5px;
-font-size: 16px;
-cursor: pointer;
-display: block;
-margin: 20px auto 0;
-transition: background-color 0.3s;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 56px;
+    border: none;
+    border-radius: 10px;
+    font-size: 19px;
+    cursor: pointer;
+    display: block;
+    margin: 34px auto 0;
+    transition: background-color 0.3s;
 }
+
 button[type="submit"]:hover {
-background-color: #0056b3;
+    background-color: #0056b3;
 }
+
 .error {
-color: #d9534f;
-font-size: 14px;
-margin-top: 4px;
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 4px;
 }
+
 .success-popup {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.4);
-display: flex;
-justify-content: center;
-align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .popup-content {
-background: white;
-padding: 30px;
-border-radius: 8px;
-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
+
 .popup-content p {
-font-size: 18px;
-margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
 }
+
 .popup-content button {
-padding: 10px 20px;
-background-color: #28a745;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .asterisk {
-color: red;
-font-weight: bold;
-margin-left: 2px;
+    color: red;
+    font-weight: bold;
+    margin-left: 2px;
 }

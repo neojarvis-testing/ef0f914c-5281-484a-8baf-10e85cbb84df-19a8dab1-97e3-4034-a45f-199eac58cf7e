@@ -2,57 +2,53 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
-/**
- * LoginComponent
- * Handles user login functionality and manages authentication state.
- */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  /**
-   * User credentials object containing email and password input.
-   */
   user = {
     Email: '',
     Password: ''
   };
 
-  /**
-   * Stores error messages in case login fails.
-   */
   errorMessage: string = '';
 
-  /**
-   * Constructor initializes Router and AuthService for navigation and authentication.
-   * @param router - Angular Router for navigation
-   * @param authService - Service responsible for authentication requests
-   */
   constructor(private router: Router, private authService: AuthService) {}
 
-  /**
-   * login method
-   * Authenticates the user by sending login credentials to the AuthService.
-   * Automatically navigates users based on their role.
-   * 
-   * @param form - NgForm instance containing user input validation.
-   */
   login(form: NgForm): void {
     if (form.valid) {
-      this.authService.login(this.user).subscribe(response => {
-        const role = this.authService.getUserRole();
-        if (role === 'admin') {
-          this.router.navigate(['/admin/home']);
-        } else if (role === 'user') {
-          this.router.navigate(['/user/home']);
-        } else {
-          this.router.navigate(['/error']); // Redirect unknown roles
+      this.authService.login(this.user).subscribe({
+        next: response => {
+          const role = this.authService.getUserRole();
+          Swal.fire({
+            icon: 'success',
+            title: 'Login Successful!',
+            text: `Welcome back, ${role === 'admin' ? 'Admin' : 'User'}!`,
+            confirmButtonColor: '#28a745',
+            timer: 2000,
+            showConfirmButton: false
+          }).then(() => {
+            if (role === 'admin') {
+              this.router.navigate(['/admin/home']);
+            } else if (role === 'user') {
+              this.router.navigate(['/user/home']);
+            } else {
+              this.router.navigate(['/error']);
+            }
+          });
+        },
+        error: error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Failed',
+            text: 'Invalid email or password. Please try again.',
+            confirmButtonColor: '#dc3545'
+          });
         }
-      }, error => {
-        this.errorMessage = 'Invalid email or password. Please try again.';
       });
     }
   }

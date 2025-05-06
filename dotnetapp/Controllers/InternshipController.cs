@@ -73,42 +73,42 @@ namespace dotnetapp.Controllers
 
         // Allows a user to add a new internship entry to the database.
         
-      [HttpPost]
-// [Authorize(Roles = "admin")]
-public async Task<ActionResult> AddInternship([FromBody] Internship internship)
-{
-    // Logging the start of the AddInternship process
-    // log.Info("Initiating the process to add a new internship record.");
-
-    try
-    {
-        // Attempt to add the internship using the service
-        var success = await _internshipService.AddInternship(internship);
-        
-        if (success)
+        [HttpPost]
+        // [Authorize(Roles = "admin")]
+        public async Task<ActionResult> AddInternship([FromBody] Internship internship)
         {
-            // Log successful addition of internship
-            log.Info("Internship record added successfully.");
-            return Ok();
-        }
+            // Logging the start of the AddInternship process
+            // log.Info("Initiating the process to add a new internship record.");
 
-        // Log failure to add internship
-        log.Error("Failed to add internship due to unexpected issues.");
-        return StatusCode(500, "Failed to add internship");
-    }
-    catch (InternshipException ex)
-    {
-        // Log a warning when a duplicate internship is detected
-        log.Warn($"Duplicate internship record detected. Exception: {ex.Message}");
-        return BadRequest(ex.Message);
-    }
-    catch (Exception ex)
-    {
-        // Logging error details for debugging
-        log.Error($"Error adding internship application: {ex.Message}", ex);
-        return StatusCode(500, $"Internal server error: {ex.Message}"); // 500 Internal Server Error
-    }
-}
+            try
+            {
+                // Attempt to add the internship using the service
+                var success = await _internshipService.AddInternship(internship);
+                
+                if (success)
+                {
+                    // Log successful addition of internship
+                    log.Info("Internship record added successfully.");
+                    return Ok();
+                }
+
+                // Log failure to add internship
+                log.Error("Failed to add internship due to unexpected issues.");
+                return StatusCode(500, "Failed to add internship");
+            }
+            catch (InternshipException ex)
+            {
+                // Log a warning when a duplicate internship is detected
+                log.Warn($"Duplicate internship record detected. Exception: {ex.Message}");
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // Logging error details for debugging
+                log.Error($"Error adding internship application: {ex.Message}", ex);
+                return StatusCode(500, $"Internal server error: {ex.Message}"); // 500 Internal Server Error
+            }
+        }
 
 
 

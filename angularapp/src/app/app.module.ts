@@ -53,9 +53,7 @@ import { NavHomeComponent } from './components/nav-home/nav-home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     HttpClientModule,
-
     FormsModule,
     ReactiveFormsModule,
     CommonModule

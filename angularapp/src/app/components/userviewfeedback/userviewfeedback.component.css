@@ -1,9 +1,12 @@
+
+
 /* General container styling */
 .feedback-container {
     max-width: 800px; /* Increased width */
     margin: 40px auto;
     padding: 30px;
     background: #f9f9f9;
+    background-color: #e9ece2;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
@@ -34,7 +37,7 @@
     padding: 10px 14px; /* Slightly larger buttons */
     font-size: 16px;
     border: none;
-    background: #007bff;
+    background: rgb(217, 119, 119);
     color: white;
     cursor: pointer;
     border-radius: 5px;

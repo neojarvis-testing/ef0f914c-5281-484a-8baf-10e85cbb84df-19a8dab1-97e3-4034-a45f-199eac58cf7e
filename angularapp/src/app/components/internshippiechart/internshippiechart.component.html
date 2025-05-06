@@ -2,20 +2,21 @@
   <h2>Internship Applications by Degree Program</h2>
 
   <div class="chart-layout">
-    <div class="degree-counts">
+    <div class="degree-counts card-shadow">
       <h2>Degree Program Counts</h2>
       <ul>
         <li *ngFor="let program of degreePrograms | keyvalue">
-          {{ program.key }}: <strong>{{ program.value }}</strong>
+          <span>{{ program.key }}</span>
+          <strong>{{ program.value }}</strong>
         </li>
       </ul>
     </div>
 
-    <div class="chart-wrapper">
+    <div class="chart-wrapper card-shadow">
       <div class="close-btn-container">
         <button class="btn btn-danger" (click)="closeChart()">Close Chart</button>
       </div>
-      <canvas id="degreeProgramChart"></canvas>
+      <canvas id="degreeProgramChart" width="400" height="400"></canvas>
     </div>
   </div>
 </div>
