@@ -9,8 +9,8 @@ import { InternshipApplication } from '../models/internshipapplication.model';
 })
 export class InternshipService {
 
-  public apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
-  public applicationApiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
+  public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship';
+  public applicationApiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication';
  
   constructor(private http: HttpClient) {}
  

@@ -2188,3 +2188,1241 @@ FROM [Internships] AS [i]
 2025-05-06 03:57:46.508 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
 2025-05-06 03:57:46.508 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.4808 ms
 2025-05-06 03:57:46.508 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.0576ms
+2025-05-06 04:08:29.223 +00:00 [WRN] No store type was specified for the decimal property 'Stipend' on entity type 'Internship'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-05-06 04:08:29.385 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:08:30.114 +00:00 [INF] Executed DbCommand (45ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-06 04:08:30.195 +00:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-06 04:08:30.273 +00:00 [INF] User profile is available. Using '/home/coder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-05-06 04:08:30.280 +00:00 [INF] Creating key {f5a93d0b-030d-4843-a97d-cdc93aacf49e} with creation date 2025-05-06 04:08:30Z, activation date 2025-05-06 04:08:30Z, and expiration date 2025-08-04 04:08:30Z.
+2025-05-06 04:08:30.286 +00:00 [WRN] No XML encryptor configured. Key {f5a93d0b-030d-4843-a97d-cdc93aacf49e} may be persisted to storage in unencrypted form.
+2025-05-06 04:08:30.289 +00:00 [INF] Writing data to file '/home/coder/.aspnet/DataProtection-Keys/key-f5a93d0b-030d-4843-a97d-cdc93aacf49e.xml'.
+2025-05-06 04:08:30.329 +00:00 [INF] Now listening on: http://0.0.0.0:8080
+2025-05-06 04:08:30.332 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-06 04:08:30.332 +00:00 [INF] Hosting environment: Development
+2025-05-06 04:08:30.332 +00:00 [INF] Content root path: /home/coder/project/workspace/dotnetapp/
+2025-05-06 04:12:34.234 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/ - -
+2025-05-06 04:12:34.271 +00:00 [WRN] Failed to determine the https port for redirect.
+2025-05-06 04:12:34.282 +00:00 [INF] HTTP GET / responded 404 in 0.3537 ms
+2025-05-06 04:12:34.295 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/ - - - 404 0 - 64.2374ms
+2025-05-06 04:12:46.516 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/swagger/index.html - -
+2025-05-06 04:12:46.625 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/swagger/index.html - - - 200 - text/html;charset=utf-8 108.2991ms
+2025-05-06 04:12:47.867 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/swagger/v1/swagger.json - -
+2025-05-06 04:12:47.931 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 64.6373ms
+2025-05-06 04:12:55.891 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 173
+2025-05-06 04:12:55.893 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:12:55.897 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:12:55.921 +00:00 [INF] Route matched with {action = "Register", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(dotnetapp.Models.User) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:12:55.964 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-05-06 04:12:55.978 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Register (dotnetapp) in 53.4477ms
+2025-05-06 04:12:55.979 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:12:55.979 +00:00 [INF] HTTP POST /api/register responded 400 in 84.9230 ms
+2025-05-06 04:12:55.980 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 173 - 400 - application/problem+json;+charset=utf-8 89.4313ms
+2025-05-06 04:13:53.973 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - -
+2025-05-06 04:13:53.976 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:13:53.977 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - - - 204 - - 4.2547ms
+2025-05-06 04:13:54.508 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 55
+2025-05-06 04:13:54.509 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:13:54.509 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:13:54.512 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(dotnetapp.Models.LoginModel) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:13:54.706 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:13:54.721 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__model_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__model_Email_0
+2025-05-06 04:13:55.115 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-06 04:13:55.122 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Login (dotnetapp) in 609.8761ms
+2025-05-06 04:13:55.122 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:13:55.122 +00:00 [INF] HTTP POST /api/login responded 200 in 613.3322 ms
+2025-05-06 04:13:55.124 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 55 - 200 - application/json;+charset=utf-8 615.0402ms
+2025-05-06 04:14:00.983 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:14:00.984 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:14:00.984 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.5981ms
+2025-05-06 04:14:01.257 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:14:01.257 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:14:01.257 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:14:01.261 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:14:01.274 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:14:01.288 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:14:01.305 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:14:01.310 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 49.1534ms
+2025-05-06 04:14:01.310 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:14:01.311 +00:00 [INF] HTTP GET /api/Internship responded 200 in 53.7263 ms
+2025-05-06 04:14:01.312 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 55.5418ms
+2025-05-06 04:14:02.238 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:14:02.238 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:14:02.238 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:14:02.239 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:14:02.239 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:14:02.240 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:14:02.241 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:14:02.241 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.6925ms
+2025-05-06 04:14:02.241 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:14:02.242 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.2505 ms
+2025-05-06 04:14:02.242 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 4.0774ms
+2025-05-06 04:14:09.613 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - -
+2025-05-06 04:14:09.614 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:14:09.614 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - - - 204 - - 0.5250ms
+2025-05-06 04:14:09.870 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - -
+2025-05-06 04:14:09.871 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:14:09.871 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetAllInternshipApplications (dotnetapp)'
+2025-05-06 04:14:09.873 +00:00 [INF] Route matched with {action = "GetAllInternshipApplications", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.InternshipApplication]]] GetAllInternshipApplications() on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:14:09.876 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:14:09.917 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username], [i0].[InternshipId], [i0].[ApplicationDeadline], [i0].[CompanyName], [i0].[Description], [i0].[DurationInMonths], [i0].[Location], [i0].[SkillsRequired], [i0].[Stipend], [i0].[Title]
+FROM [InternshipApplications] AS [i]
+INNER JOIN [Users] AS [u] ON [i].[UserId] = [u].[UserId]
+INNER JOIN [Internships] AS [i0] ON [i].[InternshipId] = [i0].[InternshipId]
+2025-05-06 04:14:09.996 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.InternshipApplication, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:14:10.015 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.GetAllInternshipApplications (dotnetapp) in 141.6636ms
+2025-05-06 04:14:10.015 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetAllInternshipApplications (dotnetapp)'
+2025-05-06 04:14:10.015 +00:00 [INF] HTTP GET /api/InternshipApplication responded 200 in 144.6496 ms
+2025-05-06 04:14:10.016 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - - - 200 - application/json;+charset=utf-8 145.3951ms
+2025-05-06 04:14:42.634 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback - -
+2025-05-06 04:14:42.634 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:14:42.634 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback - - - 204 - - 0.5663ms
+2025-05-06 04:14:42.886 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback - -
+2025-05-06 04:14:42.886 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:14:42.886 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.GetAllFeedbacks (dotnetapp)'
+2025-05-06 04:14:42.889 +00:00 [INF] Route matched with {action = "GetAllFeedbacks", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Feedback]]] GetAllFeedbacks() on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:14:42.892 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:14:42.900 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Feedbacks] AS [f]
+INNER JOIN [Users] AS [u] ON [f].[UserId] = [u].[UserId]
+2025-05-06 04:14:42.906 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Feedback, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:14:42.908 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.GetAllFeedbacks (dotnetapp) in 18.5154ms
+2025-05-06 04:14:42.908 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.GetAllFeedbacks (dotnetapp)'
+2025-05-06 04:14:42.908 +00:00 [INF] HTTP GET /api/Feedback responded 200 in 21.4603 ms
+2025-05-06 04:14:42.908 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback - - - 200 - application/json;+charset=utf-8 22.1600ms
+2025-05-06 04:15:35.282 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - -
+2025-05-06 04:15:35.283 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:15:35.283 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - - - 204 - - 0.5203ms
+2025-05-06 04:15:45.174 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:15:45.174 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:15:45.175 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.6524ms
+2025-05-06 04:15:46.380 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:15:46.380 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:15:46.381 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:15:46.381 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:15:46.383 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:15:46.384 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:15:46.385 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:15:46.385 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 4.0684ms
+2025-05-06 04:15:46.385 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:15:46.385 +00:00 [INF] HTTP GET /api/Internship responded 200 in 4.6200 ms
+2025-05-06 04:15:46.385 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 5.3562ms
+2025-05-06 04:15:50.487 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - -
+2025-05-06 04:15:50.488 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:15:50.489 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - - - 204 - - 1.8400ms
+2025-05-06 04:15:50.746 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - -
+2025-05-06 04:15:50.746 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:15:50.746 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetAllInternshipApplications (dotnetapp)'
+2025-05-06 04:15:50.747 +00:00 [INF] Route matched with {action = "GetAllInternshipApplications", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.InternshipApplication]]] GetAllInternshipApplications() on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:15:50.747 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:15:50.749 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username], [i0].[InternshipId], [i0].[ApplicationDeadline], [i0].[CompanyName], [i0].[Description], [i0].[DurationInMonths], [i0].[Location], [i0].[SkillsRequired], [i0].[Stipend], [i0].[Title]
+FROM [InternshipApplications] AS [i]
+INNER JOIN [Users] AS [u] ON [i].[UserId] = [u].[UserId]
+INNER JOIN [Internships] AS [i0] ON [i].[InternshipId] = [i0].[InternshipId]
+2025-05-06 04:15:50.803 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.InternshipApplication, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:15:50.804 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.GetAllInternshipApplications (dotnetapp) in 57.3927ms
+2025-05-06 04:15:50.804 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetAllInternshipApplications (dotnetapp)'
+2025-05-06 04:15:50.804 +00:00 [INF] HTTP GET /api/InternshipApplication responded 200 in 57.9976 ms
+2025-05-06 04:15:50.805 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - - - 200 - application/json;+charset=utf-8 58.7884ms
+2025-05-06 04:16:50.194 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - -
+2025-05-06 04:16:50.195 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:16:50.195 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - - - 204 - - 0.5384ms
+2025-05-06 04:16:50.711 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 54
+2025-05-06 04:16:50.712 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:16:50.712 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:16:50.712 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(dotnetapp.Models.LoginModel) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:16:50.714 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:16:50.715 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__model_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__model_Email_0
+2025-05-06 04:16:50.884 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-06 04:16:50.885 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Login (dotnetapp) in 172.4293ms
+2025-05-06 04:16:50.885 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:16:50.885 +00:00 [INF] HTTP POST /api/login responded 200 in 173.0035 ms
+2025-05-06 04:16:50.885 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 54 - 200 - application/json;+charset=utf-8 173.6517ms
+2025-05-06 04:16:54.824 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:16:54.824 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:16:54.824 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.6130ms
+2025-05-06 04:16:55.071 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:16:55.071 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:16:55.071 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:16:55.071 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:16:55.072 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:16:55.073 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:16:55.074 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:16:55.074 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.7962ms
+2025-05-06 04:16:55.074 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:16:55.074 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.2831 ms
+2025-05-06 04:16:55.075 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 4.2832ms
+2025-05-06 04:16:58.317 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2 - -
+2025-05-06 04:16:58.318 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:16:58.318 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2 - - - 204 - - 0.4926ms
+2025-05-06 04:16:58.579 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2 - -
+2025-05-06 04:16:58.579 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:16:58.579 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp)'
+2025-05-06 04:16:58.582 +00:00 [INF] Route matched with {action = "GetInternshipApplicationByUserId", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.InternshipApplication]]] GetInternshipApplicationByUserId(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:16:58.585 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:16:58.597 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username], [i0].[InternshipId], [i0].[ApplicationDeadline], [i0].[CompanyName], [i0].[Description], [i0].[DurationInMonths], [i0].[Location], [i0].[SkillsRequired], [i0].[Stipend], [i0].[Title]
+FROM [InternshipApplications] AS [i]
+INNER JOIN [Users] AS [u] ON [i].[UserId] = [u].[UserId]
+INNER JOIN [Internships] AS [i0] ON [i].[InternshipId] = [i0].[InternshipId]
+WHERE [i].[UserId] = @__userId_0
+2025-05-06 04:16:58.646 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.InternshipApplication, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:16:58.647 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp) in 64.3842ms
+2025-05-06 04:16:58.647 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp)'
+2025-05-06 04:16:58.647 +00:00 [INF] HTTP GET /api/InternshipApplication/user/2 responded 200 in 67.6297 ms
+2025-05-06 04:16:58.647 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2 - - - 200 - application/json;+charset=utf-8 68.4745ms
+2025-05-06 04:17:08.295 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2 - -
+2025-05-06 04:17:08.295 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:08.295 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2 - - - 204 - - 0.5029ms
+2025-05-06 04:17:08.542 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2 - -
+2025-05-06 04:17:08.542 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:08.543 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:08.545 +00:00 [INF] Route matched with {action = "DeleteInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteInternshipApplication(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:17:08.548 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:17:08.554 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__internshipApplicationId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE [i].[InternshipApplicationId] = @__internshipApplicationId_0
+2025-05-06 04:17:08.634 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [InternshipApplications]
+WHERE [InternshipApplicationId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:17:08.658 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:17:08.658 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp) in 112.5952ms
+2025-05-06 04:17:08.658 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:08.658 +00:00 [INF] HTTP DELETE /api/InternshipApplication/2 responded 200 in 115.5394 ms
+2025-05-06 04:17:08.658 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2 - - - 200 0 - 116.5209ms
+2025-05-06 04:17:12.298 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2002 - -
+2025-05-06 04:17:12.298 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:12.299 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2002 - - - 204 - - 0.4641ms
+2025-05-06 04:17:12.546 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2002 - -
+2025-05-06 04:17:12.546 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:12.546 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:12.546 +00:00 [INF] Route matched with {action = "DeleteInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteInternshipApplication(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:17:12.547 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:17:12.549 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__internshipApplicationId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE [i].[InternshipApplicationId] = @__internshipApplicationId_0
+2025-05-06 04:17:12.550 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [InternshipApplications]
+WHERE [InternshipApplicationId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:17:12.553 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:17:12.553 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp) in 6.7532ms
+2025-05-06 04:17:12.553 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:12.553 +00:00 [INF] HTTP DELETE /api/InternshipApplication/2002 responded 200 in 7.2824 ms
+2025-05-06 04:17:12.554 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2002 - - - 200 0 - 7.9203ms
+2025-05-06 04:17:15.811 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2003 - -
+2025-05-06 04:17:15.812 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:15.812 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2003 - - - 204 - - 0.9608ms
+2025-05-06 04:17:16.058 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2003 - -
+2025-05-06 04:17:16.059 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:16.059 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:16.059 +00:00 [INF] Route matched with {action = "DeleteInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteInternshipApplication(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:17:16.061 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:17:16.063 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__internshipApplicationId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE [i].[InternshipApplicationId] = @__internshipApplicationId_0
+2025-05-06 04:17:16.066 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [InternshipApplications]
+WHERE [InternshipApplicationId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:17:16.070 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:17:16.070 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp) in 11.2474ms
+2025-05-06 04:17:16.071 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:16.071 +00:00 [INF] HTTP DELETE /api/InternshipApplication/2003 responded 200 in 12.0932 ms
+2025-05-06 04:17:16.071 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2003 - - - 200 0 - 12.8716ms
+2025-05-06 04:17:19.295 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2004 - -
+2025-05-06 04:17:19.295 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:19.295 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2004 - - - 204 - - 0.4689ms
+2025-05-06 04:17:19.539 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2004 - -
+2025-05-06 04:17:19.540 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:19.540 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:19.540 +00:00 [INF] Route matched with {action = "DeleteInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteInternshipApplication(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:17:19.541 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:17:19.543 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__internshipApplicationId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE [i].[InternshipApplicationId] = @__internshipApplicationId_0
+2025-05-06 04:17:19.544 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [InternshipApplications]
+WHERE [InternshipApplicationId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:17:19.547 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:17:19.547 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp) in 7.0357ms
+2025-05-06 04:17:19.547 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:19.548 +00:00 [INF] HTTP DELETE /api/InternshipApplication/2004 responded 200 in 7.5302 ms
+2025-05-06 04:17:19.548 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2004 - - - 200 0 - 8.2727ms
+2025-05-06 04:17:22.514 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2005 - -
+2025-05-06 04:17:22.514 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:22.514 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2005 - - - 204 - - 0.5841ms
+2025-05-06 04:17:22.762 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2005 - -
+2025-05-06 04:17:22.762 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:22.762 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:22.762 +00:00 [INF] Route matched with {action = "DeleteInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteInternshipApplication(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:17:22.763 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:17:22.765 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__internshipApplicationId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE [i].[InternshipApplicationId] = @__internshipApplicationId_0
+2025-05-06 04:17:22.766 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [InternshipApplications]
+WHERE [InternshipApplicationId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:17:22.769 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:17:22.769 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp) in 6.4593ms
+2025-05-06 04:17:22.769 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:22.769 +00:00 [INF] HTTP DELETE /api/InternshipApplication/2005 responded 200 in 6.9825 ms
+2025-05-06 04:17:22.769 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2005 - - - 200 0 - 7.6317ms
+2025-05-06 04:17:25.352 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2007 - -
+2025-05-06 04:17:25.353 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:25.353 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2007 - - - 204 - - 0.4307ms
+2025-05-06 04:17:25.610 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2007 - -
+2025-05-06 04:17:25.610 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:25.610 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:25.610 +00:00 [INF] Route matched with {action = "DeleteInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteInternshipApplication(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:17:25.611 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:17:25.612 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__internshipApplicationId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE [i].[InternshipApplicationId] = @__internshipApplicationId_0
+2025-05-06 04:17:25.617 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [InternshipApplications]
+WHERE [InternshipApplicationId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:17:25.620 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:17:25.620 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp) in 9.8786ms
+2025-05-06 04:17:25.620 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:25.621 +00:00 [INF] HTTP DELETE /api/InternshipApplication/2007 responded 200 in 10.3726 ms
+2025-05-06 04:17:25.621 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2007 - - - 200 0 - 10.8998ms
+2025-05-06 04:17:28.575 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2008 - -
+2025-05-06 04:17:28.575 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:28.576 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2008 - - - 204 - - 0.3937ms
+2025-05-06 04:17:28.824 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2008 - -
+2025-05-06 04:17:28.824 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:17:28.824 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:28.824 +00:00 [INF] Route matched with {action = "DeleteInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteInternshipApplication(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:17:28.825 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:17:28.826 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__internshipApplicationId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE [i].[InternshipApplicationId] = @__internshipApplicationId_0
+2025-05-06 04:17:28.872 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [InternshipApplications]
+WHERE [InternshipApplicationId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:17:28.876 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:17:28.876 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp) in 51.1088ms
+2025-05-06 04:17:28.876 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:17:28.876 +00:00 [INF] HTTP DELETE /api/InternshipApplication/2008 responded 200 in 51.6216 ms
+2025-05-06 04:17:28.876 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/2008 - - - 200 0 - 52.0923ms
+2025-05-06 04:18:25.095 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:18:25.095 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:18:25.095 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.6811ms
+2025-05-06 04:18:25.346 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:18:25.346 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:18:25.346 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:18:25.347 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:18:25.347 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:18:25.349 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:18:25.349 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:18:25.350 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 3.0629ms
+2025-05-06 04:18:25.350 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:18:25.350 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.6000 ms
+2025-05-06 04:18:25.350 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 4.2978ms
+2025-05-06 04:18:28.655 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:18:28.655 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:18:28.655 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:18:28.655 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:18:28.656 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:18:28.657 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:18:28.657 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:18:28.658 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.0851ms
+2025-05-06 04:18:28.658 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:18:28.658 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.5738 ms
+2025-05-06 04:18:28.658 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.1054ms
+2025-05-06 04:22:55.997 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:22:55.997 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:22:55.997 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.4354ms
+2025-05-06 04:22:56.250 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:22:56.251 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:22:56.251 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:22:56.251 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:22:56.251 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:22:56.252 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:22:56.253 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:22:56.253 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.1899ms
+2025-05-06 04:22:56.253 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:22:56.253 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.6801 ms
+2025-05-06 04:22:56.253 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.2335ms
+2025-05-06 04:26:49.768 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:26:49.768 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:26:49.768 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.3718ms
+2025-05-06 04:26:50.018 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:26:50.018 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:26:50.018 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:26:50.019 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:26:50.019 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:26:50.021 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:26:50.021 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:26:50.021 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.4491ms
+2025-05-06 04:26:50.021 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:26:50.021 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.9319 ms
+2025-05-06 04:26:50.021 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.4043ms
+2025-05-06 04:27:03.836 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:27:03.836 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:27:03.836 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.3963ms
+2025-05-06 04:27:04.112 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:27:04.113 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:27:04.113 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:27:04.113 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:27:04.114 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:27:04.115 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:27:04.115 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:27:04.115 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.3128ms
+2025-05-06 04:27:04.116 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:27:04.116 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.7894 ms
+2025-05-06 04:27:04.116 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.6532ms
+2025-05-06 04:27:29.276 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - -
+2025-05-06 04:27:29.276 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:27:29.277 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - - - 204 - - 0.7628ms
+2025-05-06 04:27:30.710 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication application/json 295100
+2025-05-06 04:27:30.710 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:27:30.710 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp)'
+2025-05-06 04:27:30.713 +00:00 [INF] Route matched with {action = "AddInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddInternshipApplication(dotnetapp.Models.InternshipApplication) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:27:30.726 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:27:30.735 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@__internshipApplication_UserId_0='?' (DbType = Int32), @__internshipApplication_InternshipId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE ([i].[UserId] = @__internshipApplication_UserId_0) AND ([i].[InternshipId] = @__internshipApplication_InternshipId_1)
+2025-05-06 04:27:30.765 +00:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 8), @p2='?' (Size = 32), @p3='?' (DbType = Int32), @p4='?' (Size = 512), @p5='?' (Size = -1), @p6='?' (Size = 128), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [InternshipApplications] ([ApplicationDate], [ApplicationStatus], [DegreeProgram], [InternshipId], [LinkedInProfile], [Resume], [UniversityName], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [InternshipApplicationId]
+FROM [InternshipApplications]
+WHERE @@ROWCOUNT = 1 AND [InternshipApplicationId] = scope_identity();
+2025-05-06 04:27:30.784 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:27:30.785 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp) in 71.7277ms
+2025-05-06 04:27:30.785 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp)'
+2025-05-06 04:27:30.785 +00:00 [INF] HTTP POST /api/InternshipApplication responded 200 in 74.8561 ms
+2025-05-06 04:27:30.785 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication application/json 295100 - 200 0 - 75.4718ms
+2025-05-06 04:27:32.608 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:27:32.608 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:27:32.608 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.3315ms
+2025-05-06 04:27:32.859 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:27:32.859 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:27:32.859 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:27:32.860 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:27:32.860 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:27:32.861 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:27:32.862 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:27:32.862 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.4763ms
+2025-05-06 04:27:32.862 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:27:32.862 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.0990 ms
+2025-05-06 04:27:32.863 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.7895ms
+2025-05-06 04:27:33.952 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:27:33.952 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:27:33.952 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:27:33.952 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:27:33.953 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:27:33.954 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:27:33.955 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:27:33.955 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.1868ms
+2025-05-06 04:27:33.955 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:27:33.955 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.8206 ms
+2025-05-06 04:27:33.955 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.3582ms
+2025-05-06 04:31:52.237 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:31:52.237 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:31:52.238 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.3853ms
+2025-05-06 04:31:52.488 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:31:52.488 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:31:52.488 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:31:52.489 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:31:52.489 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:31:52.490 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:31:52.491 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:31:52.491 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.1072ms
+2025-05-06 04:31:52.491 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:31:52.491 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.6568 ms
+2025-05-06 04:31:52.491 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.2031ms
+2025-05-06 04:35:59.218 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:35:59.219 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:35:59.219 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.5947ms
+2025-05-06 04:35:59.469 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:35:59.469 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:35:59.469 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:35:59.470 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:35:59.470 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:35:59.471 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:35:59.472 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:35:59.472 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.0921ms
+2025-05-06 04:35:59.472 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:35:59.472 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.5520 ms
+2025-05-06 04:35:59.472 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.1827ms
+2025-05-06 04:38:27.049 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2 - -
+2025-05-06 04:38:27.049 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:27.050 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2 - - - 204 - - 0.4485ms
+2025-05-06 04:38:27.304 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2 - -
+2025-05-06 04:38:27.304 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:27.304 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp)'
+2025-05-06 04:38:27.304 +00:00 [INF] Route matched with {action = "GetInternshipApplicationByUserId", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.InternshipApplication]]] GetInternshipApplicationByUserId(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:38:27.305 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:38:27.307 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username], [i0].[InternshipId], [i0].[ApplicationDeadline], [i0].[CompanyName], [i0].[Description], [i0].[DurationInMonths], [i0].[Location], [i0].[SkillsRequired], [i0].[Stipend], [i0].[Title]
+FROM [InternshipApplications] AS [i]
+INNER JOIN [Users] AS [u] ON [i].[UserId] = [u].[UserId]
+INNER JOIN [Internships] AS [i0] ON [i].[InternshipId] = [i0].[InternshipId]
+WHERE [i].[UserId] = @__userId_0
+2025-05-06 04:38:27.388 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.InternshipApplication, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:38:27.391 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp) in 86.1673ms
+2025-05-06 04:38:27.391 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp)'
+2025-05-06 04:38:27.391 +00:00 [INF] HTTP GET /api/InternshipApplication/user/2 responded 200 in 86.6666 ms
+2025-05-06 04:38:27.391 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2 - - - 200 - application/json;+charset=utf-8 87.1787ms
+2025-05-06 04:38:32.344 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/4007 - -
+2025-05-06 04:38:32.344 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:32.344 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/4007 - - - 204 - - 0.4053ms
+2025-05-06 04:38:32.594 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/4007 - -
+2025-05-06 04:38:32.595 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:32.595 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:38:32.595 +00:00 [INF] Route matched with {action = "DeleteInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteInternshipApplication(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:38:32.596 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:38:32.597 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__internshipApplicationId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE [i].[InternshipApplicationId] = @__internshipApplicationId_0
+2025-05-06 04:38:32.703 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [InternshipApplications]
+WHERE [InternshipApplicationId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:38:32.710 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:38:32.710 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp) in 114.7355ms
+2025-05-06 04:38:32.710 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.DeleteInternshipApplication (dotnetapp)'
+2025-05-06 04:38:32.710 +00:00 [INF] HTTP DELETE /api/InternshipApplication/4007 responded 200 in 115.3354 ms
+2025-05-06 04:38:32.710 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/4007 - - - 200 0 - 115.9756ms
+2025-05-06 04:38:37.395 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2 - -
+2025-05-06 04:38:37.395 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:37.396 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2 - - - 204 - - 0.3536ms
+2025-05-06 04:38:37.665 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2 - -
+2025-05-06 04:38:37.665 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:37.666 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp)'
+2025-05-06 04:38:37.669 +00:00 [INF] Route matched with {action = "GetFeedbacksByUserId", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Feedback]]] GetFeedbacksByUserId(Int32) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:38:37.672 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:38:37.680 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Feedbacks] AS [f]
+INNER JOIN [Users] AS [u] ON [f].[UserId] = [u].[UserId]
+WHERE [f].[UserId] = @__userId_0
+2025-05-06 04:38:37.681 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Feedback, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:38:37.681 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp) in 11.6455ms
+2025-05-06 04:38:37.681 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp)'
+2025-05-06 04:38:37.681 +00:00 [INF] HTTP GET /api/Feedback/2 responded 200 in 14.7098 ms
+2025-05-06 04:38:37.681 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2 - - - 200 - application/json;+charset=utf-8 16.3689ms
+2025-05-06 04:38:40.518 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/1 - -
+2025-05-06 04:38:40.518 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:40.519 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/1 - - - 204 - - 0.3685ms
+2025-05-06 04:38:40.774 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/1 - -
+2025-05-06 04:38:40.774 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:40.774 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:40.777 +00:00 [INF] Route matched with {action = "DeleteFeedback", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteFeedback(Int32) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:38:40.780 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:38:40.789 +00:00 [INF] Executed DbCommand (6ms) [Parameters=[@__feedbackId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId]
+FROM [Feedbacks] AS [f]
+WHERE [f].[FeedbackId] = @__feedbackId_0
+2025-05-06 04:38:40.794 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Feedbacks]
+WHERE [FeedbackId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:38:40.796 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:38:40.796 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp) in 18.9288ms
+2025-05-06 04:38:40.796 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:40.796 +00:00 [INF] HTTP DELETE /api/Feedback/1 responded 200 in 21.8269 ms
+2025-05-06 04:38:40.796 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/1 - - - 200 0 - 22.4399ms
+2025-05-06 04:38:43.280 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2 - -
+2025-05-06 04:38:43.280 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:43.280 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2 - - - 204 - - 0.4106ms
+2025-05-06 04:38:43.536 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2 - -
+2025-05-06 04:38:43.536 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:43.536 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:43.536 +00:00 [INF] Route matched with {action = "DeleteFeedback", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteFeedback(Int32) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:38:43.537 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:38:43.538 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__feedbackId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId]
+FROM [Feedbacks] AS [f]
+WHERE [f].[FeedbackId] = @__feedbackId_0
+2025-05-06 04:38:43.539 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Feedbacks]
+WHERE [FeedbackId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:38:43.542 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:38:43.542 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp) in 5.6833ms
+2025-05-06 04:38:43.542 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:43.542 +00:00 [INF] HTTP DELETE /api/Feedback/2 responded 200 in 6.0942 ms
+2025-05-06 04:38:43.542 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2 - - - 200 0 - 6.5800ms
+2025-05-06 04:38:46.000 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/3 - -
+2025-05-06 04:38:46.001 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:46.001 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/3 - - - 204 - - 0.3663ms
+2025-05-06 04:38:46.255 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/3 - -
+2025-05-06 04:38:46.256 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:46.256 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:46.256 +00:00 [INF] Route matched with {action = "DeleteFeedback", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteFeedback(Int32) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:38:46.257 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:38:46.258 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__feedbackId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId]
+FROM [Feedbacks] AS [f]
+WHERE [f].[FeedbackId] = @__feedbackId_0
+2025-05-06 04:38:46.259 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Feedbacks]
+WHERE [FeedbackId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:38:46.263 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:38:46.263 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp) in 6.7185ms
+2025-05-06 04:38:46.263 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:46.263 +00:00 [INF] HTTP DELETE /api/Feedback/3 responded 200 in 7.1718 ms
+2025-05-06 04:38:46.263 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/3 - - - 200 0 - 7.7699ms
+2025-05-06 04:38:48.773 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/4 - -
+2025-05-06 04:38:48.773 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:48.773 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/4 - - - 204 - - 0.4023ms
+2025-05-06 04:38:49.026 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/4 - -
+2025-05-06 04:38:49.027 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:49.027 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:49.027 +00:00 [INF] Route matched with {action = "DeleteFeedback", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteFeedback(Int32) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:38:49.027 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:38:49.029 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__feedbackId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId]
+FROM [Feedbacks] AS [f]
+WHERE [f].[FeedbackId] = @__feedbackId_0
+2025-05-06 04:38:49.030 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Feedbacks]
+WHERE [FeedbackId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:38:49.033 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:38:49.034 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp) in 6.6303ms
+2025-05-06 04:38:49.034 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:49.034 +00:00 [INF] HTTP DELETE /api/Feedback/4 responded 200 in 7.0776 ms
+2025-05-06 04:38:49.034 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/4 - - - 200 0 - 7.5268ms
+2025-05-06 04:38:51.146 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/5 - -
+2025-05-06 04:38:51.146 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:51.146 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/5 - - - 204 - - 0.3643ms
+2025-05-06 04:38:51.401 +00:00 [INF] Request starting HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/5 - -
+2025-05-06 04:38:51.401 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:38:51.401 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:51.402 +00:00 [INF] Route matched with {action = "DeleteFeedback", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteFeedback(Int32) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:38:51.402 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:38:51.404 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__feedbackId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId]
+FROM [Feedbacks] AS [f]
+WHERE [f].[FeedbackId] = @__feedbackId_0
+2025-05-06 04:38:51.405 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Feedbacks]
+WHERE [FeedbackId] = @p0;
+SELECT @@ROWCOUNT;
+2025-05-06 04:38:51.408 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:38:51.408 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp) in 6.3673ms
+2025-05-06 04:38:51.408 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.DeleteFeedback (dotnetapp)'
+2025-05-06 04:38:51.408 +00:00 [INF] HTTP DELETE /api/Feedback/5 responded 200 in 6.8450 ms
+2025-05-06 04:38:51.408 +00:00 [INF] Request finished HTTP/1.1 DELETE http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/5 - - - 200 0 - 7.3383ms
+2025-05-06 04:44:33.984 +00:00 [WRN] No store type was specified for the decimal property 'Stipend' on entity type 'Internship'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-05-06 04:44:34.170 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:44:35.109 +00:00 [INF] Executed DbCommand (43ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-06 04:44:35.188 +00:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-06 04:44:35.273 +00:00 [INF] User profile is available. Using '/home/coder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-05-06 04:44:35.281 +00:00 [INF] Creating key {63fca10f-7700-4482-b3e7-cff6e33628ae} with creation date 2025-05-06 04:44:35Z, activation date 2025-05-06 04:44:35Z, and expiration date 2025-08-04 04:44:35Z.
+2025-05-06 04:44:35.286 +00:00 [WRN] No XML encryptor configured. Key {63fca10f-7700-4482-b3e7-cff6e33628ae} may be persisted to storage in unencrypted form.
+2025-05-06 04:44:35.289 +00:00 [INF] Writing data to file '/home/coder/.aspnet/DataProtection-Keys/key-63fca10f-7700-4482-b3e7-cff6e33628ae.xml'.
+2025-05-06 04:44:35.334 +00:00 [INF] Now listening on: http://0.0.0.0:8080
+2025-05-06 04:44:35.337 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-06 04:44:35.337 +00:00 [INF] Hosting environment: Development
+2025-05-06 04:44:35.338 +00:00 [INF] Content root path: /home/coder/project/workspace/dotnetapp/
+2025-05-06 04:48:06.787 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - -
+2025-05-06 04:48:06.819 +00:00 [WRN] Failed to determine the https port for redirect.
+2025-05-06 04:48:06.827 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:48:06.845 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - - - 204 - - 60.9243ms
+2025-05-06 04:48:07.507 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 150
+2025-05-06 04:48:07.509 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:48:07.512 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:48:07.536 +00:00 [INF] Route matched with {action = "Register", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(dotnetapp.Models.User) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:48:07.628 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-05-06 04:48:07.651 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Register (dotnetapp) in 111.4139ms
+2025-05-06 04:48:07.651 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:48:07.653 +00:00 [INF] HTTP POST /api/register responded 400 in 141.7379 ms
+2025-05-06 04:48:07.655 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 150 - 400 - application/problem+json;+charset=utf-8 147.5365ms
+2025-05-06 04:48:47.328 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - -
+2025-05-06 04:48:47.330 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:48:47.331 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - - - 204 - - 2.6790ms
+2025-05-06 04:48:47.864 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 153
+2025-05-06 04:48:47.864 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:48:47.865 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:48:47.865 +00:00 [INF] Route matched with {action = "Register", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(dotnetapp.Models.User) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:48:47.866 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-05-06 04:48:47.867 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Register (dotnetapp) in 1.6071ms
+2025-05-06 04:48:47.867 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:48:47.867 +00:00 [INF] HTTP POST /api/register responded 400 in 2.3718 ms
+2025-05-06 04:48:47.867 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 153 - 400 - application/problem+json;+charset=utf-8 3.3036ms
+2025-05-06 04:49:06.663 +00:00 [INF] Application is shutting down...
+2025-05-06 04:49:09.695 +00:00 [WRN] No store type was specified for the decimal property 'Stipend' on entity type 'Internship'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-05-06 04:49:09.856 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:49:10.392 +00:00 [INF] Executed DbCommand (42ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-06 04:49:10.477 +00:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-06 04:49:10.556 +00:00 [INF] User profile is available. Using '/home/coder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-05-06 04:49:10.591 +00:00 [INF] Now listening on: http://0.0.0.0:8080
+2025-05-06 04:49:10.594 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-06 04:49:10.594 +00:00 [INF] Hosting environment: Development
+2025-05-06 04:49:10.594 +00:00 [INF] Content root path: /home/coder/project/workspace/dotnetapp/
+2025-05-06 04:50:01.585 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - -
+2025-05-06 04:50:01.621 +00:00 [WRN] Failed to determine the https port for redirect.
+2025-05-06 04:50:01.629 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:50:01.648 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - - - 204 - - 65.5018ms
+2025-05-06 04:50:02.161 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 150
+2025-05-06 04:50:02.163 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:50:02.166 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:50:02.191 +00:00 [INF] Route matched with {action = "Register", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(dotnetapp.Models.User) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:50:02.281 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-05-06 04:50:02.304 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Register (dotnetapp) in 109.321ms
+2025-05-06 04:50:02.305 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:50:02.307 +00:00 [INF] HTTP POST /api/register responded 400 in 141.0755 ms
+2025-05-06 04:50:02.308 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 150 - 400 - application/problem+json;+charset=utf-8 147.1320ms
+2025-05-06 04:51:50.134 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - -
+2025-05-06 04:51:50.136 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:51:50.137 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - - - 204 - - 2.7740ms
+2025-05-06 04:51:50.656 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 150
+2025-05-06 04:51:50.656 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:51:50.656 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:51:50.656 +00:00 [INF] Route matched with {action = "Register", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(dotnetapp.Models.User) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:51:50.658 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-05-06 04:51:50.658 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Register (dotnetapp) in 1.5616ms
+2025-05-06 04:51:50.658 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:51:50.659 +00:00 [INF] HTTP POST /api/register responded 400 in 2.3442 ms
+2025-05-06 04:51:50.659 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 150 - 400 - application/problem+json;+charset=utf-8 3.3311ms
+2025-05-06 04:54:40.241 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - -
+2025-05-06 04:54:40.242 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:54:40.242 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - - - 204 - - 0.6264ms
+2025-05-06 04:54:40.809 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 161
+2025-05-06 04:54:40.809 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:54:40.809 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:54:40.809 +00:00 [INF] Route matched with {action = "Register", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(dotnetapp.Models.User) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:54:40.975 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:54:40.989 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__model_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__model_Email_0
+2025-05-06 04:54:41.274 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 10), @p2='?' (Size = 4000), @p3='?' (Size = 56), @p4='?' (Size = 8), @p5='?' (Size = 48)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [MobileNumber], [Password], [SecretKey], [UserRole], [Username])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [UserId]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [UserId] = scope_identity();
+2025-05-06 04:54:41.310 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-06 04:54:41.320 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Register (dotnetapp) in 510.0367ms
+2025-05-06 04:54:41.320 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:54:41.321 +00:00 [INF] HTTP POST /api/register responded 200 in 511.3150 ms
+2025-05-06 04:54:41.322 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 161 - 200 - application/json;+charset=utf-8 513.8574ms
+2025-05-06 04:56:05.471 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - -
+2025-05-06 04:56:05.471 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:56:05.472 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - - - 204 - - 0.6215ms
+2025-05-06 04:56:06.024 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 68
+2025-05-06 04:56:06.024 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:56:06.024 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:56:06.027 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(dotnetapp.Models.LoginModel) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:56:06.038 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:56:06.045 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__model_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__model_Email_0
+2025-05-06 04:56:06.435 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-06 04:56:06.436 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Login (dotnetapp) in 408.2381ms
+2025-05-06 04:56:06.436 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:56:06.436 +00:00 [INF] HTTP POST /api/login responded 200 in 411.5243 ms
+2025-05-06 04:56:06.436 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 68 - 200 - application/json;+charset=utf-8 412.2491ms
+2025-05-06 04:56:56.131 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - -
+2025-05-06 04:56:56.132 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:56:56.132 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register - - - 204 - - 0.5330ms
+2025-05-06 04:56:56.669 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 152
+2025-05-06 04:56:56.669 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:56:56.669 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:56:56.669 +00:00 [INF] Route matched with {action = "Register", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(dotnetapp.Models.User) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:56:56.671 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:56:56.672 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__model_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__model_Email_0
+2025-05-06 04:56:56.845 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 10), @p2='?' (Size = 4000), @p3='?' (Size = 56), @p4='?' (Size = 8), @p5='?' (Size = 48)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [MobileNumber], [Password], [SecretKey], [UserRole], [Username])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [UserId]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [UserId] = scope_identity();
+2025-05-06 04:56:56.851 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-06 04:56:56.851 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Register (dotnetapp) in 181.8833ms
+2025-05-06 04:56:56.851 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Register (dotnetapp)'
+2025-05-06 04:56:56.851 +00:00 [INF] HTTP POST /api/register responded 200 in 182.5387 ms
+2025-05-06 04:56:56.852 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/register application/json 152 - 200 - application/json;+charset=utf-8 183.2305ms
+2025-05-06 04:57:05.841 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - -
+2025-05-06 04:57:05.841 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:05.841 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - - - 204 - - 0.4710ms
+2025-05-06 04:57:06.425 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 62
+2025-05-06 04:57:06.425 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:06.425 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:57:06.425 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(dotnetapp.Models.LoginModel) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:57:06.426 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:57:06.428 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__model_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__model_Email_0
+2025-05-06 04:57:06.599 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-06 04:57:06.599 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Login (dotnetapp) in 173.9065ms
+2025-05-06 04:57:06.599 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:57:06.599 +00:00 [INF] HTTP POST /api/login responded 200 in 174.4979 ms
+2025-05-06 04:57:06.600 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 62 - 200 - application/json;+charset=utf-8 175.2474ms
+2025-05-06 04:57:13.381 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:57:13.381 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:13.381 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.5627ms
+2025-05-06 04:57:13.719 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:57:13.724 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:13.724 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:57:13.727 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:57:13.733 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:57:13.740 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:57:13.756 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:57:13.762 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 34.7779ms
+2025-05-06 04:57:13.762 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:57:13.762 +00:00 [INF] HTTP GET /api/Internship responded 200 in 37.8105 ms
+2025-05-06 04:57:13.762 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 43.2704ms
+2025-05-06 04:57:27.944 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:57:27.944 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:27.944 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.5265ms
+2025-05-06 04:57:28.223 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:57:28.224 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:28.224 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:57:28.224 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:57:28.225 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:57:28.226 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:57:28.227 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:57:28.227 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 3.277ms
+2025-05-06 04:57:28.228 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:57:28.228 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.9385 ms
+2025-05-06 04:57:28.228 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 4.6101ms
+2025-05-06 04:57:43.659 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - -
+2025-05-06 04:57:43.659 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:43.660 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - - - 204 - - 1.0134ms
+2025-05-06 04:57:45.123 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication application/json 295103
+2025-05-06 04:57:45.123 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:45.123 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp)'
+2025-05-06 04:57:45.127 +00:00 [INF] Route matched with {action = "AddInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddInternshipApplication(dotnetapp.Models.InternshipApplication) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:57:45.143 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:57:45.152 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[@__internshipApplication_UserId_0='?' (DbType = Int32), @__internshipApplication_InternshipId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE ([i].[UserId] = @__internshipApplication_UserId_0) AND ([i].[InternshipId] = @__internshipApplication_InternshipId_1)
+2025-05-06 04:57:45.181 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 8), @p2='?' (Size = 32), @p3='?' (DbType = Int32), @p4='?' (Size = 512), @p5='?' (Size = -1), @p6='?' (Size = 128), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [InternshipApplications] ([ApplicationDate], [ApplicationStatus], [DegreeProgram], [InternshipId], [LinkedInProfile], [Resume], [UniversityName], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [InternshipApplicationId]
+FROM [InternshipApplications]
+WHERE @@ROWCOUNT = 1 AND [InternshipApplicationId] = scope_identity();
+2025-05-06 04:57:45.191 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:57:45.191 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp) in 64.0585ms
+2025-05-06 04:57:45.191 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp)'
+2025-05-06 04:57:45.191 +00:00 [INF] HTTP POST /api/InternshipApplication responded 200 in 67.6822 ms
+2025-05-06 04:57:45.191 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication application/json 295103 - 200 0 - 68.6256ms
+2025-05-06 04:57:46.883 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:57:46.884 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:46.884 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.4731ms
+2025-05-06 04:57:47.145 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:57:47.145 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:47.145 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:57:47.145 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:57:47.147 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:57:47.148 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:57:47.149 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:57:47.149 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 3.2941ms
+2025-05-06 04:57:47.149 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:57:47.149 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.7691 ms
+2025-05-06 04:57:47.149 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 4.4149ms
+2025-05-06 04:57:50.633 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:57:50.633 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:57:50.633 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:57:50.633 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:57:50.634 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:57:50.635 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:57:50.636 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:57:50.636 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.4127ms
+2025-05-06 04:57:50.636 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:57:50.636 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.0301 ms
+2025-05-06 04:57:50.636 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.7311ms
+2025-05-06 04:58:34.924 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback - -
+2025-05-06 04:58:34.924 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:58:34.924 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback - - - 204 - - 0.5005ms
+2025-05-06 04:58:35.516 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback application/json 919
+2025-05-06 04:58:35.516 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:58:35.516 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.AddFeedback (dotnetapp)'
+2025-05-06 04:58:35.519 +00:00 [INF] Route matched with {action = "AddFeedback", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddFeedback(dotnetapp.Models.Feedback) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:58:35.528 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:58:35.547 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 1012), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Feedbacks] ([Date], [FeedbackText], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [FeedbackId]
+FROM [Feedbacks]
+WHERE @@ROWCOUNT = 1 AND [FeedbackId] = scope_identity();
+2025-05-06 04:58:35.551 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:58:35.552 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.AddFeedback (dotnetapp) in 32.0297ms
+2025-05-06 04:58:35.552 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.AddFeedback (dotnetapp)'
+2025-05-06 04:58:35.552 +00:00 [INF] HTTP POST /api/Feedback responded 200 in 35.4811 ms
+2025-05-06 04:58:35.552 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback application/json 919 - 200 0 - 36.1814ms
+2025-05-06 04:58:36.840 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2003 - -
+2025-05-06 04:58:36.841 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:58:36.841 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2003 - - - 204 - - 0.4914ms
+2025-05-06 04:58:37.178 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2003 - -
+2025-05-06 04:58:37.179 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:58:37.179 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp)'
+2025-05-06 04:58:37.182 +00:00 [INF] Route matched with {action = "GetFeedbacksByUserId", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Feedback]]] GetFeedbacksByUserId(Int32) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:58:37.184 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:58:37.221 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Feedbacks] AS [f]
+INNER JOIN [Users] AS [u] ON [f].[UserId] = [u].[UserId]
+WHERE [f].[UserId] = @__userId_0
+2025-05-06 04:58:37.226 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Feedback, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:58:37.231 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp) in 49.3626ms
+2025-05-06 04:58:37.231 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp)'
+2025-05-06 04:58:37.231 +00:00 [INF] HTTP GET /api/Feedback/2003 responded 200 in 52.5036 ms
+2025-05-06 04:58:37.232 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2003 - - - 200 - application/json;+charset=utf-8 53.1458ms
+2025-05-06 04:58:45.377 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2003 - -
+2025-05-06 04:58:45.377 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:58:45.377 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2003 - - - 204 - - 0.4415ms
+2025-05-06 04:58:45.673 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2003 - -
+2025-05-06 04:58:45.674 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:58:45.674 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp)'
+2025-05-06 04:58:45.676 +00:00 [INF] Route matched with {action = "GetInternshipApplicationByUserId", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.InternshipApplication]]] GetInternshipApplicationByUserId(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:58:45.679 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:58:45.693 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username], [i0].[InternshipId], [i0].[ApplicationDeadline], [i0].[CompanyName], [i0].[Description], [i0].[DurationInMonths], [i0].[Location], [i0].[SkillsRequired], [i0].[Stipend], [i0].[Title]
+FROM [InternshipApplications] AS [i]
+INNER JOIN [Users] AS [u] ON [i].[UserId] = [u].[UserId]
+INNER JOIN [Internships] AS [i0] ON [i].[InternshipId] = [i0].[InternshipId]
+WHERE [i].[UserId] = @__userId_0
+2025-05-06 04:58:45.810 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.InternshipApplication, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:58:45.818 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp) in 141.021ms
+2025-05-06 04:58:45.818 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp)'
+2025-05-06 04:58:45.818 +00:00 [INF] HTTP GET /api/InternshipApplication/user/2003 responded 200 in 144.3452 ms
+2025-05-06 04:58:45.818 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2003 - - - 200 - application/json;+charset=utf-8 145.0482ms
+2025-05-06 04:58:59.352 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:58:59.352 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:58:59.353 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 1.0118ms
+2025-05-06 04:58:59.701 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:58:59.702 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:58:59.702 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:58:59.702 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:58:59.704 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:58:59.706 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:58:59.706 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:58:59.707 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 4.5762ms
+2025-05-06 04:58:59.707 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:58:59.707 +00:00 [INF] HTTP GET /api/Internship responded 200 in 5.2037 ms
+2025-05-06 04:58:59.707 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 6.1554ms
+2025-05-06 04:59:06.653 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:59:06.654 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:06.654 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.7170ms
+2025-05-06 04:59:06.906 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:59:06.906 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:06.906 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:59:06.907 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:59:06.907 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:59:06.908 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:59:06.909 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:59:06.909 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.211ms
+2025-05-06 04:59:06.909 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:59:06.909 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.7407 ms
+2025-05-06 04:59:06.909 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.4268ms
+2025-05-06 04:59:18.209 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - -
+2025-05-06 04:59:18.209 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:18.209 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication - - - 204 - - 0.6263ms
+2025-05-06 04:59:19.700 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication application/json 295103
+2025-05-06 04:59:19.700 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:19.700 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp)'
+2025-05-06 04:59:19.700 +00:00 [INF] Route matched with {action = "AddInternshipApplication", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddInternshipApplication(dotnetapp.Models.InternshipApplication) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:59:19.715 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:59:19.716 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__internshipApplication_UserId_0='?' (DbType = Int32), @__internshipApplication_InternshipId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId]
+FROM [InternshipApplications] AS [i]
+WHERE ([i].[UserId] = @__internshipApplication_UserId_0) AND ([i].[InternshipId] = @__internshipApplication_InternshipId_1)
+2025-05-06 04:59:19.724 +00:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 8), @p2='?' (Size = 32), @p3='?' (DbType = Int32), @p4='?' (Size = 512), @p5='?' (Size = -1), @p6='?' (Size = 128), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [InternshipApplications] ([ApplicationDate], [ApplicationStatus], [DegreeProgram], [InternshipId], [LinkedInProfile], [Resume], [UniversityName], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [InternshipApplicationId]
+FROM [InternshipApplications]
+WHERE @@ROWCOUNT = 1 AND [InternshipApplicationId] = scope_identity();
+2025-05-06 04:59:19.729 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 04:59:19.729 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp) in 29.1593ms
+2025-05-06 04:59:19.729 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.AddInternshipApplication (dotnetapp)'
+2025-05-06 04:59:19.730 +00:00 [INF] HTTP POST /api/InternshipApplication responded 200 in 29.6161 ms
+2025-05-06 04:59:19.730 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication application/json 295103 - 200 0 - 30.1833ms
+2025-05-06 04:59:21.622 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:59:21.622 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:21.623 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.5029ms
+2025-05-06 04:59:21.877 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:59:21.877 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:21.877 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:59:21.878 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:59:21.878 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:59:21.879 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:59:21.880 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:59:21.880 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.2446ms
+2025-05-06 04:59:21.880 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:59:21.880 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.7530 ms
+2025-05-06 04:59:21.880 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.3944ms
+2025-05-06 04:59:24.542 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:59:24.542 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:24.542 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:59:24.542 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:59:24.543 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:59:24.544 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:59:24.544 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:59:24.545 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.1688ms
+2025-05-06 04:59:24.545 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:59:24.545 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.6153 ms
+2025-05-06 04:59:24.545 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.1608ms
+2025-05-06 04:59:30.571 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2003 - -
+2025-05-06 04:59:30.572 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:30.572 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2003 - - - 204 - - 0.4235ms
+2025-05-06 04:59:30.926 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2003 - -
+2025-05-06 04:59:30.926 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:30.926 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp)'
+2025-05-06 04:59:30.926 +00:00 [INF] Route matched with {action = "GetFeedbacksByUserId", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Feedback]]] GetFeedbacksByUserId(Int32) on controller dotnetapp.Controllers.FeedbackController (dotnetapp).
+2025-05-06 04:59:30.928 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:59:30.930 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[FeedbackId], [f].[Date], [f].[FeedbackText], [f].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Feedbacks] AS [f]
+INNER JOIN [Users] AS [u] ON [f].[UserId] = [u].[UserId]
+WHERE [f].[UserId] = @__userId_0
+2025-05-06 04:59:30.930 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Feedback, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:59:30.931 +00:00 [INF] Executed action dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp) in 3.8937ms
+2025-05-06 04:59:30.931 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.FeedbackController.GetFeedbacksByUserId (dotnetapp)'
+2025-05-06 04:59:30.931 +00:00 [INF] HTTP GET /api/Feedback/2003 responded 200 in 4.5264 ms
+2025-05-06 04:59:30.931 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Feedback/2003 - - - 200 - application/json;+charset=utf-8 5.1783ms
+2025-05-06 04:59:35.118 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:59:35.118 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:35.119 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.5850ms
+2025-05-06 04:59:35.668 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 04:59:35.669 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:35.669 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:59:35.669 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 04:59:35.670 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:59:35.671 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 04:59:35.672 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:59:35.672 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.6271ms
+2025-05-06 04:59:35.672 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 04:59:35.672 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.3009 ms
+2025-05-06 04:59:35.672 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 4.0106ms
+2025-05-06 04:59:41.899 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2003 - -
+2025-05-06 04:59:41.899 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:41.899 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2003 - - - 204 - - 0.3634ms
+2025-05-06 04:59:42.151 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2003 - -
+2025-05-06 04:59:42.151 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:42.151 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp)'
+2025-05-06 04:59:42.151 +00:00 [INF] Route matched with {action = "GetInternshipApplicationByUserId", controller = "InternshipApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.InternshipApplication]]] GetInternshipApplicationByUserId(Int32) on controller dotnetapp.Controllers.InternshipApplicationController (dotnetapp).
+2025-05-06 04:59:42.152 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:59:42.154 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipApplicationId], [i].[ApplicationDate], [i].[ApplicationStatus], [i].[DegreeProgram], [i].[InternshipId], [i].[LinkedInProfile], [i].[Resume], [i].[UniversityName], [i].[UserId], [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username], [i0].[InternshipId], [i0].[ApplicationDeadline], [i0].[CompanyName], [i0].[Description], [i0].[DurationInMonths], [i0].[Location], [i0].[SkillsRequired], [i0].[Stipend], [i0].[Title]
+FROM [InternshipApplications] AS [i]
+INNER JOIN [Users] AS [u] ON [i].[UserId] = [u].[UserId]
+INNER JOIN [Internships] AS [i0] ON [i].[InternshipId] = [i0].[InternshipId]
+WHERE [i].[UserId] = @__userId_0
+2025-05-06 04:59:42.313 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.InternshipApplication, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 04:59:42.356 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp) in 204.417ms
+2025-05-06 04:59:42.356 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipApplicationController.GetInternshipApplicationByUserId (dotnetapp)'
+2025-05-06 04:59:42.356 +00:00 [INF] HTTP GET /api/InternshipApplication/user/2003 responded 200 in 205.0097 ms
+2025-05-06 04:59:42.357 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/InternshipApplication/user/2003 - - - 200 - application/json;+charset=utf-8 205.6768ms
+2025-05-06 04:59:54.302 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - -
+2025-05-06 04:59:54.302 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:54.302 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login - - - 204 - - 0.3903ms
+2025-05-06 04:59:54.904 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 55
+2025-05-06 04:59:54.904 +00:00 [INF] CORS policy execution successful.
+2025-05-06 04:59:54.904 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:59:54.905 +00:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(dotnetapp.Models.LoginModel) on controller dotnetapp.Controllers.AuthenticationController (dotnetapp).
+2025-05-06 04:59:54.906 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 04:59:54.907 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__model_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[MobileNumber], [u].[Password], [u].[SecretKey], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__model_Email_0
+2025-05-06 04:59:55.076 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-06 04:59:55.076 +00:00 [INF] Executed action dotnetapp.Controllers.AuthenticationController.Login (dotnetapp) in 171.6578ms
+2025-05-06 04:59:55.077 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.AuthenticationController.Login (dotnetapp)'
+2025-05-06 04:59:55.077 +00:00 [INF] HTTP POST /api/login responded 200 in 172.1610 ms
+2025-05-06 04:59:55.077 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/login application/json 55 - 200 - application/json;+charset=utf-8 172.8054ms
+2025-05-06 05:00:00.800 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 05:00:00.800 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:00:00.800 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.3493ms
+2025-05-06 05:00:01.093 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 05:00:01.094 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:00:01.094 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 05:00:01.094 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 05:00:01.094 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 05:00:01.101 +00:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 05:00:01.101 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 05:00:01.101 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 7.4038ms
+2025-05-06 05:00:01.101 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 05:00:01.102 +00:00 [INF] HTTP GET /api/Internship responded 200 in 7.8416 ms
+2025-05-06 05:00:01.102 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 8.6019ms
+2025-05-06 05:01:38.241 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 05:01:38.241 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:01:38.242 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.3753ms
+2025-05-06 05:01:38.755 +00:00 [INF] Request starting HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship application/json 250
+2025-05-06 05:01:38.756 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:01:38.756 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.AddInternship (dotnetapp)'
+2025-05-06 05:01:38.759 +00:00 [INF] Route matched with {action = "AddInternship", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddInternship(dotnetapp.Models.Internship) on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 05:01:38.765 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 05:01:38.772 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__internship_CompanyName_0='?' (Size = 128)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+WHERE [i].[CompanyName] = @__internship_CompanyName_0
+2025-05-06 05:01:38.782 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 16), @p1='?' (Size = 128), @p2='?' (Size = 1024), @p3='?' (DbType = Int32), @p4='?' (Size = 128), @p5='?' (Size = 200), @p6='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p7='?' (Size = 128)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Internships] ([ApplicationDeadline], [CompanyName], [Description], [DurationInMonths], [Location], [SkillsRequired], [Stipend], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [InternshipId]
+FROM [Internships]
+WHERE @@ROWCOUNT = 1 AND [InternshipId] = scope_identity();
+2025-05-06 05:01:38.786 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-05-06 05:01:38.786 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.AddInternship (dotnetapp) in 26.9943ms
+2025-05-06 05:01:38.786 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.AddInternship (dotnetapp)'
+2025-05-06 05:01:38.786 +00:00 [INF] HTTP POST /api/Internship responded 200 in 30.2920 ms
+2025-05-06 05:01:38.786 +00:00 [INF] Request finished HTTP/1.1 POST http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship application/json 250 - 200 0 - 31.1041ms
+2025-05-06 05:01:39.104 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 05:01:39.104 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:01:39.104 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 05:01:39.104 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 05:01:39.105 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 05:01:39.106 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 05:01:39.106 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 05:01:39.107 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.5277ms
+2025-05-06 05:01:39.107 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 05:01:39.107 +00:00 [INF] HTTP GET /api/Internship responded 200 in 3.0384 ms
+2025-05-06 05:01:39.107 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.5500ms
+2025-05-06 05:02:32.084 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 05:02:32.085 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:02:32.085 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.3591ms
+2025-05-06 05:02:32.433 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 05:02:32.433 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:02:32.433 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 05:02:32.433 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 05:02:32.434 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 05:02:32.435 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 05:02:32.435 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 05:02:32.436 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.2241ms
+2025-05-06 05:02:32.436 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 05:02:32.436 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.6743 ms
+2025-05-06 05:02:32.436 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.2613ms
+2025-05-06 05:02:40.428 +00:00 [INF] Request starting HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 05:02:40.428 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:02:40.429 +00:00 [INF] Request finished HTTP/1.1 OPTIONS http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 204 - - 0.3565ms
+2025-05-06 05:02:40.764 +00:00 [INF] Request starting HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - -
+2025-05-06 05:02:40.764 +00:00 [INF] CORS policy execution successful.
+2025-05-06 05:02:40.764 +00:00 [INF] Executing endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 05:02:40.764 +00:00 [INF] Route matched with {action = "GetAllInternships", controller = "Internship"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[dotnetapp.Models.Internship]]] GetAllInternships() on controller dotnetapp.Controllers.InternshipController (dotnetapp).
+2025-05-06 05:02:40.765 +00:00 [INF] Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2025-05-06 05:02:40.766 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[InternshipId], [i].[ApplicationDeadline], [i].[CompanyName], [i].[Description], [i].[DurationInMonths], [i].[Location], [i].[SkillsRequired], [i].[Stipend], [i].[Title]
+FROM [Internships] AS [i]
+2025-05-06 05:02:40.767 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[dotnetapp.Models.Internship, dotnetapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-05-06 05:02:40.767 +00:00 [INF] Executed action dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp) in 2.3122ms
+2025-05-06 05:02:40.767 +00:00 [INF] Executed endpoint 'dotnetapp.Controllers.InternshipController.GetAllInternships (dotnetapp)'
+2025-05-06 05:02:40.767 +00:00 [INF] HTTP GET /api/Internship responded 200 in 2.9302 ms
+2025-05-06 05:02:40.767 +00:00 [INF] Request finished HTTP/1.1 GET http://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io/api/Internship - - - 200 - application/json;+charset=utf-8 3.5005ms

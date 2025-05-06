@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <label for="mobileNumber">Mobile Number:</label>
-      <input type="number" id="mobileNumber" name="mobileNumber" [(ngModel)]="user.MobileNumber"
+      <input type="text" id="mobileNumber" name="mobileNumber" [(ngModel)]="user.MobileNumber"
         #mobileNumberNgModel="ngModel" required pattern="[0-9]{10}" />
       <div class="error-message"
         *ngIf="mobileNumberNgModel.invalid && (mobileNumberNgModel.dirty || mobileNumberNgModel.touched)">

@@ -25,7 +25,7 @@
         <th>Internship Title</th>
         <th>Company Name</th>
         <th>Location</th>
-        <th>Duration</th>
+        <th>Duration(months)</th>
         <th>Stipend($)</th>
         <th>Skills Required</th>
         <th>Application Deadline</th>
@@ -39,7 +39,7 @@
         <td>{{ internship.title }}</td>
         <td>{{ internship.companyName }}</td>
         <td>{{ internship.location }}</td>
-        <td>{{ internship.durationInMonths }} months</td>
+        <td>{{ internship.durationInMonths }}</td>
         <td>{{ internship.stipend }}</td>
         <td>{{ internship.skillsRequired }}</td>
         <td>{{ internship.applicationDeadline | date: 'MM/dd/yyyy'}}</td>

@@ -9,7 +9,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class AuthService {
   // https://ide-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io/proxy/8080/
-  public apiUrl = 'https://8080-ceffcfbccccbfdfddaeecadabeafeaccfe.premiumproject.examly.io';
+  public apiUrl = 'https://8080-bcededaebddfddaeecadabeafeaccfe.premiumproject.examly.io';
   private tokenKey = 'authToken';
   public roleSubject = new BehaviorSubject<string | null>(null);
 
