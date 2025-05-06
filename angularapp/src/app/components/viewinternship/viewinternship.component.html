@@ -22,11 +22,11 @@
     <thead>
       <tr>
         <th>S.No</th>
-        <th>Title</th>
+        <th>Internship Title</th>
         <th>Company Name</th>
         <th>Location</th>
         <th>Duration</th>
-        <th>Stipend (in $)</th>
+        <th>Stipend($)</th>
         <th>Skills Required</th>
         <th>Application Deadline</th>
         <th>Description</th>
@@ -42,7 +42,7 @@
         <td>{{ internship.durationInMonths }} months</td>
         <td>{{ internship.stipend }}</td>
         <td>{{ internship.skillsRequired }}</td>
-        <td>{{ internship.applicationDeadline }}</td>
+        <td>{{ internship.applicationDeadline | date: 'MM/dd/yyyy'}}</td>
         <td>{{ internship.description }}</td>
         <td>
           <button class="btn btn-green" (click)="editInternship(internship?.internshipId)">Edit</button>

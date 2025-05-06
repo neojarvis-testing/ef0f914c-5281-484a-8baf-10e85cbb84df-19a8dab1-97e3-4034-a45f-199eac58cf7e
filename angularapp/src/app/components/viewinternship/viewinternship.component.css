@@ -19,7 +19,7 @@
 }
 
 .styled-table th {
-  background-color: #007BFF; /* Blue headers */
+  background-color: rgb(138, 186, 152); /* Blue headers */
   color: white;
   font-weight: bold;
 }
@@ -30,11 +30,12 @@
 
 /* Button Styles */
 .btn-green {
-  background-color: green;
+  background-color: rgb(97, 173, 97);
   color: white;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .btn-green:hover {
@@ -42,11 +43,12 @@
 }
 
 .btn-red {
-  background-color: red;
+  background-color: rgb(222, 121, 121);
   color: white;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .btn-red:hover {
@@ -62,6 +64,7 @@
   width: 300px;
   padding: 10px;
   margin-right: 10px;
+  border-radius: 30px;
 }
 
 .search-bar button {

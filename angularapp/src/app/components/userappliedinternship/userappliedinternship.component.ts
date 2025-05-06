@@ -4,7 +4,8 @@ import { InternshipService } from 'src/app/services/internship.service';
 import { InternshipApplication } from 'src/app/models/internshipapplication.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
- 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-userappliedinternship',
   templateUrl: './userappliedinternship.component.html',
@@ -20,124 +21,119 @@ export class UserappliedinternshipComponent implements OnInit {
   selectedResume: SafeResourceUrl | null = null;
   selectedApplication: InternshipApplication | null = null;
   userId: number;
-  showNoRecordsMessage: boolean = false; // Added for delay handling
-  resume: string;
- 
+  showNoRecordsMessage: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private internshipService: InternshipService,
     private router: Router,
     private authService: AuthService,
     private sanitizer: DomSanitizer
-  ) {}
- 
+  ) { }
+
   ngOnInit(): void {
-    // const storedUser = localStorage.getItem('role');
-    // const user = JSON.parse(storedUser);
-    // this.userId = user.userId;
     this.userId = +this.authService.getUserId();
     console.log("User ID:", this.userId);
     this.getInternships();
-    
   }
- 
+
   getInternships(): void {
     this.internshipService.getAppliedInternships(this.userId).subscribe((data) => {
-      console.log("API Response:", data); // ✅ Log full data
+      console.log("API Response:", data);
       this.internships = data;
-      console.log(data[5].resume);
-      
       this.filteredInternshipApplications = data;
-  
-      // Introduce a delay before showing the message
       setTimeout(() => {
         this.showNoRecordsMessage = this.filteredInternshipApplications.length === 0;
-      }, 4000); // 4-second delay
+      }, 4000);
     });
   }
-  
- 
+
   searchInternships(): void {
     if (this.searchText.trim()) {
       this.filteredInternshipApplications = this.internships.filter(appliedInternship =>
-        appliedInternship.internship?.companyName?.toLowerCase().includes(this.searchText.toLowerCase()) || // ✅ Ensure `internship` exists before filtering
+        appliedInternship.internship?.companyName?.toLowerCase().includes(this.searchText.toLowerCase()) || 
         appliedInternship.internship?.title?.toLowerCase().includes(this.searchText.toLowerCase())
       );
     } else {
-      this.filteredInternshipApplications = this.internships; // ✅ Reset list when input is empty
+      this.filteredInternshipApplications = this.internships;
     }
-    // console.log(this.filteredInternshipApplications);
   }
- 
+
   openDeleteDialog(application: InternshipApplication): void {
     if (application) {
-      this.selectedApplication = application; // ✅ Ensures correct assignment
+      this.selectedApplication = application;
       this.isDeleteDialogOpen = true;
-      console.log("Selected Application for Deletion:", this.selectedApplication); // ✅ Debugging log
+      console.log("Selected Application for Deletion:", this.selectedApplication);
     } else {
-      console.error("Invalid Internship Application received."); // ✅ Error handling
+      console.error("Invalid Internship Application received.");
     }
   }
- 
- 
+
   closeDeleteDialog(): void {
     this.isDeleteDialogOpen = false;
     this.selectedApplication = null;
   }
- 
+
   confirmDelete(): void {
     if (!this.selectedApplication || !this.selectedApplication.internshipApplicationId) {
       console.error("Error: No internship selected for deletion.");
       return;
     }
- 
     console.log("Attempting to delete Internship ID:", this.selectedApplication.internshipApplicationId);
- 
+
     this.internshipService.deleteInternshipApplication(this.selectedApplication.internshipApplicationId).subscribe(() => {
       console.log("Internship deleted successfully.");
- 
       this.filteredInternshipApplications = this.filteredInternshipApplications.filter(
         (i) => i.internshipApplicationId !== this.selectedApplication.internshipApplicationId
       );
-     
       this.internships = this.internships.filter(
         (i) => i.internshipApplicationId !== this.selectedApplication.internshipApplicationId
       );
- 
       this.closeDeleteDialog();
     }, (error) => {
       console.error("Error deleting internship:", error);
     });
-  }  
- 
-  openDemo(item: string){
-    console.log("hai");
-    this.selectedResume = this.sanitizer.bypassSecurityTrustResourceUrl(item);
-    console.log(this.selectedResume);
-    
-    this.isResumeDialogOpen=true
-    let resume = item
-    // this.resume = this.selectedResume 
-
   }
+
+  viewResume(resumeUrl: string) {
+    Swal.fire({
+      title: '<strong>Resume Preview</strong>',
+      html: `
+      <div style="overflow:hidden; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.2);">
+        <iframe src="${resumeUrl}" width="100%" height="500px" style="border:none;"></iframe>
+      </div>
+    `,
+      width: '90%',
+      padding: '1.5rem',
+      background: '#f4f9ff',
+      showCloseButton: true,
+      showConfirmButton: true,
+      confirmButtonText: 'Close',
+      confirmButtonColor: '#0d6efd',
+      focusConfirm: false,
+      customClass: {
+        popup: 'rounded-4 border-0 shadow'
+      },
+      didOpen: () => {
+        const iframe = document.querySelector('iframe');
+        if (iframe) iframe.focus();
+      }
+    });
+  }
+
   openResumeDialog(item: any): void {
     console.log(item);
-    
-    const storedResumePath = item.resume; // ✅ Get stored resume URL
+    const storedResumePath = item.resume;
     if (!storedResumePath) {
       alert('No resume found.');
       return;
     }
-  
     this.selectedApplication = item;
     this.isResumeDialogOpen = true;
   }
-  
- 
- 
+
   closeResumeDialog(): void {
     this.isResumeDialogOpen = false;
     this.selectedApplication = null;
   }
 }
- 

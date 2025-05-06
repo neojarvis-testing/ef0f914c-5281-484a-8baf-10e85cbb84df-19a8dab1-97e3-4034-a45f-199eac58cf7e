@@ -1,89 +1,95 @@
-.btn-danger {
-  background-color: #dc3545; /* Red */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-h2 {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-
 .chart-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* ✅ Centers vertically */
-  text-align: center;
-}
-
-.btn-danger:hover {
-  background-color: #c82333; /* Darker red */
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(to right, #f0f8ff, #e9f7fe);
+  border-radius: 15px;
 }
 
 .chart-layout {
   display: flex;
-  gap: 30px;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+}
+
+.card-shadow {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-shadow:hover {
+  transform: translateY(-5px);
 }
 
 .degree-counts {
-  flex: 1;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
+  min-width: 250px;
+  max-width: 300px;
 }
 
 .degree-counts h2 {
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 20px;
   color: #007bff;
   margin-bottom: 15px;
 }
 
 .degree-counts ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 .degree-counts li {
-  font-size: 18px;
-  font-weight: 500;
-  background-color: #ffffff;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  transition: transform 0.2s ease-in-out;
+  font-size: 17px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .degree-counts li:hover {
-  transform: scale(1.05);
-  background-color: #f0f8ff;
+  background-color: #e6f0ff;
 }
 
 .chart-wrapper {
-  flex: 3;
-  position: relative; /* ✅ Ensures button positioning */
+  flex-grow: 1;
+  position: relative;
+  min-width: 400px;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 400px;
 }
 
 .close-btn-container {
   position: absolute;
-  top: 10px;
-  right: 10px; /* ✅ Moves the button to the right */
+  top: -15px;
+  right: -15px;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
 }

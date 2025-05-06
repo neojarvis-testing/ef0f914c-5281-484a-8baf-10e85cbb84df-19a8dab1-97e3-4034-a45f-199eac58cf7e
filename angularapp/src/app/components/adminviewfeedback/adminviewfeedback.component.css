@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+.noRecord {
+  color: red;
+  font-size: 40px;
+}
+
 
 .full-width-table {
   width: 100%;
@@ -10,7 +15,7 @@
 }
 
 .full-width-table th {
-  background-color: blue;
+  background-color: rgb(138, 186, 152);
   color: white;
   padding: 10px;
   text-align: center;
@@ -39,6 +44,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(89, 119, 98);
+  color: white;
 }
 
 h2 {

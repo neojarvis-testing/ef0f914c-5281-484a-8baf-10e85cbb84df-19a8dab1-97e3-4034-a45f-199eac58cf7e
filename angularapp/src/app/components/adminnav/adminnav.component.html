@@ -1,20 +1,22 @@
 <nav class="navbar">
   <div class="navbar-brand">INTERNSHIP APPLICATION SYSTEM</div>
   <div class="navbar-links">
-    <span>{{ username }}/Admin</span>
-    <a routerLink="/admin/home">Home</a>
+    <span class="user-info">{{ username }} / Admin</span>
+
+    <a routerLink="/admin/home" routerLinkActive="active-link">Home</a>
+
     <div class="dropdown">
       <span class="dropdown-title">Internship</span>
       <div class="dropdown-menu">
-        <a routerLink="/admin/createinternship">Add Internship</a>
-        <a routerLink="/admin/viewinternship">View Internship</a>
+        <a routerLink="/admin/createinternship" routerLinkActive="active-link">Add Internship</a>
+        <a routerLink="/admin/viewinternship" routerLinkActive="active-link">View Internship</a>
       </div>
     </div>
-    <a routerLink="/admin/internshiprequested">Internship Requested</a>
-    <a routerLink="/admin/feedbacks">Feedbacks</a>
-    <a href="#" class="logout-btn" (click)="authService.logout()">Logout</a>
+
+    <a routerLink="/admin/internshiprequested" routerLinkActive="active-link">Internship Requested</a>
+    <a routerLink="/admin/feedbacks" routerLinkActive="active-link">Feedbacks</a>
+
+    <button class="logout-btn" (click)="logout()">Logout</button>
   </div>
 </nav>
-
-<!-- ✅ Ensure `router-outlet` is included -->
 <router-outlet></router-outlet>

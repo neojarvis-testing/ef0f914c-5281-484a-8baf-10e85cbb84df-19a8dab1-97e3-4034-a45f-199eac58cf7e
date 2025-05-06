@@ -1,11 +1,11 @@
 
 .form-container {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 25px;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 40rem;
+  margin: 64px auto;
+  padding: 58px;
+  border-radius: 39px;
+  background-color: #f1f8ec;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Header with Back Button Styling */
@@ -17,8 +17,9 @@
 }
 
 h2 {
-  margin: 0;
+  margin: 0 auto;
   color: #333;
+  text-align: center;
 }
 
 /* Back Button Styling */
@@ -65,14 +66,14 @@ textarea {
 button[type="submit"] {
   background-color: #007bff;
   color: white;
-  padding: 12px 25px;
+  padding: 15px 56px;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 19px;
   cursor: pointer;
   display: block;
-  margin: 20px auto 0;
-  transition: background-color 0.3s ease;
+  margin: 34px auto 0;
+  transition: background-color 0.3s;
 }
 
 button[type="submit"]:hover {
